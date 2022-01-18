@@ -1,10 +1,10 @@
-package pokemon2D;
+package dad.pokemonfx.maps;
 
 import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
 import static com.almasb.fxgl.dsl.FXGL.texture;
-import static pokemon2D.TileType.WALL;
-import static pokemon2D.TileType.PLAYER;
-import static pokemon2D.TileType.FLOOR;
+import static dad.pokemonfx.maps.TileType.FLOOR;
+import static dad.pokemonfx.maps.TileType.PLAYER;
+import static dad.pokemonfx.maps.TileType.WALL;
 
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
@@ -15,8 +15,9 @@ import com.almasb.fxgl.entity.components.CollidableComponent;
 import com.almasb.fxgl.pathfinding.CellMoveComponent;
 import com.almasb.fxgl.pathfinding.astar.AStarMoveComponent;
 
+import dad.pokemonfx.PokemonFXApp;
+import dad.pokemonfx.components.Player;
 import javafx.geometry.Point2D;
-import pokemon2D.components.PlayerComponent;
 
 public class MapFactory implements EntityFactory {
 
@@ -43,9 +44,10 @@ public class MapFactory implements EntityFactory {
                 .type(PLAYER)
                 .viewWithBBox(texture("idleDown.png", 40, 40))
                 .with(new CollidableComponent(true))
-                .with(new CellMoveComponent(40, 40, 150))
-                .with(new AStarMoveComponent(FXGL.<Pokemon2DApp>getAppCast().getGrid()))
-                .with(new PlayerComponent())
+                .with(new CellMoveComponent(40, 40, 250))
+                .with(new AStarMoveComponent(FXGL.<PokemonFXApp>getAppCast().getGrid()))
+                .with(new Player())
                 .build();
     }
+    
 }

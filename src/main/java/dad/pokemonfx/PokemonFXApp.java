@@ -1,10 +1,10 @@
-package pokemon2D;
+package dad.pokemonfx;
 
 import static com.almasb.fxgl.dsl.FXGL.getAssetLoader;
 import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 import static com.almasb.fxgl.dsl.FXGL.getInput;
 import static com.almasb.fxgl.dsl.FXGL.spawn;
-import static pokemon2D.TileType.WALL;
+import static dad.pokemonfx.maps.TileType.WALL;
 
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
@@ -18,17 +18,18 @@ import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.pathfinding.CellState;
 import com.almasb.fxgl.pathfinding.astar.AStarGrid;
 
+import dad.pokemonfx.components.Player;
+import dad.pokemonfx.maps.MapFactory;
 import javafx.scene.input.KeyCode;
-import pokemon2D.components.PlayerComponent;
 
-public class Pokemon2DApp extends GameApplication {
+public class PokemonFXApp extends GameApplication {
 
 	public static final int TILE_SIZE = 40;
 
     private AStarGrid grid;
 
     private Entity player;
-    private PlayerComponent playerComponent;
+    private Player playerComponent;
 
     public AStarGrid getGrid() {
         return grid;
@@ -36,7 +37,7 @@ public class Pokemon2DApp extends GameApplication {
 	
 	@Override
 	protected void initSettings(GameSettings settings) {
-		settings.setTitle("Pokemon2D");
+		settings.setTitle("PokemonFX");
         settings.setVersion("0.1");
         settings.setWidth(600);
         settings.setHeight(600);
@@ -51,33 +52,34 @@ public class Pokemon2DApp extends GameApplication {
 	
 	@Override
     protected void initInput() {
+		
         getInput().addAction(new UserAction("Move Up") {
             @Override
             protected void onActionBegin() {
                 playerComponent.moveUp();
             }
-        }, KeyCode.W);
+        }, KeyCode.UP);
 
         getInput().addAction(new UserAction("Move Left") {
             @Override
             protected void onActionBegin() {
                 playerComponent.moveLeft();
             }
-        }, KeyCode.A);
+        }, KeyCode.LEFT);
 
         getInput().addAction(new UserAction("Move Down") {
             @Override
             protected void onActionBegin() {
                 playerComponent.moveDown();
             }
-        }, KeyCode.S);
+        }, KeyCode.DOWN);
 
         getInput().addAction(new UserAction("Move Right") {
             @Override
             protected void onActionBegin() {
                 playerComponent.moveRight();
             }
-        }, KeyCode.D);
+        }, KeyCode.RIGHT);
 
     }
 	
@@ -90,14 +92,14 @@ public class Pokemon2DApp extends GameApplication {
 
 
         grid = AStarGrid.fromWorld(getGameWorld(), 15, 15, 40, 40, type -> {
-            if (type.equals(WALL))
+            if (type.equals(WALL)) {
                 return CellState.NOT_WALKABLE;
-
+            }
             return CellState.WALKABLE;
         });
 
         player = spawn("Player");
-        playerComponent = player.getComponent(PlayerComponent.class);
+        playerComponent = player.getComponent(Player.class);
     }
 	
 	public static void main(String[] args) {
