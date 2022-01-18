@@ -1,0 +1,125 @@
+13:46:35.917 [main                     ] DEBUG Logger               - Configured Logger
+13:46:35.922 [main                     ] DEBUG GameApplication      - Logging settings
+Title: Pokemon2D
+Version: 0.1
+Width: 600
+Height: 600
+Fullscreen: false
+Intro: false
+Profiling: false
+Single step:false
+App Mode: DEVELOPER
+Menu Key: ESCAPE
+Stage Style: DECORATED
+Scene Factory: class pokemon2D.Pokemon2DApp$1
+
+13:46:36.430 [JavaFX Application Thread] DEBUG FXGLApplication      - Initializing FXGL
+13:46:36.432 [JavaFX Application Thread] INFO  Engine               - FXGL-dev-SNAPSHOT (28.07.2021 16.39) on WINDOWS (J:13.0.1 FX:16)
+13:46:36.432 [JavaFX Application Thread] DEBUG Engine               - JRE Vendor Name: Oracle Corporation
+13:46:36.433 [JavaFX Application Thread] DEBUG Engine               - Running on OS: Windows 10 version 10.0
+13:46:36.433 [JavaFX Application Thread] DEBUG Engine               - Architecture: amd64
+13:46:36.433 [JavaFX Application Thread] INFO  Engine               - Source code and latest versions at: https://github.com/AlmasB/FXGL
+13:46:36.433 [JavaFX Application Thread] INFO  Engine               -              Join the FXGL chat at: https://gitter.im/AlmasB/FXGL
+13:46:36.562 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Creating a JavaFX scene
+13:46:36.607 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Target settings size: 600.0 x 600.0
+13:46:36.607 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled scene size:    600.0 x 600.0
+13:46:36.607 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled ratio: (1.0, 1.0)
+13:46:36.608 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Set initial scene to FXGLStartupScene
+13:46:36.615 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Opening main window
+13:46:36.714 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Window border size: (16.0, 39.0)
+13:46:36.715 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled size: 600.0 x 600.0
+13:46:36.715 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled ratio: (1.0, 1.0)
+13:46:36.715 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scene size: 600.0 x 600.0
+13:46:36.715 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Stage size: 616.0 x 639.0
+13:46:36.722 [FXGL Background Thread 1 ] DEBUG Engine               - Initializing environment variables
+13:46:36.767 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - User app class for loading assets: class pokemon2D.Pokemon2DApp
+13:46:36.768 [FXGL Background Thread 1 ] DEBUG GameApplicationServi - Applying CSS: fxgl_dark.css
+13:46:36.768 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/C:/Users/usuario/.m2/repository/com/github/almasb/fxgl/dev-SNAPSHOT/fxgl-dev-SNAPSHOT.jar!/fxglassets/ui/css/fxgl_dark.css
+13:46:36.810 [FXGL Background Thread 1 ] DEBUG GameApplicationServi - Initializing application scenes
+13:46:36.888 [FXGL Background Thread 1 ] DEBUG GameWorld            - Game world initialized
+13:46:36.936 [FXGL Background Thread 1 ] DEBUG PhysicsWorld         - Physics world initialized: appHeight=600, physics.ppm=50.0
+13:46:36.936 [FXGL Background Thread 1 ] DEBUG PhysicsWorld         - Using strategy: BRUTE_FORCE
+13:46:36.938 [FXGL Background Thread 1 ] DEBUG GameScene            - Game scene initialized: 600x600
+13:46:36.946 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/C:/Users/usuario/.m2/repository/com/github/almasb/fxgl/dev-SNAPSHOT/fxgl-dev-SNAPSHOT.jar!/fxglassets/textures/pause_menu_bg.png
+13:46:36.986 [FXGL Background Thread 1 ] DEBUG GameApplicationServi - Application scenes initialized
+13:46:37.000 [FXGL Background Thread 1 ] DEBUG SystemBundleService  - Loading FXGL system data
+13:46:37.003 [FXGL Background Thread 1 ] DEBUG FileSystemAccess     - Reading from: C:\Users\usuario\eclipse-workspace\PokemonGrid\system\fxgl.bundle
+13:46:37.007 [FXGL Background Thread 1 ] DEBUG SystemBundleService  - Bundle FXGL: {}
+13:46:37.008 [FXGL Background Thread 1 ] DEBUG UpdaterService       - Checking for updates
+13:46:37.012 [FXGL Background Thread 4 ] DEBUG FXGLApplication      - Loading fonts
+13:46:37.013 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/C:/Users/usuario/.m2/repository/com/github/almasb/fxgl/dev-SNAPSHOT/fxgl-dev-SNAPSHOT.jar!/fxglassets/ui/fonts/VarelaRound-Regular.ttf
+13:46:37.013 [FXGL Background Thread 1 ] DEBUG FXGLApplication      - Loading default localization
+13:46:37.014 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/C:/Users/usuario/.m2/repository/com/github/almasb/fxgl/dev-SNAPSHOT/fxgl-dev-SNAPSHOT.jar!/fxglassets/languages/english.lang
+13:46:37.025 [FXGL Background Thread 1 ] INFO  FXGLApplication      - FXGL initialization took: 0.304 sec
+13:46:37.035 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Up - W
+13:46:37.035 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Left - A
+13:46:37.035 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Down - S
+13:46:37.035 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Right - D
+13:46:37.036 [JavaFX Application Thread] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/C:/Users/usuario/.m2/repository/com/github/almasb/fxgl/dev-SNAPSHOT/fxgl-dev-SNAPSHOT.jar!/fxglassets/textures/fxgl_icon.png
+13:46:37.054 [JavaFX Application Thread] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/C:/Users/usuario/.m2/repository/com/github/almasb/fxgl/dev-SNAPSHOT/fxgl-dev-SNAPSHOT.jar!/fxglassets/textures/fxgl_default_cursor.png
+13:46:37.058 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Screenshot - CTRL+8
+13:46:37.059 [JavaFX Application Thread] DEBUG Input                - Registered new binding: System info dump - CTRL+9
+13:46:37.059 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Restart - CTRL+R
+13:46:37.060 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Toggle Debug Camera - CTRL+C
+13:46:37.063 [JavaFX Application Thread] DEBUG LoopRunner           - Starting loop
+13:46:37.063 [JavaFX Application Thread] DEBUG LoopRunner           - Initializing JavaFX AnimationTimerLoop
+13:46:37.065 [JavaFX Application Thread] DEBUG GameApplicationServi - Starting new game
+13:46:37.065 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+13:46:37.083 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from FXGLStartupScene and adding to FXGLLoadingScene
+13:46:37.083 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLStartupScene -> FXGLLoadingScene
+13:46:37.083 [JavaFX Application Thread] DEBUG GameApplicationServi - Clearing previous game
+13:46:37.083 [JavaFX Application Thread] DEBUG GameScene            - Clearing game scene
+13:46:37.083 [JavaFX Application Thread] DEBUG GameWorld            - Clearing game world
+13:46:37.083 [JavaFX Application Thread] DEBUG PhysicsWorld         - Clearing physics world
+13:46:37.087 [FXGL Background Thread 1 ] DEBUG FXGLApplication      - Initializing game
+13:46:37.134 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/usuario/eclipse-workspace/PokemonGrid/target/classes/assets/textures/treeTile.png
+13:46:37.156 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/usuario/eclipse-workspace/PokemonGrid/target/classes/assets/textures/grassTile.png
+13:46:37.281 [FXGL Background Thread 1 ] DEBUG GameWorld            - Clearing removable entities
+13:46:37.281 [FXGL Background Thread 1 ] DEBUG GameWorld            - Setting level: com.almasb.fxgl.entity.level.Level@19c16960
+13:46:37.310 [JavaFX Application Thread] DEBUG LoopRunner           - Stopping loop
+13:46:37.312 [JavaFX Application Thread] FATAL FXGLApplication      - Uncaught Exception:
+java.lang.RuntimeException: Initialization failed
+	at com.almasb.fxgl.app.FXGLApplication$InitAppTask.failed(FXGLApplication.kt:343)
+	at javafx.concurrent.Task.setState(Task.java:710)
+	at javafx.concurrent.Task$TaskCallable.lambda$call$2(Task.java:1455)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:447)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:391)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:446)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:96)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:174)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+Caused by: java.lang.IllegalArgumentException: No EntityFactory has a method annotated @Spawns(BG)
+	at com.almasb.fxgl.entity.GameWorld.create(GameWorld.kt:413)
+	at com.almasb.fxgl.entity.GameWorld.spawn(GameWorld.kt:396)
+	at com.almasb.fxgl.entity.GameWorld.spawn(GameWorld.kt:384)
+	at com.almasb.fxgl.entity.GameWorld.spawn(GameWorld.kt:359)
+	at com.almasb.fxgl.dsl.FXGL$Companion.spawn(FXGL.kt:448)
+	at com.almasb.fxgl.dsl.FXGL.spawn(FXGL.kt)
+	at pokemon2D.Pokemon2DApp.initGame(Pokemon2DApp.java:91)
+	at com.almasb.fxgl.app.FXGLApplication$InitAppTask.initGame(FXGLApplication.kt:339)
+	at com.almasb.fxgl.app.FXGLApplication$InitAppTask.call(FXGLApplication.kt:319)
+	at com.almasb.fxgl.app.FXGLApplication$InitAppTask.call(FXGLApplication.kt:311)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1425)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	... 1 more
+
+13:46:37.312 [JavaFX Application Thread] FATAL FXGLApplication      - Application will now exit
+13:46:37.327 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Push state: ErrorSubScene
+13:46:37.327 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+13:46:37.333 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from FXGLLoadingScene and adding to ErrorSubScene
+13:46:37.333 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLLoadingScene -> ErrorSubScene
+13:46:37.915 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/C:/Users/usuario/.m2/repository/com/github/almasb/fxgl/dev-SNAPSHOT/fxgl-dev-SNAPSHOT.jar!/fxglassets/ui/fonts/Abel-Regular.ttf
+13:46:37.918 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/C:/Users/usuario/.m2/repository/com/github/almasb/fxgl/dev-SNAPSHOT/fxgl-dev-SNAPSHOT.jar!/fxglassets/ui/fonts/lucida_console.ttf
+13:46:37.921 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/C:/Users/usuario/.m2/repository/com/github/almasb/fxgl/dev-SNAPSHOT/fxgl-dev-SNAPSHOT.jar!/fxglassets/ui/fonts/Courier-Prime.ttf
+13:46:37.925 [JavaFX Application Thread] DEBUG FXGLApplication      - Registering font factories with UI factory
+13:46:38.217 [FXGL Background Thread 2 ] INFO  UpdaterService       - Your current version:  dev-SNAPSHOT
+13:46:38.218 [FXGL Background Thread 2 ] INFO  UpdaterService       - Latest stable version: 17
+13:46:38.693 [JavaFX Application Thread] DEBUG FXGLApplication      - Exiting FXGL
+13:46:38.693 [JavaFX Application Thread] DEBUG Async                - Shutting down background threads
+13:46:38.693 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Closing main window
+13:46:38.702 [JavaFX Application Thread] DEBUG Logger               - Closing Logger
