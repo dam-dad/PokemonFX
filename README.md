@@ -1,2 +1,2 @@
 # PokemonFX
-Pokemon roguelike game
+Pokemon 2d rpg turn-based game
