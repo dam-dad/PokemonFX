@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="view" prefHeight="400.0" prefWidth="640.0" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="CENTER_LEFT" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="jugarbutton" alignment="CENTER" cache="true" contentDisplay="RIGHT" depthTest="DISABLE" graphicTextGap="6.0" mnemonicParsing="false" onAction="#onjugarbutton" text="JUGAR" textFill="RED" textOverrun="CLIP">
+               <font>
+                  <Font name="Modern No. 20" size="36.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="69.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/bola.gif" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </Button>
+            <Button fx:id="salirbutton" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onsalirbutton" prefHeight="70.0" prefWidth="218.0" text="SALIR" textFill="RED">
+               <font>
+                  <Font name="Modern No. 20" size="36.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="69.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/bola.gif" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="70.0" right="10.0" top="100.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>

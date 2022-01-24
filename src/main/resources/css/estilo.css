@@ -1,0 +1,37 @@
+#view {
+    -fx-background-image:url('../images/Campo_de_batalla.png');
+    -fx-background-size:100.0% 100.0%;
+}
+.slider{
+	-fx-pref-width:100.0px;
+}
+.slider .track{
+	-fx-background-color:red;
+	-fx-pref-height:20.0px;
+	-fx-background-radius:0.0;
+}
+.slider .thumb{
+	-fx-pref-height:20.0px;
+	-fx-pref-width:5.0px;
+	-fx-background-radius:0.0;
+}
+.button{
+	  -fx-font-size: 16.0pt;
+	  -fx-text-fill:black;
+	  -fx-font-weight: bold;
+	-fx-background-radius: 0.0px;
+	-fx-background-insets: 0.0 0.0 0.0 0.0;
+	-fx-background-color:#CD853F;
+	-fx-background-radius: 5.0em;
+	-fx-border-radius: 10.0em;
+	-fx-border-color:black;
+}
+.combo-box-base{
+    -fx-background-color:#CD853F;
+    -fx-padding: 2 2;
+}
+#mensajeataqueLabel{
+	-fx-background-color:black;
+	-fx-border-color:#CD853F;
+}
+
