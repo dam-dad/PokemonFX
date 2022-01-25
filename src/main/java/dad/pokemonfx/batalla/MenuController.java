@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.animation.FadeTransition;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
@@ -11,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Duration;
 import javafx.fxml.Initializable;
 
 public class MenuController implements Initializable {
@@ -38,7 +40,18 @@ public class MenuController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		fin.set(false);
+		view.sceneProperty().addListener((o, ov, nv) -> {
+			iniciarTransicion();
+		});
 
+	}
+	private void iniciarTransicion() {
+    	FadeTransition fade = new FadeTransition();
+    	fade.setDuration(Duration.seconds(4));
+    	fade.setFromValue(0.0);
+    	fade.setToValue(1.0);
+    	fade.setNode(view);
+    	fade.play();
 	}
 
 	@FXML
