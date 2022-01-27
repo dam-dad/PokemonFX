@@ -1,9 +1,9 @@
-package dad.pokemonfx.movimiento2;
+package dad.pokemonfx.gamelop;
 
+
+import static dad.pokemonfx.gamelop.Direction.DOWN;
 
 import javafx.scene.image.Image;
-
-import static dad.pokemonfx.movimiento2.Direction.DOWN;
 
 public class Player {
 

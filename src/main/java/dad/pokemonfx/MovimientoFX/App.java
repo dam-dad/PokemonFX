@@ -1,4 +1,4 @@
-package dad.pokemonfx.movimiento1;
+package dad.pokemonfx.MovimientoFX;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -19,8 +19,10 @@ public class App extends Application {
 		Scene scene = new Scene(controler.getView());
 		primaryStage.setTitle("MovimientoFX");
 		primaryStage.setFullScreen(false);
+		primaryStage.setResizable(false);
 		primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 		primaryStage.setScene(scene);
+		
 		primaryStage.show();
 
 	}

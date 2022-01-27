@@ -1,14 +1,13 @@
-package dad.pokemonfx.movimiento2;
+package dad.pokemonfx.gamelop;
 
 import static java.util.stream.Stream.of;
 
 import java.util.ArrayList;
-import java.util.concurrent.ThreadLocalRandom;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 
-class GameLoop extends AnimationTimer {
+public class GameLoop extends AnimationTimer {
 
 	private long time1 = System.nanoTime();
 	private long time2; 
@@ -22,7 +21,7 @@ class GameLoop extends AnimationTimer {
 
 
 	// Constructor
-	GameLoop(ArrayList<String> input, GraphicsContext graphicsContext, Player player) {
+	public GameLoop(ArrayList<String> input, GraphicsContext graphicsContext, Player player) {
 		this.input = input;
 		this.graphicsContext = graphicsContext;
 		this.player = player;

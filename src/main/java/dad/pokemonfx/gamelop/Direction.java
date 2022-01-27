@@ -1,10 +1,9 @@
-package dad.pokemonfx.movimiento2;
+package dad.pokemonfx.gamelop;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import dad.pokemonfx.movimiento2.Direction;
-import dad.pokemonfx.movimiento2.Player;
+import dad.pokemonfx.gamelop.Direction;
 import javafx.scene.image.Image;
 
 public enum Direction {

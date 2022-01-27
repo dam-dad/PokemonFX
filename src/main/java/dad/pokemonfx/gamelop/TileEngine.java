@@ -1,4 +1,4 @@
-package dad.pokemonfx.movimiento2;
+package dad.pokemonfx.gamelop;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -15,6 +15,7 @@ public class TileEngine {
 			{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2},
 			{2, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2},
 			{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2},
+			{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2},
 			{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
 	}; 
 
@@ -23,8 +24,8 @@ public class TileEngine {
 	Image flowerTile = new Image("/images/flowerTile.png");
 	Image treeTile = new Image("/images/treeTile.png");
 
-	int tileLength = 48;
-	int tileWidth = 48;
+	double tileLength = 45.5;
+	double tileWidth = 42.5;
 
 	public void generateTiles(GraphicsContext graphicsContext) {
 

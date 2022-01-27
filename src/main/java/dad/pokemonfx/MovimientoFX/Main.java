@@ -1,4 +1,4 @@
-package dad.pokemonfx.movimiento2;
+package dad.pokemonfx.MovimientoFX;
 
 public class Main {
 
