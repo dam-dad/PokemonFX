@@ -48,7 +48,7 @@ public class Ataque {
 
 	@Override
 	public String toString() {
-		return "Poder=" + poder + "\nPrecision=" + precision + "\nTipo ataque=" + tipoAtaque;
+		return "Poder=" + poder + "\n" + precision+"%";
 	}
 
 

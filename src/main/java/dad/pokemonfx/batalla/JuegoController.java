@@ -9,6 +9,8 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -20,7 +22,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.NumberStringConverter;
 
 public class JuegoController implements Initializable {
@@ -32,6 +34,8 @@ public class JuegoController implements Initializable {
 	private ListProperty<Pokemon> entrenador2 = new SimpleListProperty<>(FXCollections.observableArrayList());
 	private DoubleProperty vida = new SimpleDoubleProperty();
 	private DoubleProperty vidacpu = new SimpleDoubleProperty();
+	private StringProperty nombrePokemon= new SimpleStringProperty();
+	private StringProperty nombrePokemoncpu= new SimpleStringProperty();
 
 	@FXML
 	private ImageView pokemon1;
@@ -53,6 +57,12 @@ public class JuegoController implements Initializable {
 
 	@FXML
 	private Button ataque4;
+	
+	@FXML
+	private Label labelNCPU;
+
+	@FXML
+	private Label labelNPok;
 
 	@FXML
 	private Label ataque1Label;
@@ -88,7 +98,7 @@ public class JuegoController implements Initializable {
 	private Slider vida2slider;
 
 	@FXML
-	private BorderPane view;
+	private AnchorPane view;
 
 	public JuegoController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Juego.fxml"));
@@ -109,10 +119,12 @@ public class JuegoController implements Initializable {
 		if (entrenador2.get().size() > 0) {
 			if (ov != null) {
 				vidacpu.unbind();
+				nombrePokemoncpu.unbind();
 			}
 			if (nv != null) {
 				vidacpu.bind(nv.vidaProperty());
-				pokemon2.setImage(nv.getDelante());
+				nombrePokemoncpu.bind(nv.nombreProperty());
+				pokemon2.setImage(nv.getCpu());
 			}
 
 		}
@@ -126,6 +138,7 @@ public class JuegoController implements Initializable {
 			}
 			if (ov != null) {
 				vida.unbind();
+				nombrePokemon.unbind();
 				ataque1.textProperty().unbind();
 				ataque2.textProperty().unbind();
 				ataque3.textProperty().unbind();
@@ -133,6 +146,7 @@ public class JuegoController implements Initializable {
 			}
 			if (nv != null) {
 				vida.bind(nv.vidaProperty());
+				nombrePokemon.bind(nv.nombreProperty());
 				cargarBotones(nv);
 				pokemon1.setImage(nv.getDelante());
 			}
@@ -189,29 +203,27 @@ public class JuegoController implements Initializable {
 
 		}
 		if (entrenador2.size() == 0) {
-			if(App.confirm("Resultado de combate", "Ganaste", null)) {
+			if (App.confirm("Resultado de combate", "Ganaste", null)) {
 				iniciarCombate();
-			}else {
+			} else {
 				System.exit(0);
 			}
-			
-		}else {
+
+		} else {
 			Combate.ataquecpu(PokemonSeleccionado.get());
 		}
-		
+
 		if (PokemonSeleccionado.get().getVida() <= 0) {
 			entrenador1.get().remove(PokemonSeleccionado.get());
 			labelcontPok.setText("" + entrenador1.getSize());
 		}
 		if (entrenador1.size() == 0) {
-			if(	App.confirm("Resultado de combate", "Perdiste", null)) {
+			if (App.confirm("Resultado de combate", "Perdiste", null)) {
 				iniciarCombate();
-			}else {
+			} else {
 				System.exit(0);
 			}
-		
-			
-			
+
 		}
 
 	}
@@ -232,8 +244,12 @@ public class JuegoController implements Initializable {
 		vida2label.textProperty().bindBidirectional(vidacpu, new NumberStringConverter());
 		vida1slider.valueProperty().bind(vida);
 		vida2slider.valueProperty().bind(vidacpu);
+        labelNPok.textProperty().bind(nombrePokemon);
+        nombrePokemon.bind(PokemonSeleccionado.get().nombreProperty());
+        labelNCPU.textProperty().bind(nombrePokemoncpu);
+        nombrePokemoncpu.bind(Pokemoncpu.get().nombreProperty());
 		pokemon1.setImage(PokemonSeleccionado.get().getDelante());
-		pokemon2.setImage(Pokemoncpu.get().getDelante());
+		pokemon2.setImage(Pokemoncpu.get().getCpu());
 		labelcontPok.setText("" + entrenador1.getSize());
 		labelcontPokcpu.setText("" + entrenador2.getSize());
 
@@ -253,13 +269,12 @@ public class JuegoController implements Initializable {
 	private void ponerMensaje(double vidacpu, double vida) {
 		double daño = vidacpu - Pokemoncpu.get().getVida();
 		double daño2 = vida - PokemonSeleccionado.get().getVida();
-		mensajeataqueLabel.setText("-Has atacado con " + PokemonSeleccionado.get().getNombre()
-				+ " y le has hecho un daño de " + daño + "\n-El entrenador rival te ha atacado con "
-				+ Pokemoncpu.get().getNombre() + " con un golpe efectivo de " + daño2);
+		mensajeataqueLabel.setText("ATAQUE: " + PokemonSeleccionado.get().getNombre() + " CON UN DAÑO DE " + daño
+				+ "\nDEFENSA: " + Pokemoncpu.get().getNombre() + " CON UN DAÑO DE " + daño2);
 
 	}
 
-	public BorderPane getView() {
+	public AnchorPane getView() {
 		return view;
 	}
 

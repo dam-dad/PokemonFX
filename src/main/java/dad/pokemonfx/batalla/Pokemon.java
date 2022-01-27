@@ -3,21 +3,25 @@ package dad.pokemonfx.batalla;
 import java.util.ArrayList;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
 
 public class Pokemon {
 
-	private String nombre;
+	private StringProperty nombre = new SimpleStringProperty();
 	private String tipo;
 	private Integer nivel;
 	private Image delante;
+	private Image cpu;
 	private ArrayList<Ataque> ataques;
 	private DoubleProperty vida = new SimpleDoubleProperty();
 
 	public Pokemon(String nombre, String tipo, Integer nivel, ArrayList<Ataque> ataques) {
 		super();
-		this.setDelante(new Image("file:src/main/resources/images/"+nombre+".png"));
-		this.nombre = nombre;
+		this.setDelante(new Image("file:src/main/resources/images/" + nombre + ".png"));
+		this.setCpu(new Image("file:src/main/resources/images/" + nombre + "-CPU.png"));
+		this.nombre.set(nombre);
 		this.tipo = tipo;
 		this.nivel = nivel;
 		this.ataques = ataques;
@@ -30,14 +34,6 @@ public class Pokemon {
 			System.out.println("El nivel tiene que estar entre 0 y 100");
 		}
 		this.setVida(400 + nivel * 0.5);
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 
 	public Integer getNivel() {
@@ -86,7 +82,27 @@ public class Pokemon {
 
 	@Override
 	public String toString() {
-		return this.getNombre()+"->"+this.getTipo();
+		return this.getNombre() + "->" + this.getTipo();
+	}
+
+	public Image getCpu() {
+		return cpu;
+	}
+
+	public void setCpu(Image cpu) {
+		this.cpu = cpu;
+	}
+
+	public StringProperty nombreProperty() {
+		return this.nombre;
+	}
+
+	public String getNombre() {
+		return this.nombreProperty().get();
+	}
+
+	public void setNombre(final String nombre) {
+		this.nombreProperty().set(nombre);
 	}
 
 }

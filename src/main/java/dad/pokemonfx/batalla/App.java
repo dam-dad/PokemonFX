@@ -26,7 +26,8 @@ public class App extends Application {
 		mainScene = new Scene(controller.getView());
 		juegoScene=new Scene(juego.getView());
 		primaryStage.setTitle("Batalla Pokemon");
-		primaryStage.setFullScreen(true);
+		primaryStage.setResizable(false);
+		primaryStage.setFullScreen(false);
 		primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 		primaryStage.setScene(mainScene);
 		primaryStage.show();
