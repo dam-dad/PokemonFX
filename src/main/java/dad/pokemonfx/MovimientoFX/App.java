@@ -11,10 +11,10 @@ import javafx.stage.Stage;
 public class App extends Application {
 
 	private static Stage primaryStage;
-   Controller controler;
+   MapController controler;
 
 	public void start(Stage primaryStage) throws Exception {
-		controler=new Controller();
+		controler=new MapController();
 		App.primaryStage = primaryStage;
 		Scene scene = new Scene(controler.getView());
 		primaryStage.setTitle("MovimientoFX");

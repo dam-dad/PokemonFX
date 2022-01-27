@@ -7,6 +7,9 @@ import java.util.ResourceBundle;
 
 import dad.pokemonfx.gamelop.GameLoop;
 import dad.pokemonfx.gamelop.Player;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,15 +17,17 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.BorderPane;
 
-public class Controller implements Initializable {
-	
+public class MapController implements Initializable {
+
+	private BooleanProperty hayBatalla = new SimpleBooleanProperty();
+
 	@FXML
 	private BorderPane view;
 
 	@FXML
 	private Canvas gc;
 
-	public Controller() throws IOException {
+	public MapController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/JFXMovimientoView.fxml"));
 		loader.setController(this);
 		loader.load();
@@ -30,10 +35,11 @@ public class Controller implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		ArrayList<String> input = new ArrayList<>(); 
+		hayBatalla.set(false);
+		ArrayList<String> input = new ArrayList<>();
 		view.setOnKeyPressed(e -> {
 			String code = e.getCode().toString();
-			if (!input.contains(code)) 
+			if (!input.contains(code))
 				input.add(code);
 		});
 
@@ -44,15 +50,32 @@ public class Controller implements Initializable {
 		view.requestFocus();
 		gc.setFocusTraversable(true);
 		gc.requestFocus();
-		GraphicsContext graphicsContext = gc.getGraphicsContext2D(); 
+		GraphicsContext graphicsContext = gc.getGraphicsContext2D();
 		Player player = new Player(50, 50, 2);
 
 		GameLoop gameLoop = new GameLoop(input, graphicsContext, player);
 		gameLoop.start();
+		gameLoop.hayBatallaProperty().addListener((o, ov, nv) -> hayBatalla(o, ov, nv));
+	}
+
+	private void hayBatalla(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
+		hayBatalla.set(true);
 	}
 
 	public BorderPane getView() {
 		return view;
+	}
+
+	public BooleanProperty hayBatallaProperty() {
+		return this.hayBatalla;
+	}
+
+	public boolean isHayBatalla() {
+		return this.hayBatallaProperty().get();
+	}
+
+	public void setHayBatalla(final boolean hayBatalla) {
+		this.hayBatallaProperty().set(hayBatalla);
 	}
 
 }
