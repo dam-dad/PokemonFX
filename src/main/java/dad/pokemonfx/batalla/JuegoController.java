@@ -107,12 +107,53 @@ public class JuegoController implements Initializable {
 	}
 
 	public void initialize(URL location, ResourceBundle resources) {
-
-		iniciarCombate();
+		combate.set(new Combate());
+		entrenador1.bind(combate.get().entrenador1Property());
+		entrenador2.bind(combate.get().entrenador2Property());
+		comboPokemon.itemsProperty().bind(entrenador1);
+		comboPokemon.getSelectionModel().selectFirst();
+		PokemonSeleccionado.bind(comboPokemon.getSelectionModel().selectedItemProperty());
+		Pokemoncpu.set(entrenador2.get(0));
+		vida.bind(PokemonSeleccionado.get().vidaProperty());
+		vidacpu.bind(Pokemoncpu.get().vidaProperty());
+		vida1slider.setMax(vida.get());
+		vida2slider.setMax(vidacpu.get());
+		vidalabel.textProperty().bindBidirectional(vida, new NumberStringConverter());
+		vida2label.textProperty().bindBidirectional(vidacpu, new NumberStringConverter());
+		vida1slider.valueProperty().bind(vida);
+		vida2slider.valueProperty().bind(vidacpu);
+        labelNPok.textProperty().bind(nombrePokemon);
+        nombrePokemon.bind(PokemonSeleccionado.get().nombreProperty());
+        labelNCPU.textProperty().bind(nombrePokemoncpu);
+        nombrePokemoncpu.bind(Pokemoncpu.get().nombreProperty());
+		pokemon1.setImage(PokemonSeleccionado.get().getDelante());
+		pokemon2.setImage(Pokemoncpu.get().getCpu());
+		labelcontPok.setText("" + entrenador1.getSize());
+		labelcontPokcpu.setText("" + entrenador2.getSize());
 		cargarBotones(PokemonSeleccionado.get());
 		PokemonSeleccionado.addListener((o, ov, nv) -> onpokemonchanged(o, ov, nv));
 		Pokemoncpu.addListener((o, ov, nv) -> onpokemoncpuchanged(o, ov, nv));
+		combate.addListener((o, ov, nv) -> oncombatechanged(o, ov, nv));
 
+	}
+
+	private void oncombatechanged(ObservableValue<? extends Combate> o, Combate ov, Combate nv) {
+		if (ov != null) {
+			entrenador1.unbind();
+			entrenador2.unbind();
+			comboPokemon.itemsProperty().unbind();
+		}
+		if (nv != null) {
+			entrenador1.bind(nv.entrenador1Property());
+			entrenador2.bind(nv.entrenador2Property());
+			comboPokemon.itemsProperty().bind(entrenador1);
+			comboPokemon.getSelectionModel().selectFirst();
+			Pokemoncpu.set(entrenador2.get(0));
+			labelcontPok.setText("" + entrenador1.getSize());
+			labelcontPokcpu.setText("" + entrenador2.getSize());
+		}
+		
+		
 	}
 
 	private void onpokemoncpuchanged(ObservableValue<? extends Pokemon> o, Pokemon ov, Pokemon nv) {
@@ -120,6 +161,7 @@ public class JuegoController implements Initializable {
 			if (ov != null) {
 				vidacpu.unbind();
 				nombrePokemoncpu.unbind();
+				
 			}
 			if (nv != null) {
 				vidacpu.bind(nv.vidaProperty());
@@ -190,6 +232,7 @@ public class JuegoController implements Initializable {
 	}
 
 	private void ataqueCombate(Ataque ataque, Pokemon pk) {
+		
 		Combate.ataque(ataque, pk);
 		if (pk.getVida() < 100) {
 			Pokemoncpu.set(entrenador2.get((int) Math.floor(Math.random() * entrenador2.getSize())));
@@ -204,7 +247,7 @@ public class JuegoController implements Initializable {
 		}
 		if (entrenador2.size() == 0) {
 			if (App.confirm("Resultado de combate", "Ganaste", null)) {
-				iniciarCombate();
+				combate.set(new Combate());
 			} else {
 				System.exit(0);
 			}
@@ -219,39 +262,12 @@ public class JuegoController implements Initializable {
 		}
 		if (entrenador1.size() == 0) {
 			if (App.confirm("Resultado de combate", "Perdiste", null)) {
-				iniciarCombate();
+				combate.set(new Combate());
 			} else {
 				System.exit(0);
 			}
 
 		}
-
-	}
-
-	private void iniciarCombate() {
-		combate.set(new Combate());
-		entrenador1.bind(combate.get().entrenador1Property());
-		entrenador2.bind(combate.get().entrenador2Property());
-		comboPokemon.itemsProperty().bind(entrenador1);
-		comboPokemon.getSelectionModel().selectFirst();
-		PokemonSeleccionado.bind(comboPokemon.getSelectionModel().selectedItemProperty());
-		Pokemoncpu.set(entrenador2.get(0));
-		vida.bind(PokemonSeleccionado.get().vidaProperty());
-		vidacpu.bind(Pokemoncpu.get().vidaProperty());
-		vida1slider.setMax(vida.get());
-		vida2slider.setMax(vidacpu.get());
-		vidalabel.textProperty().bindBidirectional(vida, new NumberStringConverter());
-		vida2label.textProperty().bindBidirectional(vidacpu, new NumberStringConverter());
-		vida1slider.valueProperty().bind(vida);
-		vida2slider.valueProperty().bind(vidacpu);
-        labelNPok.textProperty().bind(nombrePokemon);
-        nombrePokemon.bind(PokemonSeleccionado.get().nombreProperty());
-        labelNCPU.textProperty().bind(nombrePokemoncpu);
-        nombrePokemoncpu.bind(Pokemoncpu.get().nombreProperty());
-		pokemon1.setImage(PokemonSeleccionado.get().getDelante());
-		pokemon2.setImage(Pokemoncpu.get().getCpu());
-		labelcontPok.setText("" + entrenador1.getSize());
-		labelcontPokcpu.setText("" + entrenador2.getSize());
 
 	}
 
