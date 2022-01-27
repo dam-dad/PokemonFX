@@ -1,4 +1,4 @@
-package dad.pokemonfx.movimientofx;
+package dad.pokemonfx.movimiento1;
 
 import java.io.IOException;
 import java.net.URL;

@@ -1,4 +1,4 @@
-package dad.pokemonfx.maps;
+package dad.pokemonfxgl.maps;
 
 public enum TileType {
 	PLAYER, WALL, FLOOR

@@ -1,4 +1,4 @@
-package dad.pokemonfx.movimientofx;
+package dad.pokemonfx.movimiento1;
 
 //import javax.swing.JFrame;
 //import dad.pruebas.tile.GamePane;

@@ -1,10 +1,10 @@
-package dad.pokemonfx.maps;
+package dad.pokemonfxgl.maps;
 
 import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
 import static com.almasb.fxgl.dsl.FXGL.texture;
-import static dad.pokemonfx.maps.TileType.FLOOR;
-import static dad.pokemonfx.maps.TileType.PLAYER;
-import static dad.pokemonfx.maps.TileType.WALL;
+import static dad.pokemonfxgl.maps.TileType.FLOOR;
+import static dad.pokemonfxgl.maps.TileType.PLAYER;
+import static dad.pokemonfxgl.maps.TileType.WALL;
 
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
@@ -15,8 +15,8 @@ import com.almasb.fxgl.entity.components.CollidableComponent;
 import com.almasb.fxgl.pathfinding.CellMoveComponent;
 import com.almasb.fxgl.pathfinding.astar.AStarMoveComponent;
 
-import dad.pokemonfx.PokemonFXApp;
-import dad.pokemonfx.components.Player;
+import dad.pokemonfxgl.player.Player;
+import dad.pokemonfxgl.screen.PokemonFXApp;
 import javafx.geometry.Point2D;
 
 public class MapFactory implements EntityFactory {

@@ -1,10 +1,10 @@
-package dad.pokemonfx;
+package dad.pokemonfxgl.screen;
 
 import static com.almasb.fxgl.dsl.FXGL.getAssetLoader;
 import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 import static com.almasb.fxgl.dsl.FXGL.getInput;
 import static com.almasb.fxgl.dsl.FXGL.spawn;
-import static dad.pokemonfx.maps.TileType.WALL;
+import static dad.pokemonfxgl.maps.TileType.WALL;
 
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
@@ -18,8 +18,8 @@ import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.pathfinding.CellState;
 import com.almasb.fxgl.pathfinding.astar.AStarGrid;
 
-import dad.pokemonfx.components.Player;
-import dad.pokemonfx.maps.MapFactory;
+import dad.pokemonfxgl.maps.MapFactory;
+import dad.pokemonfxgl.player.Player;
 import javafx.scene.input.KeyCode;
 
 public class PokemonFXApp extends GameApplication {

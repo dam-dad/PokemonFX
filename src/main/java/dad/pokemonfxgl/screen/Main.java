@@ -1,4 +1,4 @@
-package dad.pokemonfx;
+package dad.pokemonfxgl.screen;
 
 public class Main {
 

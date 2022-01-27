@@ -1,4 +1,4 @@
-package dad.pokemonfx.movimientofx;
+package dad.pokemonfx.movimiento1;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
