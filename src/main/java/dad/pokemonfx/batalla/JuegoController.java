@@ -300,8 +300,8 @@ public class JuegoController implements Initializable {
 	private void ponerMensaje(double vidacpu, double vida) {
 		double daño = vidacpu - Pokemoncpu.get().getVida();
 		double daño2 = vida - PokemonSeleccionado.get().getVida();
-		mensajeataqueLabel.setText("ATAQUE: " + PokemonSeleccionado.get().getNombre() + " CON UN DAÑO DE " + daño
-				+ "\nDEFENSA: " + Pokemoncpu.get().getNombre() + " CON UN DAÑO DE " + daño2);
+		mensajeataqueLabel.setText("ATAQUE: " + PokemonSeleccionado.get().getNombre() + " con una \ncantidad de: " + daño
+				+ "\nDEFENSA: " + Pokemoncpu.get().getNombre() + " con una \ncantidad de: " + daño2);
 
 	}
 

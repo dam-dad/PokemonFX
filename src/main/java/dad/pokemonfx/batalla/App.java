@@ -7,6 +7,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -25,6 +26,7 @@ public class App extends Application {
 		juego=new JuegoController();
 		mainScene = new Scene(controller.getView());
 		juegoScene=new Scene(juego.getView());
+		Font.loadFont(getClass().getResourceAsStream("/font/pokemon_pixel_font.ttf"), 14);
 		primaryStage.setTitle("Batalla Pokemon");
 		primaryStage.setResizable(false);
 		primaryStage.setFullScreen(false);

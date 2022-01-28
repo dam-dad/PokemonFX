@@ -1,3 +1,12 @@
+ @font-face {
+  font-family: "Pokemon Pixel Font";
+  src: url('../font/pokemon_pixel_font.ttf');
+}
+
+.label, .button, .combo-box {
+	-fx-font-family: "Pokemon Pixel Font";
+}
+
 #view {
     -fx-background-image:url('../images/battle-background.png');
     -fx-background-size:100.0% 100.0%;
@@ -15,9 +24,7 @@
 	-fx-background-radius:0.0;
 }
 
-.button{
-	  -fx-text-fill:black;
-	  -fx-font-weight: bold;
+.button {
 	-fx-background-radius: 0.0px;
 	-fx-background-insets: 0.0 0.0 0.0 0.0;
 	-fx-background-color:#d98c50;
@@ -26,6 +33,7 @@
 	-fx-border-color:black;
 }
 .combo-box-base{
+	-fx-font-size: 18px;
     -fx-background-color:#CD853F;
     -fx-padding: 2 2;
 }

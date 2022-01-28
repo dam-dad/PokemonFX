@@ -16,25 +16,20 @@
 		<Ataques>
 			<Ataque poder="60" precision="70" tipo="VOLADOR">Ataque Ala
 			</Ataque>
-			<Ataque poder="100" precision="40" tipo="LUCHA">Puño dinamico
-			</Ataque>
+			<Ataque poder="100" precision="40" tipo="LUCHA">Fuerza Bruta</Ataque>
 			<Ataque poder="60" precision="70" tipo="SINIESTRO">Mordisco
 			</Ataque>
-			<Ataque poder="100" precision="50" tipo="DRAGON">Cola dragón
-			</Ataque>
+			<Ataque poder="100" precision="50" tipo="DRAGON">Enfado</Ataque>
 		</Ataques>
 	</Pokemon>
 	<Pokemon nombre="Abra" nivel="50" tipo="PSIQUICO">
 		<Ataques>
-			<Ataque poder="70" precision="70" tipo="NORMAL">Puño Cabeza
+			<Ataque poder="70" precision="70" tipo="NORMAL">Cabezazo
+			
+		</Ataque><Ataque poder="75" precision="70" tipo="PSIQUICO">Cabezazo Zen
+			</Ataque><Ataque poder="85" precision="70" tipo="SINIESTRO">Juego Sucio
 			</Ataque>
-			<Ataque poder="75" precision="68" tipo="FUEGO">Puño fuego
-			</Ataque>
-			<Ataque poder="80" precision="70" tipo="PSIQUICO">Cabezazo Zen
-			</Ataque>
-			<Ataque poder="85" precision="70" tipo="SINIESTRO">Juego Sucio
-			</Ataque>
-		</Ataques>
+			<Ataque poder="90" tipo="PSIQUICO" precision="68">Psicocarga</Ataque></Ataques>
 	</Pokemon>
 	<Pokemon nombre="Bulbasaur" nivel="50" tipo="VENENO">
 		<Ataques>
@@ -44,16 +39,14 @@
 			</Ataque>
 			<Ataque poder="56" precision="70" tipo="VENENO">Bomba Lodo
 			</Ataque>
-			<Ataque poder="80" precision="75" tipo="VENENO">Carga Tóxica
-			</Ataque>
+			<Ataque poder="80" precision="75" tipo="VENENO">Carga Toxica</Ataque>
 		</Ataques>
 	</Pokemon>
 	<Pokemon nombre="Squirtle" nivel="50" tipo="AGUA">
 		<Ataques>
 			<Ataque poder="40" precision="90" tipo="NORMAL">Placaje
 			</Ataque>
-			<Ataque poder="100" precision="50" tipo="LUCHA">Puño dinamico
-			</Ataque>
+			<Ataque poder="100" precision="50" tipo="LUCHA">Patada Baja</Ataque>
 			<Ataque poder="80" precision="70" tipo="AGUA">Cascada
 			</Ataque>
 			<Ataque poder="90" precision="75" tipo="AGUA">Hidrobomba
@@ -112,8 +105,7 @@
 		<Ataques>
 			<Ataque poder="60" precision="75" tipo="VOLADOR">Acrobata
 			</Ataque>
-			<Ataque poder="50" precision="85" tipo="VOLADOR">Golpe Aéreo
-			</Ataque>
+			<Ataque poder="50" precision="85" tipo="VOLADOR">Vuelo</Ataque>
 			<Ataque poder="60" precision="80" tipo="BICHO">Corte Furia
 			</Ataque>
 			<Ataque poder="60" precision="70" tipo="SINIESTRO">Triturar
@@ -122,12 +114,9 @@
 	</Pokemon>
 	<Pokemon nombre="Torchic" nivel="50" tipo="FUEGO">
 		<Ataques>
-			<Ataque poder="70" precision="65" tipo="LUCHA">Movimiento Sísmico
-			</Ataque>
-			<Ataque poder="60" precision="85" tipo="FANTASMA">Garra Umbría
-			</Ataque>
-			<Ataque poder="90" precision="60" tipo="SINIESTRO">Tajo Umbrío
-			</Ataque>
+			<Ataque poder="70" precision="65" tipo="LUCHA">Patada Baja</Ataque>
+			<Ataque poder="60" precision="85" tipo="FANTASMA">Tinieblas</Ataque>
+			<Ataque poder="90" precision="60" tipo="SINIESTRO">Mordisco</Ataque>
 			<Ataque poder="100" precision="50" tipo="NORMAL">Rapidez
 			</Ataque>
 		</Ataques>
@@ -140,8 +129,7 @@
 			</Ataque>
 			<Ataque poder="80" precision="70" tipo="PSIQUICO">Manto espejo
 			</Ataque>
-			<Ataque poder="60" precision="60" tipo="VENENO">Tóxico
-			</Ataque>
+			<Ataque poder="60" precision="60" tipo="VENENO">Residuos</Ataque>
 		</Ataques>
 	</Pokemon>
 
