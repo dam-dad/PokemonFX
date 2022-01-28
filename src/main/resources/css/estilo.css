@@ -3,7 +3,7 @@
   src: url('../font/pokemon_pixel_font.ttf');
 }
 
-.label, .button, .combo-box {
+.label, .combo-box {
 	-fx-font-family: "Pokemon Pixel Font";
 }
 
@@ -25,6 +25,7 @@
 }
 
 .button {
+	-fx-font-family: "Pokemon Pixel Font";
 	-fx-background-radius: 0.0px;
 	-fx-background-insets: 0.0 0.0 0.0 0.0;
 	-fx-background-color:#d98c50;
