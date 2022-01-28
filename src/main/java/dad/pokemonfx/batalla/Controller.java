@@ -36,9 +36,17 @@ public class Controller implements Initializable {
 			e.printStackTrace();
 		}
 		menucontroller.finProperty().addListener((o, ov, nv) -> sepulsoboton(o, ov, nv));
-		mapcontroller.hayBatallaProperty().addListener((o, ov, nv) -> hayBatalla(o, ov, nv));
+		mapcontroller.getGameLoop().hayBatallaProperty().addListener((o, ov, nv) -> hayBatalla(o, ov, nv));
+		juegoController.finCombateProperty().addListener((o, ov, nv) -> finCombate(o, ov, nv));
 		
 
+	}
+
+	private void finCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
+	    mapcontroller.getGameLoop().setHayBatalla(false);
+		view.setCenter(mapcontroller.getView());
+		juegoController.setFinCombate(false);
+		
 	}
 
 	private void hayBatalla(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {

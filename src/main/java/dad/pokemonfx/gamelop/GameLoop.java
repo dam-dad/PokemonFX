@@ -100,6 +100,14 @@ public class GameLoop extends AnimationTimer {
 	public void setHayBatalla(final boolean hayBatalla) {
 		this.hayBatallaProperty().set(hayBatalla);
 	}
+
+	public ArrayList<String> getInput() {
+		return input;
+	}
+
+	public void setInput(ArrayList<String> input) {
+		this.input = input;
+	}
 	
 	
 	

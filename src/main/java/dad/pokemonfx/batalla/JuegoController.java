@@ -3,9 +3,12 @@ package dad.pokemonfx.batalla;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -34,8 +37,9 @@ public class JuegoController implements Initializable {
 	private ListProperty<Pokemon> entrenador2 = new SimpleListProperty<>(FXCollections.observableArrayList());
 	private DoubleProperty vida = new SimpleDoubleProperty();
 	private DoubleProperty vidacpu = new SimpleDoubleProperty();
-	private StringProperty nombrePokemon= new SimpleStringProperty();
-	private StringProperty nombrePokemoncpu= new SimpleStringProperty();
+	private StringProperty nombrePokemon = new SimpleStringProperty();
+	private StringProperty nombrePokemoncpu = new SimpleStringProperty();
+	private BooleanProperty finCombate = new SimpleBooleanProperty();
 
 	@FXML
 	private ImageView pokemon1;
@@ -57,7 +61,7 @@ public class JuegoController implements Initializable {
 
 	@FXML
 	private Button ataque4;
-	
+
 	@FXML
 	private Label labelNCPU;
 
@@ -98,6 +102,11 @@ public class JuegoController implements Initializable {
 	private Slider vida2slider;
 
 	@FXML
+	private Label nivelcpu;
+
+	@FXML
+	private Label nivelpok;
+	@FXML
 	private AnchorPane view;
 
 	public JuegoController() throws IOException {
@@ -107,6 +116,7 @@ public class JuegoController implements Initializable {
 	}
 
 	public void initialize(URL location, ResourceBundle resources) {
+		finCombate.set(false);
 		combate.set(new Combate());
 		entrenador1.bind(combate.get().entrenador1Property());
 		entrenador2.bind(combate.get().entrenador2Property());
@@ -122,14 +132,16 @@ public class JuegoController implements Initializable {
 		vida2label.textProperty().bindBidirectional(vidacpu, new NumberStringConverter());
 		vida1slider.valueProperty().bind(vida);
 		vida2slider.valueProperty().bind(vidacpu);
-        labelNPok.textProperty().bind(nombrePokemon);
-        nombrePokemon.bind(PokemonSeleccionado.get().nombreProperty());
-        labelNCPU.textProperty().bind(nombrePokemoncpu);
-        nombrePokemoncpu.bind(Pokemoncpu.get().nombreProperty());
+		labelNPok.textProperty().bind(nombrePokemon);
+		nombrePokemon.bind(PokemonSeleccionado.get().nombreProperty());
+		labelNCPU.textProperty().bind(nombrePokemoncpu);
+		nombrePokemoncpu.bind(Pokemoncpu.get().nombreProperty());
 		pokemon1.setImage(PokemonSeleccionado.get().getDelante());
 		pokemon2.setImage(Pokemoncpu.get().getCpu());
 		labelcontPok.setText("" + entrenador1.getSize());
 		labelcontPokcpu.setText("" + entrenador2.getSize());
+		nivelpok.setText("" + PokemonSeleccionado.get().getNivel());
+		nivelcpu.setText("" + Pokemoncpu.get().getNivel());
 		cargarBotones(PokemonSeleccionado.get());
 		PokemonSeleccionado.addListener((o, ov, nv) -> onpokemonchanged(o, ov, nv));
 		Pokemoncpu.addListener((o, ov, nv) -> onpokemoncpuchanged(o, ov, nv));
@@ -152,8 +164,7 @@ public class JuegoController implements Initializable {
 			labelcontPok.setText("" + entrenador1.getSize());
 			labelcontPokcpu.setText("" + entrenador2.getSize());
 		}
-		
-		
+
 	}
 
 	private void onpokemoncpuchanged(ObservableValue<? extends Pokemon> o, Pokemon ov, Pokemon nv) {
@@ -161,12 +172,13 @@ public class JuegoController implements Initializable {
 			if (ov != null) {
 				vidacpu.unbind();
 				nombrePokemoncpu.unbind();
-				
+
 			}
 			if (nv != null) {
 				vidacpu.bind(nv.vidaProperty());
 				nombrePokemoncpu.bind(nv.nombreProperty());
 				pokemon2.setImage(nv.getCpu());
+				nivelcpu.setText("" + Pokemoncpu.get().getNivel());
 			}
 
 		}
@@ -190,6 +202,7 @@ public class JuegoController implements Initializable {
 				vida.bind(nv.vidaProperty());
 				nombrePokemon.bind(nv.nombreProperty());
 				cargarBotones(nv);
+				nivelpok.setText("" + PokemonSeleccionado.get().getNivel());
 				pokemon1.setImage(nv.getDelante());
 			}
 		}
@@ -232,7 +245,7 @@ public class JuegoController implements Initializable {
 	}
 
 	private void ataqueCombate(Ataque ataque, Pokemon pk) {
-		
+
 		Combate.ataque(ataque, pk);
 		if (pk.getVida() < 100) {
 			Pokemoncpu.set(entrenador2.get((int) Math.floor(Math.random() * entrenador2.getSize())));
@@ -249,7 +262,8 @@ public class JuegoController implements Initializable {
 			if (App.confirm("Resultado de combate", "Ganaste", null)) {
 				combate.set(new Combate());
 			} else {
-				System.exit(0);
+				combate.set(new Combate());
+				finCombate.set(true);
 			}
 
 		} else {
@@ -264,7 +278,8 @@ public class JuegoController implements Initializable {
 			if (App.confirm("Resultado de combate", "Perdiste", null)) {
 				combate.set(new Combate());
 			} else {
-				System.exit(0);
+				combate.set(new Combate());
+			   finCombate.set(true);
 			}
 
 		}
@@ -292,6 +307,18 @@ public class JuegoController implements Initializable {
 
 	public AnchorPane getView() {
 		return view;
+	}
+
+	public final BooleanProperty finCombateProperty() {
+		return this.finCombate;
+	}
+
+	public final boolean isFinCombate() {
+		return this.finCombateProperty().get();
+	}
+
+	public final void setFinCombate(final boolean finCombate) {
+		this.finCombateProperty().set(finCombate);
 	}
 
 }
