@@ -32,7 +32,6 @@ public class Controller implements Initializable {
 			juegoController=new JuegoController();
 			view.setCenter(menucontroller.getView());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		menucontroller.finProperty().addListener((o, ov, nv) -> sepulsoboton(o, ov, nv));
