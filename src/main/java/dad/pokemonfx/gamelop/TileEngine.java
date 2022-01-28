@@ -15,8 +15,8 @@ public class TileEngine {
 			{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2},
 			{2, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2},
 			{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2},
-			{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2},
 			{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+			
 	}; 
 
 	Image floorTile = new Image("/images/grassTile.png");
@@ -24,8 +24,11 @@ public class TileEngine {
 	Image flowerTile = new Image("/images/flowerTile.png");
 	Image treeTile = new Image("/images/treeTile.png");
 
-	double tileLength = 45.5;
-	double tileWidth = 42.5;
+	//double tileLength = 43.6363636363;
+	//double tileWidth = 42.35294117647;
+	
+	double tileLength = 48;
+	double tileWidth = 48;
 
 	public void generateTiles(GraphicsContext graphicsContext) {
 
