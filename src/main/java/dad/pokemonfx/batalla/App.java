@@ -6,26 +6,20 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCombination;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class App extends Application {
 
 	Controller controller;
-	JuegoController juego;
 	private static Stage primaryStage;
-	private static Stage secondStage;
 	static Scene mainScene;
-	static Scene juegoScene;
 
 	public void start(Stage primaryStage) throws Exception {
 
 		App.primaryStage = primaryStage;
 		controller = new Controller();
-		juego=new JuegoController();
 		mainScene = new Scene(controller.getView());
-		juegoScene=new Scene(juego.getView());
 		Font.loadFont(getClass().getResourceAsStream("/font/pokemon_pixel_font.ttf"), 14);
 		primaryStage.setTitle("Batalla Pokemon");
 		primaryStage.setResizable(false);
@@ -71,10 +65,4 @@ public class App extends Application {
 		alert.showAndWait();
 	}
 
-	public static void gotoMain(BorderPane pane) {
-		secondStage.setScene(new Scene(pane));
-		App.primaryStage = App.secondStage;
-		
-
-	}
 }

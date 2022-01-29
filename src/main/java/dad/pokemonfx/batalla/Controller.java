@@ -1,10 +1,14 @@
 package dad.pokemonfx.batalla;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import dad.pokemonfx.MovimientoFX.MapController;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,7 +18,8 @@ public class Controller implements Initializable {
 	private MenuController menucontroller;
 	private JuegoController juegoController;
 	private MapController mapcontroller;
-	
+	public static ListProperty<Pokemon> listMapPokemon = new SimpleListProperty<>(FXCollections.observableArrayList());
+
 	@FXML
 	private BorderPane view;
 
@@ -27,40 +32,50 @@ public class Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			menucontroller=new MenuController();
-			mapcontroller=new MapController();
-			juegoController=new JuegoController();
+			menucontroller = new MenuController();
+			mapcontroller = new MapController();
+			juegoController = new JuegoController();
 			view.setCenter(menucontroller.getView());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		menucontroller.finProperty().addListener((o, ov, nv) -> sepulsoboton(o, ov, nv));
+		menucontroller.BotonPulsadoProperty().addListener((o, ov, nv) -> sepulsoboton(o, ov, nv));
 		mapcontroller.getGameLoop().hayBatallaProperty().addListener((o, ov, nv) -> hayBatalla(o, ov, nv));
 		juegoController.finCombateProperty().addListener((o, ov, nv) -> finCombate(o, ov, nv));
-		
+		juegoController.getCombate().eleccionController.botonPulsadoProperty()
+				.addListener((o, ov, nv) -> botonEleccion(o, ov, nv));
+	}
+
+	private void botonEleccion(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
+		view.setCenter(mapcontroller.getView());
+		listMapPokemon.set(juegoController.getCombate().getEleccionController().getEntrenador());
 
 	}
 
 	private void finCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
-	    mapcontroller.getGameLoop().setHayBatalla(false);
+		mapcontroller.getGameLoop().setHayBatalla(false);
 		view.setCenter(mapcontroller.getView());
 		juegoController.setFinCombate(false);
-		
+
 	}
 
 	private void hayBatalla(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
+		juegoController.setCombate(new Combate());
 		view.setCenter(juegoController.getView());
 	}
 
 	private void sepulsoboton(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
-		view.setCenter(mapcontroller.getView());
-		//juegoController=new JuegoController();
-		//view.setCenter(juegoController.getView());
+		view.setCenter(juegoController.getCombate().getEleccionController().getView());
+	}
+
+	public static void curarPokemones() {
+		for (int i = 0; i < listMapPokemon.getSize(); i++) {
+			listMapPokemon.get(i).setVida(400 + listMapPokemon.get(i).getNivel() * 0.5);
+		}
 	}
 
 	public BorderPane getView() {
 		return view;
 	}
-
 
 }

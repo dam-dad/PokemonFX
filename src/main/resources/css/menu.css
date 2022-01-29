@@ -1,3 +1,12 @@
+ @font-face {
+  font-family: "Pokemon Pixel Font";
+  src: url('../font/pokemon_pixel_font.ttf');
+}
+
+.label,.button {
+	-fx-font-family: "Pokemon Pixel Font";
+	-fx-font-size:50;
+}
 #view {
     -fx-background-image:url('../images/fondo.gif');
     -fx-background-size:100% 100%;

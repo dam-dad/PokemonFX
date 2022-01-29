@@ -151,12 +151,13 @@ public class JuegoController implements Initializable {
 
 	private void oncombatechanged(ObservableValue<? extends Combate> o, Combate ov, Combate nv) {
 		if (ov != null) {
-			entrenador1.unbind();
+			entrenador1.clear();
 			entrenador2.unbind();
 			comboPokemon.itemsProperty().unbind();
 		}
 		if (nv != null) {
-			entrenador1.bind(nv.entrenador1Property());
+			Controller.curarPokemones();
+			entrenador1.get().addAll(Controller.listMapPokemon.get());
 			entrenador2.bind(nv.entrenador2Property());
 			comboPokemon.itemsProperty().bind(entrenador1);
 			comboPokemon.getSelectionModel().selectFirst();
@@ -262,7 +263,7 @@ public class JuegoController implements Initializable {
 			if (App.confirm("Resultado de combate", "Ganaste", null)) {
 				combate.set(new Combate());
 			} else {
-				combate.set(new Combate());
+
 				finCombate.set(true);
 			}
 
@@ -278,8 +279,8 @@ public class JuegoController implements Initializable {
 			if (App.confirm("Resultado de combate", "Perdiste", null)) {
 				combate.set(new Combate());
 			} else {
-				combate.set(new Combate());
-			   finCombate.set(true);
+
+				finCombate.set(true);
 			}
 
 		}
@@ -300,8 +301,8 @@ public class JuegoController implements Initializable {
 	private void ponerMensaje(double vidacpu, double vida) {
 		double daño = vidacpu - Pokemoncpu.get().getVida();
 		double daño2 = vida - PokemonSeleccionado.get().getVida();
-		mensajeataqueLabel.setText("ATAQUE: " + PokemonSeleccionado.get().getNombre() + " con una \ncantidad de: " + daño
-				+ "\nDEFENSA: " + Pokemoncpu.get().getNombre() + " con una \ncantidad de: " + daño2);
+		mensajeataqueLabel.setText("ATAQUE: " + PokemonSeleccionado.get().getNombre() + " con una \ncantidad de: "
+				+ daño + "\nDEFENSA: " + Pokemoncpu.get().getNombre() + " con una \ncantidad de: " + daño2);
 
 	}
 
@@ -319,6 +320,18 @@ public class JuegoController implements Initializable {
 
 	public final void setFinCombate(final boolean finCombate) {
 		this.finCombateProperty().set(finCombate);
+	}
+
+	public final ObjectProperty<Combate> combateProperty() {
+		return this.combate;
+	}
+
+	public final Combate getCombate() {
+		return this.combateProperty().get();
+	}
+
+	public final void setCombate(final Combate combate) {
+		this.combateProperty().set(combate);
 	}
 
 }

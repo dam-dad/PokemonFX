@@ -17,9 +17,7 @@ import javafx.fxml.Initializable;
 
 public class MenuController implements Initializable {
 
-	private BooleanProperty fin = new SimpleBooleanProperty();
-
-	JuegoController juego = new JuegoController();
+	private BooleanProperty botonPulsado = new SimpleBooleanProperty();
 
 	@FXML
 	private Button jugarbutton;
@@ -39,7 +37,7 @@ public class MenuController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		fin.set(false);
+		botonPulsado.set(false);
 		view.sceneProperty().addListener((o, ov, nv) -> {
 			iniciarTransicion();
 		});
@@ -56,7 +54,7 @@ public class MenuController implements Initializable {
 
 	@FXML
 	void onjugarbutton(ActionEvent event) {
-		fin.set(true);
+		botonPulsado.set(true);
 	}
 
 	@FXML
@@ -64,16 +62,16 @@ public class MenuController implements Initializable {
 		System.exit(0);
 	}
 
-	public BooleanProperty finProperty() {
-		return this.fin;
+	public BooleanProperty BotonPulsadoProperty() {
+		return this.botonPulsado;
 	}
 
-	public boolean isFin() {
-		return this.finProperty().get();
+	public boolean isBotonPulsado() {
+		return this.BotonPulsadoProperty().get();
 	}
 
-	public void setFin(final boolean fin) {
-		this.finProperty().set(fin);
+	public void setBotonPulsado(final boolean BotonValue) {
+		this.BotonPulsadoProperty().set(BotonValue);
 	}
 
 	public BorderPane getView() {

@@ -17,19 +17,25 @@ import javafx.collections.ObservableList;
 
 public class Combate {
 
-	private ListProperty<Pokemon> listPokemon = new SimpleListProperty<>(FXCollections.observableArrayList());
+	EleccionController eleccionController;
 	private ListProperty<Pokemon> entrenador1 = new SimpleListProperty<>(FXCollections.observableArrayList());
 	private ListProperty<Pokemon> entrenador2 = new SimpleListProperty<>(FXCollections.observableArrayList());
 
 	public Combate() {
+		try {
+			eleccionController = new EleccionController();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		cargarlistaPokemon();
 		int pk = 0;
 		for (int i = 0; i < 6; i++) {
-			entrenador1.get().add(i, listPokemon.get(pk));
+			entrenador1.get().add(i, eleccionController.getListpokemon().get(pk));
 			pk++;
 		}
 		for (int i = 0; i < 6; i++) {
-			entrenador2.add(i, listPokemon.get(pk));
+			entrenador2.add(i, eleccionController.getListpokemon().get(pk));
 			pk++;
 		}
 
@@ -51,7 +57,6 @@ public class Combate {
 		int valorDado = (int) Math.floor(Math.random() * 4);
 		Ataque ataque = pok.getAtaques().get(valorDado);
 		ataque(ataque, pok);
-	
 
 	}
 
@@ -76,7 +81,7 @@ public class Combate {
 				int nivel = Integer.valueOf(list.get(i).getAttributeValue("nivel"));
 				Pokemon pok = new Pokemon(Pokemon.getAttributeValue("nombre"), Pokemon.getAttributeValue("tipo"), nivel,
 						listaAtaques);
-				listPokemon.add(i, pok);
+				eleccionController.getListpokemon().add(i, pok);
 
 			}
 		} catch (JDOMException | IOException e) {
@@ -110,7 +115,12 @@ public class Combate {
 		this.entrenador2Property().set(entrenador2);
 	}
 
-	
-	
+	public EleccionController getEleccionController() {
+		return eleccionController;
+	}
+
+	public void setEleccionController(EleccionController eleccionController) {
+		this.eleccionController = eleccionController;
+	}
 
 }
