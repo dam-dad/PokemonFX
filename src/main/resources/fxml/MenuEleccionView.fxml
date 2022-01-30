@@ -46,7 +46,7 @@
             <Image url="@../images/bola.gif" />
          </image>
       </ImageView>
-      <Label layoutX="94.0" layoutY="14.0" text="ESCOGE TUS 6 POKEMONES" textFill="WHITE">
+      <Label layoutX="94.0" layoutY="14.0" text="ESCOGE TUS 6 POKEMON" textFill="WHITE">
          <font>
             <Font size="71.0" />
          </font>

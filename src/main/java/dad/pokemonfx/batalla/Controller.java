@@ -72,6 +72,16 @@ public class Controller implements Initializable {
 		mapcontroller.getGameLoop().setHayBatalla(false);
 		view.setCenter(mapcontroller.getView());
 		juegoController.setFinCombate(false);
+		mediaPlayer.stop();
+		// world song
+		try {
+			media = new Media((getClass().getResource("/music/Littleroot_Town.mp3")).toURI().toString());
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		mediaPlayer = new MediaPlayer(media);
+		mediaPlayer.setVolume(0.03);
+		mediaPlayer.play();
 
 	}
 

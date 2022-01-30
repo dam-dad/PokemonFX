@@ -105,7 +105,7 @@ public class EleccionController implements Initializable {
 				listanoLlena.set(false);
 			}
 		}else {
-			App.info("Error", "Ya has elegido 6 Pokemones", null);
+			App.info("Error", "Ya has elegido 6 Pokemon", null);
 		}
 
 	}

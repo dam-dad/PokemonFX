@@ -44,8 +44,6 @@ public class ModoBatallaController implements Initializable {
 	private DoubleProperty vidaMaximacpu = new SimpleDoubleProperty();
 	private DoubleProperty vidaResultante = new SimpleDoubleProperty();
 	private DoubleProperty vidaResultantecpu = new SimpleDoubleProperty();
-	private SimpleDoubleProperty vidaTranscrita = new SimpleDoubleProperty();
-	private DoubleProperty vidaTranscritacpu = new SimpleDoubleProperty();
 	
 
 	@FXML
@@ -137,14 +135,10 @@ public class ModoBatallaController implements Initializable {
 		vidaMaximacpu.set(vidacpu.get());
 		vidaResultante.bind(vida);
 		vidaResultantecpu.bind(vidacpu);
-		//vida1slider.setMax(vida.get());
-		//vida2slider.setMax(vidacpu.get());
 		vidalabel.textProperty().bindBidirectional(vida, new NumberStringConverter());
 		vida2label.textProperty().bindBidirectional(vidacpu, new NumberStringConverter());
 		vida1slider.progressProperty().bind(vidaResultante.divide(vidaMaxima));		
-		//vida1slider.valueProperty().bind(vida);
 		vida2slider.progressProperty().bind(vidaResultantecpu.divide(vidaMaximacpu));
-		//vida2slider.valueProperty().bind(vidacpu);
 		labelNPok.textProperty().bind(nombrePokemon);
 		nombrePokemon.bind(PokemonSeleccionado.get().nombreProperty());
 		labelNCPU.textProperty().bind(nombrePokemoncpu);
