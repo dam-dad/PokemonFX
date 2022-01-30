@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ListProperty;
@@ -23,6 +24,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -40,6 +42,13 @@ public class JuegoController implements Initializable {
 	private StringProperty nombrePokemon = new SimpleStringProperty();
 	private StringProperty nombrePokemoncpu = new SimpleStringProperty();
 	private BooleanProperty finCombate = new SimpleBooleanProperty();
+	private DoubleProperty vidaMaxima = new SimpleDoubleProperty();
+	private DoubleProperty vidaMaximacpu = new SimpleDoubleProperty();
+	private DoubleProperty vidaResultante = new SimpleDoubleProperty();
+	private DoubleProperty vidaResultantecpu = new SimpleDoubleProperty();
+	private SimpleDoubleProperty vidaTranscrita = new SimpleDoubleProperty();
+	private DoubleProperty vidaTranscritacpu = new SimpleDoubleProperty();
+	
 
 	@FXML
 	private ImageView pokemon1;
@@ -96,10 +105,10 @@ public class JuegoController implements Initializable {
 	private Label vida2label;
 
 	@FXML
-	private Slider vida1slider;
+	private ProgressBar vida1slider;
 
 	@FXML
-	private Slider vida2slider;
+	private ProgressBar vida2slider;
 
 	@FXML
 	private Label nivelcpu;
@@ -126,12 +135,18 @@ public class JuegoController implements Initializable {
 		Pokemoncpu.set(entrenador2.get(0));
 		vida.bind(PokemonSeleccionado.get().vidaProperty());
 		vidacpu.bind(Pokemoncpu.get().vidaProperty());
-		vida1slider.setMax(vida.get());
-		vida2slider.setMax(vidacpu.get());
+		vidaMaxima.set(vida.get());
+		vidaMaximacpu.set(vidacpu.get());
+		vidaResultante.bind(vida);
+		vidaResultantecpu.bind(vidacpu);
+		//vida1slider.setMax(vida.get());
+		//vida2slider.setMax(vidacpu.get());
 		vidalabel.textProperty().bindBidirectional(vida, new NumberStringConverter());
 		vida2label.textProperty().bindBidirectional(vidacpu, new NumberStringConverter());
-		vida1slider.valueProperty().bind(vida);
-		vida2slider.valueProperty().bind(vidacpu);
+		vida1slider.progressProperty().bind(vidaResultante.divide(vidaMaxima));		
+		//vida1slider.valueProperty().bind(vida);
+		vida2slider.progressProperty().bind(vidaResultantecpu.divide(vidaMaximacpu));
+		//vida2slider.valueProperty().bind(vidacpu);
 		labelNPok.textProperty().bind(nombrePokemon);
 		nombrePokemon.bind(PokemonSeleccionado.get().nombreProperty());
 		labelNCPU.textProperty().bind(nombrePokemoncpu);
