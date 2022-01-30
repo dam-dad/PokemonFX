@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="view" prefHeight="480.0" prefWidth="720.0" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="480.0" fitWidth="720.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Desktop/pokemonsJavaFX/background.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="ataque1" alignment="CENTER" cache="true" layoutX="298.0" layoutY="368.0" mnemonicParsing="false" onAction="#onataque1" prefHeight="37.0" prefWidth="100.0" text="Button" textAlignment="CENTER">
+         <font>
+            <Font name="Pokemon Pixel Font Regular" size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="ataque1Label" alignment="CENTER" contentDisplay="CENTER" layoutX="402.0" layoutY="363.0" prefHeight="47.0" prefWidth="88.0" text="Label">
+         <font>
+            <Font name="Pokemon Pixel Font Regular" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="ataque2" alignment="CENTER" cache="true" layoutX="498.0" layoutY="368.0" mnemonicParsing="false" onAction="#onataque2" prefHeight="37.0" prefWidth="100.0" text="Button" textAlignment="CENTER">
+         <font>
+            <Font name="Pokemon Pixel Font Regular" size="18.0" />
+         </font></Button>
+      <Label fx:id="ataque2Label" alignment="CENTER" contentDisplay="CENTER" layoutX="598.0" layoutY="363.0" prefHeight="47.0" prefWidth="88.0" text="Label">
+         <font>
+            <Font name="Pokemon Pixel Font Regular" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="ataque3" alignment="CENTER" cache="true" layoutX="298.0" layoutY="410.0" mnemonicParsing="false" onAction="#onataque3" prefHeight="37.0" prefWidth="100.0" text="Button" textAlignment="CENTER">
+         <font>
+            <Font name="Pokemon Pixel Font Regular" size="18.0" />
+         </font></Button>
+      <Label fx:id="ataque3Label" alignment="CENTER" contentDisplay="CENTER" layoutX="402.0" layoutY="405.0" prefHeight="47.0" prefWidth="88.0" text="Label">
+         <font>
+            <Font name="Pokemon Pixel Font Regular" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="ataque4" alignment="CENTER" cache="true" layoutX="498.0" layoutY="410.0" mnemonicParsing="false" onAction="#onataque4" prefHeight="37.0" prefWidth="100.0" text="Button" textAlignment="CENTER">
+         <font>
+            <Font name="Pokemon Pixel Font Regular" size="18.0" />
+         </font></Button>
+      <Label fx:id="ataque4Label" alignment="CENTER" contentDisplay="CENTER" layoutX="598.0" layoutY="405.0" prefHeight="47.0" prefWidth="88.0" text="Label">
+         <font>
+            <Font name="Pokemon Pixel Font Regular" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboPokemon" layoutX="275.0" layoutY="301.0" prefHeight="34.0" prefWidth="131.0" />
+      <ImageView fx:id="pokemon1" fitHeight="192.0" fitWidth="192.0" layoutX="82.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true" />
+      <Rectangle fx:id="hpBackground" arcHeight="5.0" arcWidth="5.0" fill="#574f4f" height="21.0" layoutX="518.0" layoutY="270.0" stroke="BLACK" strokeType="INSIDE" width="154.0" />
+      <ProgressBar fx:id="vida1slider" layoutX="519.0" layoutY="272.0" prefHeight="18.0" prefWidth="151.0" progress="1.0" />
+      <Label fx:id="vidalabel" layoutX="429.0" layoutY="267.0" stylesheets="@../css/estilo.css" text="Label" textFill="#c73a24">
+         <font>
+            <Font name="Pokemon Pixel Font Regular" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="344.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/bola.gif" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelcontPok" alignment="CENTER" layoutX="371.0" layoutY="257.0" prefHeight="32.0" prefWidth="27.0" text="6" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="22.0" />
+         </font>
+      </Label>
+      <VBox />
+      <Label fx:id="mensajeataqueLabel" alignment="TOP_LEFT" layoutX="29.0" layoutY="380.0" prefHeight="85.0" prefWidth="212.0" text="Ataca para ver registros de ataque" textFill="WHITE">
+         <font>
+            <Font name="Pokemon Pixel Font Regular" size="18.0" />
+         </font></Label>
+      <ImageView fitHeight="30.0" fitWidth="89.0" layoutX="313.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/bola.gif" />
+         </image>
+      </ImageView>
+      <Label fx:id="vida2label" layoutX="52.0" layoutY="90.0" text="Label" textFill="#c73a24">
+         <font>
+            <Font name="Pokemon Pixel Font Regular" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="pokemon2" fitHeight="192.0" fitWidth="192.0" layoutX="438.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="labelcontPokcpu" alignment="CENTER" layoutX="345.0" layoutY="45.0" prefHeight="70.0" prefWidth="26.0" text="6" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="22.0" />
+         </font>
+      </Label>
+
+      <Label layoutX="60.0" layoutY="356.0" stylesheets="@../css/estilo.css" text="REGISTRO DE ATAQUES" textFill="WHITE">
+         <font>
+            <Font name="Pokemon Pixel Font Regular" size="24.0" />
+         </font></Label>
+
+      <Label fx:id="labelNCPU" layoutX="61.0" layoutY="62.0" text="Label">
+         <font>
+            <Font name="Pokemon Pixel Font Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelNPok" layoutX="438.0" layoutY="240.0" text="Label">
+         <font>
+            <Font name="Pokemon Pixel Font Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="nivelcpu" alignment="CENTER" layoutX="274.0" layoutY="51.0" prefHeight="47.0" prefWidth="27.0" text="100" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="nivelpok" alignment="CENTER" layoutX="648.0" layoutY="229.0" prefHeight="47.0" prefWidth="26.0" text="100" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="hpBackground1" arcHeight="5.0" arcWidth="5.0" fill="#574f4f" height="21.0" layoutX="143.0" layoutY="93.0" stroke="BLACK" strokeType="INSIDE" width="154.0" />
+      <ProgressBar fx:id="vida2slider" layoutX="144.0" layoutY="94.0" prefHeight="18.0" prefWidth="151.0" progress="1.0" />
+   </children>
+</AnchorPane>
