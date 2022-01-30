@@ -27,6 +27,9 @@ public class MenuController implements Initializable {
 	private BooleanProperty botonPulsado = new SimpleBooleanProperty();
 
 	@FXML
+    private Button batallabutton;
+	
+	@FXML
 	private Button jugarbutton;
 
 	@FXML
@@ -73,6 +76,11 @@ public class MenuController implements Initializable {
 	void onjugarbutton(ActionEvent event) {
 		botonPulsado.set(true);
 	}
+	
+	@FXML
+    void onbatallabutton(ActionEvent event) {
+		botonPulsado.set(true);
+    }
 
 	@FXML
 	void onsalirbutton(ActionEvent event) {
