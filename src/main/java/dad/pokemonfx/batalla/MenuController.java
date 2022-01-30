@@ -1,6 +1,7 @@
 package dad.pokemonfx.batalla;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -12,10 +13,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import javafx.fxml.Initializable;
 
 public class MenuController implements Initializable {
+	
+	Media media;
+	MediaPlayer mediaPlayer;
+	Media media2;
 
 	private BooleanProperty botonPulsado = new SimpleBooleanProperty();
 
@@ -40,7 +47,17 @@ public class MenuController implements Initializable {
 		botonPulsado.set(false);
 		view.sceneProperty().addListener((o, ov, nv) -> {
 			iniciarTransicion();
-		});
+		});		
+		// menu song
+		try {
+			media = new Media((getClass().getResource("/music/Menu_Song.mp3")).toURI().toString());
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mediaPlayer = new MediaPlayer(media);
+		mediaPlayer.setVolume(0.03);
+		mediaPlayer.play();
 
 	}
 	private void iniciarTransicion() {
