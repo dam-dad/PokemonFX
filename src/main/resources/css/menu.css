@@ -8,7 +8,7 @@
 	-fx-font-size:50;
 }
 #view {
-    -fx-background-image:url('../images/fondo.gif');
+    -fx-background-image:url('../images/background.gif');
     -fx-background-size:100% 100%;
    
 }
