@@ -11,10 +11,12 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.fxml.Initializable;
 
@@ -25,6 +27,8 @@ public class MenuController implements Initializable {
 	Media media2;
 
 	private BooleanProperty botonPulsado = new SimpleBooleanProperty();
+	ModoBatallaController modobatallaController;
+	Stage modobatallaStage;
 
 	@FXML
     private Button batallabutton;
@@ -78,8 +82,13 @@ public class MenuController implements Initializable {
 	}
 	
 	@FXML
-    void onbatallabutton(ActionEvent event) {
-		botonPulsado.set(true);
+    void onbatallabutton(ActionEvent event) throws IOException {
+		modobatallaController = new ModoBatallaController();
+		Scene scene = new Scene(modobatallaController.getView());
+		modobatallaStage = new Stage();
+		modobatallaStage.setScene(scene);
+		modobatallaStage.show();
+		 
     }
 
 	@FXML

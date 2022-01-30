@@ -28,7 +28,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.NumberStringConverter;
 
-public class JuegoController implements Initializable {
+public class ModoBatallaController implements Initializable {
 
 	private ObjectProperty<Combate> combate = new SimpleObjectProperty<>();
 	private ObjectProperty<Pokemon> PokemonSeleccionado = new SimpleObjectProperty<>();
@@ -116,7 +116,7 @@ public class JuegoController implements Initializable {
 	@FXML
 	private AnchorPane view;
 
-	public JuegoController() throws IOException {
+	public ModoBatallaController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Juego.fxml"));
 		loader.setController(this);
 		loader.load();
