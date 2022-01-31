@@ -1,9 +1,14 @@
-package dad.pokemonfx.batalla;
+package dad.pokemonfx.battlemode;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dad.pokemonfx.batalla.App;
+import dad.pokemonfx.batalla.Ataque;
+import dad.pokemonfx.batalla.Combate;
+import dad.pokemonfx.batalla.Controller;
+import dad.pokemonfx.batalla.Pokemon;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ListProperty;
@@ -115,7 +120,7 @@ public class ModoBatallaController implements Initializable {
 	private AnchorPane view;
 
 	public ModoBatallaController() throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Juego.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ModoBatalla.fxml"));
 		loader.setController(this);
 		loader.load();
 	}

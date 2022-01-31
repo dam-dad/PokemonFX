@@ -1,0 +1,23 @@
+ @font-face {
+  font-family: "Pokemon Pixel Font";
+  src: url('../font/pokemon_pixel_font.ttf');
+}
+
+.label {
+	-fx-font-family: "Pokemon Pixel Font";
+	-fx-font-size:60;
+	-fx-text-fill: yellow;
+}
+.button {
+	-fx-font-family: "Pokemon Pixel Font";
+	-fx-font-size:20;
+}
+.list-view{
+	-fx-font-family: "Pokemon Pixel Font";
+	-fx-font-size:20;
+}
+#view {
+    -fx-background-image:url('../images/background-battlemode.gif');
+    -fx-background-size:100% 100%;
+   
+}

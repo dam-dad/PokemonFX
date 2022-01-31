@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dad.pokemonfx.battlemode.MenuBattleModeController;
 import javafx.animation.FadeTransition;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -27,8 +28,8 @@ public class MenuController implements Initializable {
 	Media media2;
 
 	private BooleanProperty botonPulsado = new SimpleBooleanProperty();
-	ModoBatallaController modobatallaController;
-	Stage modobatallaStage;
+	MenuBattleModeController battlemodeController;
+	Stage battlemodeStage;
 
 	@FXML
     private Button batallabutton;
@@ -83,12 +84,12 @@ public class MenuController implements Initializable {
 	
 	@FXML
     void onbatallabutton(ActionEvent event) throws IOException {
-		modobatallaController = new ModoBatallaController();
-		Scene scene = new Scene(modobatallaController.getView());
-		modobatallaStage = new Stage();
-		modobatallaStage.setScene(scene);
-		modobatallaStage.show();
-		 
+		mediaPlayer.stop();
+		battlemodeController = new MenuBattleModeController();
+		Scene scene = new Scene(battlemodeController.getView());
+		battlemodeStage = new Stage();
+		battlemodeStage.setScene(scene);
+		battlemodeStage.show();
     }
 
 	@FXML
