@@ -29,7 +29,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.NumberStringConverter;
 
 public class JuegoController implements Initializable {
-
+	
 	private ObjectProperty<Combate> combate = new SimpleObjectProperty<>();
 	private ObjectProperty<Pokemon> PokemonSeleccionado = new SimpleObjectProperty<>();
 	private ObjectProperty<Pokemon> Pokemoncpu = new SimpleObjectProperty<>();

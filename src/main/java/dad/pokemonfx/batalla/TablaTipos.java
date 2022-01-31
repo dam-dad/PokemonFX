@@ -39,6 +39,6 @@ public class TablaTipos {
     
     public static String[] pokemonType = new String[] { "NONE",  "NORMAL",  "FUEGO",  "AGUA",  "ELECTRICO",  "PLANTA",
     		"HIELO",  "LUCHA",  "VENENO",  "TIERRA",  "VOLADOR",  "PSIQUICO",  "BICHO", "ROCA",  "FANTASMA",  "DRAGON",
-    		"SINIESTRO", "METAL"};
+    		"SINIESTRO", "ACERO"};
     
 }
