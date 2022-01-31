@@ -1,25 +1,21 @@
 package dad.pokemonfx.battlemode;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 public class MenuBattleModeController implements Initializable {
 
-	Media media;
-	MediaPlayer mediaPlayer;
+	BooleanProperty botonVolver = new SimpleBooleanProperty();
+	BooleanProperty botonIrCombate = new SimpleBooleanProperty();
 
 	@FXML
 	private Button cancelarbutton;
@@ -38,21 +34,50 @@ public class MenuBattleModeController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		
+		botonVolver.set(false);
+		botonIrCombate.set(false);
 	}
 
 	@FXML
 	void oncancelarbutton(ActionEvent event) {
-		((Node) (event.getSource())).getScene().getWindow().hide();
+		botonVolver.set(true);
 	}
 
 	@FXML
 	void onsiguientebutton(ActionEvent event) {
-
+        botonIrCombate.set(true);
 	}
 
 	public BorderPane getView() {
 		return view;
 	}
+
+	public final BooleanProperty botonVolverProperty() {
+		return this.botonVolver;
+	}
+
+	public final boolean isBotonVolver() {
+		return this.botonVolverProperty().get();
+	}
+
+	public final void setBotonVolver(final boolean botonVolver) {
+		this.botonVolverProperty().set(botonVolver);
+	}
+
+	public final BooleanProperty botonIrCombateProperty() {
+		return this.botonIrCombate;
+	}
+	
+
+	public final boolean isBotonIrCombate() {
+		return this.botonIrCombateProperty().get();
+	}
+	
+
+	public final void setBotonIrCombate(final boolean botonIrCombate) {
+		this.botonIrCombateProperty().set(botonIrCombate);
+	}
+	
+	
+
 }

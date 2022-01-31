@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import dad.pokemonfx.batalla.App;
 import dad.pokemonfx.batalla.Ataque;
 import dad.pokemonfx.batalla.Combate;
-import dad.pokemonfx.batalla.Controller;
 import dad.pokemonfx.batalla.Pokemon;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
@@ -120,7 +119,7 @@ public class ModoBatallaController implements Initializable {
 	private AnchorPane view;
 
 	public ModoBatallaController() throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ModoBatalla.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Juego.fxml"));
 		loader.setController(this);
 		loader.load();
 	}
@@ -163,13 +162,13 @@ public class ModoBatallaController implements Initializable {
 
 	private void oncombatechanged(ObservableValue<? extends Combate> o, Combate ov, Combate nv) {
 		if (ov != null) {
-			entrenador1.clear();
+			entrenador1.unbind();
 			entrenador2.unbind();
 			comboPokemon.itemsProperty().unbind();
 		}
 		if (nv != null) {
-			Controller.curarPokemones();
-			entrenador1.get().addAll(Controller.listMapPokemon.get());
+			
+			entrenador1.bind(nv.entrenador1Property());
 			entrenador2.bind(nv.entrenador2Property());
 			comboPokemon.itemsProperty().bind(entrenador1);
 			comboPokemon.getSelectionModel().selectFirst();
@@ -275,7 +274,7 @@ public class ModoBatallaController implements Initializable {
 			if (App.confirm("Resultado de combate", "Ganaste", null)) {
 				combate.set(new Combate());
 			} else {
-
+				combate.set(new Combate());
 				finCombate.set(true);
 			}
 
@@ -291,7 +290,7 @@ public class ModoBatallaController implements Initializable {
 			if (App.confirm("Resultado de combate", "Perdiste", null)) {
 				combate.set(new Combate());
 			} else {
-
+				combate.set(new Combate());
 				finCombate.set(true);
 			}
 

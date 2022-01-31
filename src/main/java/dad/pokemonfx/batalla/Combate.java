@@ -44,10 +44,16 @@ public class Combate {
 	public static void ataque(Ataque ataque, Pokemon pok) {
 		int numeroaletatorio = (int) (Math.random() * 100 + 1);
 		if (numeroaletatorio <= ataque.getPrecision()) {
+			int poder=ataque.getPoder();
+			
 			if (ataque.getPoder() > pok.getVida()) {
 				pok.setVida(0);
 			} else {
+				if(ataque.getTipoAtaque().equals(pok.getTipo())) {
+					ataque.setPoder(poder/2);
+				}
 				pok.setVida(pok.getVida() - ataque.getPoder());
+				ataque.setPoder(poder);
 			}
 		}
 
