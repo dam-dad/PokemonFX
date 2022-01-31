@@ -13,7 +13,7 @@
    <center>
       <VBox alignment="CENTER_LEFT" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="jugarbutton" alignment="CENTER" cache="true" contentDisplay="RIGHT" defaultButton="true" depthTest="DISABLE" graphicTextGap="6.0" mnemonicParsing="false" onAction="#onjugarbutton" text="JUGAR" textFill="RED" textOverrun="CLIP">
+            <Button fx:id="jugarbutton" alignment="CENTER" cache="true" contentDisplay="RIGHT" depthTest="DISABLE" graphicTextGap="6.0" mnemonicParsing="false" onAction="#onjugarbutton" text="JUGAR" textFill="RED" textOverrun="CLIP">
                <font>
                   <Font name="Modern No. 20" size="36.0" />
                </font>

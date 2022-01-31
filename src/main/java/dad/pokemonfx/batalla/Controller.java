@@ -21,6 +21,7 @@ public class Controller implements Initializable {
 	private MenuController menucontroller;
 	private JuegoController juegoController;
 	private MapController mapcontroller;
+	ModoBatallaController modobatallaController;
 	public static ListProperty<Pokemon> listMapPokemon = new SimpleListProperty<>(FXCollections.observableArrayList());
 	
 	Media media;
@@ -41,15 +42,22 @@ public class Controller implements Initializable {
 			menucontroller = new MenuController();
 			mapcontroller = new MapController();
 			juegoController = new JuegoController();
+			modobatallaController=new ModoBatallaController();
 			view.setCenter(menucontroller.getView());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		menucontroller.BotonPulsadoProperty().addListener((o, ov, nv) -> sepulsoboton(o, ov, nv));
+		menucontroller.botonCombatePulsadoProperty().addListener((o, ov, nv) -> sepulsobotonModoBatalla(o, ov, nv));
 		mapcontroller.getGameLoop().hayBatallaProperty().addListener((o, ov, nv) -> hayBatalla(o, ov, nv));
 		juegoController.finCombateProperty().addListener((o, ov, nv) -> finCombate(o, ov, nv));
 		juegoController.getCombate().eleccionController.botonPulsadoProperty()
 				.addListener((o, ov, nv) -> botonEleccion(o, ov, nv));
+		
+	}
+
+	private void sepulsobotonModoBatalla(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
+		view.setCenter(modobatallaController.getView());
 	}
 
 	private void botonEleccion(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
