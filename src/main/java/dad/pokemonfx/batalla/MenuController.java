@@ -35,6 +35,12 @@ public class MenuController implements Initializable {
 
 	@FXML
 	private Button salirbutton;
+	
+	@FXML
+    private Button activarmusicabutton;
+	
+	@FXML
+    private Button silenciarmusicabutton;
 
 	@FXML
 	private BorderPane view;
@@ -89,6 +95,16 @@ public class MenuController implements Initializable {
 	void onsalirbutton(ActionEvent event) {
 		System.exit(0);
 	}
+	
+	@FXML
+    void onactivarmusicabuttonaction(ActionEvent event) {
+		mediaPlayer.play();
+    }
+	
+	@FXML
+    void onsilenciarmusicabuttonaction(ActionEvent event) {
+		mediaPlayer.pause();
+    }
 
 	public BooleanProperty BotonPulsadoProperty() {
 		return this.botonPulsado;

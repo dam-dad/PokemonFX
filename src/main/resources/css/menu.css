@@ -3,7 +3,7 @@
   src: url('../font/pokemon_pixel_font.ttf');
 }
 
-.label,.button {
+.botonesMenu {
 	-fx-font-family: "Pokemon Pixel Font";
 	-fx-font-size:50;
 }
