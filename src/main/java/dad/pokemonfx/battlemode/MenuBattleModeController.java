@@ -38,23 +38,12 @@ public class MenuBattleModeController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// battlemode song
-		/*
-		try {
-			media = new Media((getClass().getResource("/music/Main_Menu_Battlemode.mp3")).toURI().toString());
-		} catch (URISyntaxException e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		mediaPlayer = new MediaPlayer(media);
-		mediaPlayer.setVolume(0.03);
-		mediaPlayer.play();
-	*/
+		
+		
 	}
 
 	@FXML
 	void oncancelarbutton(ActionEvent event) {
-		mediaPlayer.stop();
 		((Node) (event.getSource())).getScene().getWindow().hide();
 	}
 

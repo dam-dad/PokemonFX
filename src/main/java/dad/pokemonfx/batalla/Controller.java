@@ -59,7 +59,18 @@ public class Controller implements Initializable {
 	}
 
 	private void sepulsobotonModoBatalla(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
+		menucontroller.mediaPlayer.stop();
 		view.setCenter(menubattlemodeController.getView());
+		// battlemode song
+		try {
+			media = new Media((getClass().getResource("/music/Main_Menu_Battlemode.mp3")).toURI().toString());
+		} catch (URISyntaxException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		mediaPlayer = new MediaPlayer(media);
+		mediaPlayer.setVolume(0.03);
+		mediaPlayer.play();
 	}
 
 	private void botonEleccion(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
