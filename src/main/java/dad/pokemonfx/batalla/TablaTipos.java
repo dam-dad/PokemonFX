@@ -1,7 +1,9 @@
 package dad.pokemonfx.batalla;
 
+import java.util.Arrays;
+
 public class TablaTipos {
-    static float[][] tablaTipos =
+    public static float[][] tablaTipos =
     {   //                   NOR  FIR  WAT  ELE  GRA  ICE  FIG  POI  GRO  FLY  PSY  BUG  ROC  GHO  DRA  DAR  STE 
         /*NOR*/new float[] { 1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  0.5f,0f,  1f,  1f,  0.5f},
         /*FUE*/new float[] { 1f, 0.5f, 0.5f,1f,  2f,  2f,  1f,  1f,  1f,  1f,  1f,  2f,  0.5f,1f,  0.5f,1f,  2f  },
@@ -22,15 +24,21 @@ public class TablaTipos {
         /*STE*/new float[] { 1f,  0.5f,0.5f,0.5f,1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  0.5f},
     };
 
-    public static float GetEfectividad(String tipoAtaque, String tipoDefensa)
+    public static double GetEfectividad(String tipoAtaque, String tipoDefensa)
     {
-        if(tipoAtaque == "None" || tipoDefensa == "None")
+        if (tipoAtaque == pokemonType[0] || tipoDefensa == pokemonType[0])
         {
             return 1;
         }
-        int row = Integer.parseInt(tipoAtaque) - 1;
-        int col = Integer.parseInt(tipoDefensa) - 1;
+        int row = Arrays.asList(pokemonType).indexOf(tipoAtaque) - 1;
+        int col = Arrays.asList(pokemonType).indexOf(tipoDefensa) - 1;
 
         return tablaTipos[row][col];
+        
     }
+    
+    public static String[] pokemonType = new String[] { "NONE",  "NORMAL",  "FUEGO",  "AGUA",  "ELECTRICO",  "PLANTA",
+    		"HIELO",  "LUCHA",  "VENENO",  "TIERRA",  "VOLADOR",  "PSIQUICO",  "BICHO", "ROCA",  "FANTASMA",  "DRAGON",
+    		"SINIESTRO", "METAL"};
+    
 }

@@ -44,16 +44,11 @@ public class Combate {
 	public static void ataque(Ataque ataque, Pokemon pok) {
 		int numeroaletatorio = (int) (Math.random() * 100 + 1);
 		if (numeroaletatorio <= ataque.getPrecision()) {
-			int poder=ataque.getPoder();
-			
-			if (ataque.getPoder() > pok.getVida()) {
+			Double cantidadAtaque = ataque.getPoder() * TablaTipos.GetEfectividad(ataque.getTipoAtaque(), pok.getTipo());
+			if (cantidadAtaque > pok.getVida()) {
 				pok.setVida(0);
 			} else {
-				if(ataque.getTipoAtaque().equals(pok.getTipo())) {
-					ataque.setPoder(poder/2);
-				}
-				pok.setVida(pok.getVida() - ataque.getPoder());
-				ataque.setPoder(poder);
+				pok.setVida(pok.getVida() - cantidadAtaque);
 			}
 		}
 
@@ -79,8 +74,8 @@ public class Combate {
 				List<Element> ataques = ataque.getChildren();
 				ArrayList<Ataque> listaAtaques = new ArrayList<Ataque>();
 				for (int j = 0; j < ataques.size(); j++) {
-					int poder = Integer.valueOf(ataques.get(j).getAttributeValue("poder"));
-					int precision = Integer.valueOf(ataques.get(j).getAttributeValue("precision"));
+					double poder = Integer.valueOf(ataques.get(j).getAttributeValue("poder"));
+					double precision = Integer.valueOf(ataques.get(j).getAttributeValue("precision"));
 					listaAtaques.add(j, new Ataque(ataques.get(j).getText(), poder, precision,
 							ataques.get(j).getAttributeValue("tipo")));
 				}

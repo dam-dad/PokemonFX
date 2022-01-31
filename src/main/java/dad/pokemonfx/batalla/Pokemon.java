@@ -27,7 +27,7 @@ public class Pokemon {
 		this.ataques = ataques;
 		if (nivel > 0 && nivel < 100) {
 			for (int i = 0; i < ataques.size(); i++) {
-				int poder = ataques.get(i).getPoder();
+				Double poder = ataques.get(i).getPoder();
 				ataques.get(i).setPoder(poder + (nivel / 100) * nivel);
 			}
 		} else {
