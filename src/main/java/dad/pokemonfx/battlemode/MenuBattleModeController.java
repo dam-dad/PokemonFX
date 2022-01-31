@@ -39,6 +39,7 @@ public class MenuBattleModeController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// battlemode song
+		/*
 		try {
 			media = new Media((getClass().getResource("/music/Main_Menu_Battlemode.mp3")).toURI().toString());
 		} catch (URISyntaxException e) {
@@ -48,7 +49,7 @@ public class MenuBattleModeController implements Initializable {
 		mediaPlayer = new MediaPlayer(media);
 		mediaPlayer.setVolume(0.03);
 		mediaPlayer.play();
-
+	*/
 	}
 
 	@FXML

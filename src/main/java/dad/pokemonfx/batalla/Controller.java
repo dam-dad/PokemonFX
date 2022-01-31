@@ -6,6 +6,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import dad.pokemonfx.MovimientoFX.MapController;
+import dad.pokemonfx.battlemode.MenuBattleModeController;
+import dad.pokemonfx.battlemode.ModoBatallaController;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.value.ObservableValue;
@@ -21,7 +23,7 @@ public class Controller implements Initializable {
 	private MenuController menucontroller;
 	private JuegoController juegoController;
 	private MapController mapcontroller;
-	ModoBatallaController modobatallaController;
+	private MenuBattleModeController menubattlemodeController;
 	public static ListProperty<Pokemon> listMapPokemon = new SimpleListProperty<>(FXCollections.observableArrayList());
 	
 	Media media;
@@ -42,7 +44,7 @@ public class Controller implements Initializable {
 			menucontroller = new MenuController();
 			mapcontroller = new MapController();
 			juegoController = new JuegoController();
-			modobatallaController=new ModoBatallaController();
+			menubattlemodeController=new MenuBattleModeController();
 			view.setCenter(menucontroller.getView());
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -57,7 +59,7 @@ public class Controller implements Initializable {
 	}
 
 	private void sepulsobotonModoBatalla(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
-		view.setCenter(modobatallaController.getView());
+		view.setCenter(menubattlemodeController.getView());
 	}
 
 	private void botonEleccion(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
