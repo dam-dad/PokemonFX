@@ -10,7 +10,7 @@
 .list-view{
 	-fx-font-family: "Pokemon Pixel Font";
 	-fx-font-size:20;
-}
+}	
 #view {
     -fx-background-image:url('../images/background.gif');
     -fx-background-size:100% 100%;

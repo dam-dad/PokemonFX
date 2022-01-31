@@ -12,10 +12,10 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class GameLoop extends AnimationTimer {
 
-	private long time1 = System.nanoTime();
-	private long time2;
+	private long time1 = System.nanoTime();	// total tiempo pasado en nanosegundos
+	private long time2; // variable inicializada más tarde para ser comparada con t1
 	private long timeDifference;
-	private long interval = 200000000;
+	private long interval = 200000000; // 0,2 segundos
 	private BooleanProperty hayBatalla = new SimpleBooleanProperty();
 
 	private GraphicsContext graphicsContext;
@@ -34,15 +34,13 @@ public class GameLoop extends AnimationTimer {
 	// method for game loop
 	public void handle(long currentNanoTime) {
 
-		if (!hayBatalla.get()) { // If no battle, generate map and check input
+		if (!hayBatalla.get()) { // Si no hay batalla, genera tiles y empieza combate
 
 			TileEngine tileEngine = new TileEngine();
 			tileEngine.generateTiles(graphicsContext);
 
 			of(Direction.directionArray).filter(v -> input.contains(v.name())).findFirst().ifPresent(dir -> {
-				time2 = System.nanoTime();
-				timeDifference = time2 - time1;
-				time2 = System.nanoTime();
+				time2 = System.nanoTime(); // 15 cifras
 				timeDifference = time2 - time1;
 
 				if (timeDifference < interval)
