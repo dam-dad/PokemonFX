@@ -255,9 +255,10 @@ public class JuegoController implements Initializable {
 	private void ataqueCombate(Ataque ataque, Pokemon pk) {
 
 		Combate.ataque(ataque, pk);
-		if (pk.getVida() < 100) {
+		/*if (pk.getVida() < 100) {
 			Pokemoncpu.set(entrenador2.get((int) Math.floor(Math.random() * entrenador2.getSize())));
 		}
+		*/
 		if (pk.getVida() <= 0) {
 			entrenador2.get().remove(Pokemoncpu.get());
 			labelcontPokcpu.setText("" + entrenador2.getSize());
