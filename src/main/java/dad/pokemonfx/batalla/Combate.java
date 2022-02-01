@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -44,7 +45,21 @@ public class Combate {
 	public static void ataque(Ataque ataque, Pokemon pok) {
 		int numeroaletatorio = (int) (Math.random() * 100 + 1);
 		if (numeroaletatorio <= ataque.getPrecision()) {
+			
+			// variable tipo
 			Double cantidadAtaque = ataque.getPoder() * TablaTipos.GetEfectividad(ataque.getTipoAtaque(), pok.getTipo());
+			
+			/*
+			// variable crítico, desactivada para testear más fácil el resto de cosas
+			Random r = new Random();
+	        int randomInt = r.nextInt(100) + 1;		
+			float critical = 1f;	
+	        if (randomInt <= 6.25f)//then we have a critical hit
+	        {
+	            critical = 2f;
+	        }	        
+	        cantidadAtaque = cantidadAtaque * critical;
+	        */
 			if (cantidadAtaque > pok.getVida()) {
 				pok.setVida(0);
 			} else {
