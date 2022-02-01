@@ -10,38 +10,38 @@
 
 <AnchorPane fx:id="view" prefHeight="480.0" prefWidth="720.0" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ListView fx:id="listPokemon" layoutX="56.0" layoutY="93.0" onMouseClicked="#onClicked" prefHeight="347.0" prefWidth="330.0" />
-      <Button fx:id="jugarButton" layoutX="458.0" layoutY="396.0" mnemonicParsing="false" onAction="#onjugarButton" prefHeight="50.0" prefWidth="168.0" text="JUGAR" textAlignment="CENTER">
+      <ListView fx:id="listViewPokemon" layoutX="56.0" layoutY="93.0" onMouseClicked="#onClicked" prefHeight="347.0" prefWidth="330.0" />
+      <Button fx:id="playButton" layoutX="458.0" layoutY="396.0" mnemonicParsing="false" onAction="#onPlayButton" prefHeight="50.0" prefWidth="168.0" text="JUGAR" textAlignment="CENTER">
          <font>
             <Font size="27.0" />
          </font>
       </Button>
-      <ImageView fx:id="pok1" fitHeight="100.0" fitWidth="100.0" layoutX="414.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagePokemon1" fitHeight="100.0" fitWidth="100.0" layoutX="414.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/bola.gif" />
          </image>
       </ImageView>
-      <ImageView fx:id="pok2" fitHeight="100.0" fitWidth="100.0" layoutX="560.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagePokemon2" fitHeight="100.0" fitWidth="100.0" layoutX="560.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/bola.gif" />
          </image>
       </ImageView>
-      <ImageView fx:id="pok3" fitHeight="100.0" fitWidth="100.0" layoutX="414.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagePokemon3" fitHeight="100.0" fitWidth="100.0" layoutX="414.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/bola.gif" />
          </image>
       </ImageView>
-      <ImageView fx:id="pok4" fitHeight="100.0" fitWidth="100.0" layoutX="560.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagePokemon4" fitHeight="100.0" fitWidth="100.0" layoutX="560.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/bola.gif" />
          </image>
       </ImageView>
-      <ImageView fx:id="pok5" fitHeight="100.0" fitWidth="100.0" layoutX="414.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagePokemon5" fitHeight="100.0" fitWidth="100.0" layoutX="414.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/bola.gif" />
          </image>
       </ImageView>
-      <ImageView fx:id="pok6" fitHeight="100.0" fitWidth="100.0" layoutX="560.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagePokemon6" fitHeight="100.0" fitWidth="100.0" layoutX="560.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/bola.gif" />
          </image>

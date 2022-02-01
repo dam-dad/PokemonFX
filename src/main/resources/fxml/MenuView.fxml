@@ -26,7 +26,7 @@
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnSpan="2">
                <children>
-                  <Button fx:id="jugarbutton" alignment="CENTER" cache="true" contentDisplay="RIGHT" depthTest="DISABLE" graphicTextGap="6.0" mnemonicParsing="false" onAction="#onjugarbutton" styleClass="botonesMenu" text="JUGAR" textFill="RED" textOverrun="CLIP">
+                  <Button fx:id="playButton" alignment="CENTER" cache="true" contentDisplay="RIGHT" depthTest="DISABLE" graphicTextGap="6.0" mnemonicParsing="false" onAction="#onPlayButton" styleClass="botonesMenu" text="JUGAR" textFill="RED" textOverrun="CLIP">
                      <font>
                         <Font name="Modern No. 20" size="36.0" />
                      </font>
@@ -41,7 +41,7 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </Button>
-                  <Button fx:id="batallabutton" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onbatallabutton" styleClass="botonesMenu" text="MODO BATALLA" textFill="RED">
+                  <Button fx:id="battleButton" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onBattleButton" styleClass="botonesMenu" text="MODO BATALLA" textFill="RED">
                      <font>
                         <Font name="Modern No. 20" size="36.0" />
                      </font>
@@ -53,7 +53,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="salirbutton" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onsalirbutton" styleClass="botonesMenu" text="SALIR" textFill="RED">
+                  <Button fx:id="leaveButton" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onLeaveButton" styleClass="botonesMenu" text="SALIR" textFill="RED">
                      <font>
                         <Font name="Modern No. 20" size="36.0" />
                      </font>
@@ -69,7 +69,7 @@
             </VBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="silenciarmusicabutton" mnemonicParsing="false" onAction="#onsilenciarmusicabuttonaction" styleClass="botonesAudio">
+                  <Button fx:id="muteMusicButton" mnemonicParsing="false" onAction="#onMuteMusicButton" styleClass="botonesAudio">
                      <graphic>
                         <ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -78,7 +78,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="activarmusicabutton" mnemonicParsing="false" onAction="#onactivarmusicabuttonaction" styleClass="botonesAudio">
+                  <Button fx:id="enableMusicButton" mnemonicParsing="false" onAction="#onEnableMusicButton" styleClass="botonesAudio">
                      <graphic>
                         <ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
