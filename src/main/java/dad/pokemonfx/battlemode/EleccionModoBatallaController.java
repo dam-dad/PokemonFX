@@ -84,22 +84,22 @@ public class EleccionModoBatallaController implements Initializable {
 			entrenador.add(PokemonSeleccionado.get());
 			switch (entrenador.getSize()) {
 			case 1:
-				pok1.setImage(PokemonSeleccionado.get().getCpu());
+				pok1.setImage(PokemonSeleccionado.get().getFront());
 				break;
 			case 2:
-				pok2.setImage(PokemonSeleccionado.get().getCpu());
+				pok2.setImage(PokemonSeleccionado.get().getFront());
 				break;
 			case 3:
-				pok3.setImage(PokemonSeleccionado.get().getCpu());
+				pok3.setImage(PokemonSeleccionado.get().getFront());
 				break;
 			case 4:
-				pok4.setImage(PokemonSeleccionado.get().getCpu());
+				pok4.setImage(PokemonSeleccionado.get().getFront());
 				break;
 			case 5:
-				pok5.setImage(PokemonSeleccionado.get().getCpu());
+				pok5.setImage(PokemonSeleccionado.get().getFront());
 				break;
 			case 6:
-				pok6.setImage(PokemonSeleccionado.get().getCpu());
+				pok6.setImage(PokemonSeleccionado.get().getFront());
 				break;
 
 			default:

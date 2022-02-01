@@ -133,8 +133,8 @@ public class ModoBatallaController implements Initializable {
 		comboPokemon.getSelectionModel().selectFirst();
 		PokemonSeleccionado.bind(comboPokemon.getSelectionModel().selectedItemProperty());
 		Pokemoncpu.set(entrenador2.get(0));
-		vida.bind(PokemonSeleccionado.get().vidaProperty());
-		vidacpu.bind(Pokemoncpu.get().vidaProperty());
+		vida.bind(PokemonSeleccionado.get().healthProperty());
+		vidacpu.bind(Pokemoncpu.get().healthProperty());
 		vidaMaxima.set(vida.get());
 		vidaMaximacpu.set(vidacpu.get());
 		vidaResultante.bind(vida);
@@ -144,15 +144,15 @@ public class ModoBatallaController implements Initializable {
 		vida1slider.progressProperty().bind(vidaResultante.divide(vidaMaxima));		
 		vida2slider.progressProperty().bind(vidaResultantecpu.divide(vidaMaximacpu));
 		labelNPok.textProperty().bind(nombrePokemon);
-		nombrePokemon.bind(PokemonSeleccionado.get().nombreProperty());
+		nombrePokemon.bind(PokemonSeleccionado.get().nameProperty());
 		labelNCPU.textProperty().bind(nombrePokemoncpu);
-		nombrePokemoncpu.bind(Pokemoncpu.get().nombreProperty());
-		pokemon1.setImage(PokemonSeleccionado.get().getDelante());
-		pokemon2.setImage(Pokemoncpu.get().getCpu());
+		nombrePokemoncpu.bind(Pokemoncpu.get().nameProperty());
+		pokemon1.setImage(PokemonSeleccionado.get().getBack());
+		pokemon2.setImage(Pokemoncpu.get().getFront());
 		labelcontPok.setText("" + entrenador1.getSize());
 		labelcontPokcpu.setText("" + entrenador2.getSize());
-		nivelpok.setText("" + PokemonSeleccionado.get().getNivel());
-		nivelcpu.setText("" + Pokemoncpu.get().getNivel());
+		nivelpok.setText("" + PokemonSeleccionado.get().getLevel());
+		nivelcpu.setText("" + Pokemoncpu.get().getLevel());
 		cargarBotones(PokemonSeleccionado.get());
 		PokemonSeleccionado.addListener((o, ov, nv) -> onpokemonchanged(o, ov, nv));
 		Pokemoncpu.addListener((o, ov, nv) -> onpokemoncpuchanged(o, ov, nv));
@@ -187,10 +187,10 @@ public class ModoBatallaController implements Initializable {
 
 			}
 			if (nv != null) {
-				vidacpu.bind(nv.vidaProperty());
-				nombrePokemoncpu.bind(nv.nombreProperty());
-				pokemon2.setImage(nv.getCpu());
-				nivelcpu.setText("" + Pokemoncpu.get().getNivel());
+				vidacpu.bind(nv.healthProperty());
+				nombrePokemoncpu.bind(nv.nameProperty());
+				pokemon2.setImage(nv.getFront());
+				nivelcpu.setText("" + Pokemoncpu.get().getLevel());
 			}
 
 		}
@@ -211,11 +211,11 @@ public class ModoBatallaController implements Initializable {
 				ataque4.textProperty().unbind();
 			}
 			if (nv != null) {
-				vida.bind(nv.vidaProperty());
-				nombrePokemon.bind(nv.nombreProperty());
+				vida.bind(nv.healthProperty());
+				nombrePokemon.bind(nv.nameProperty());
 				cargarBotones(nv);
-				nivelpok.setText("" + PokemonSeleccionado.get().getNivel());
-				pokemon1.setImage(nv.getDelante());
+				nivelpok.setText("" + PokemonSeleccionado.get().getLevel());
+				pokemon1.setImage(nv.getBack());
 			}
 		}
 
@@ -223,35 +223,35 @@ public class ModoBatallaController implements Initializable {
 
 	@FXML
 	void onataque1(ActionEvent event) {
-		double vida = PokemonSeleccionado.get().getVida();
-		double vidacpu = Pokemoncpu.get().getVida();
-		ataqueCombate(PokemonSeleccionado.get().getAtaques().get(0), Pokemoncpu.get());
+		double vida = PokemonSeleccionado.get().getHealth();
+		double vidacpu = Pokemoncpu.get().getHealth();
+		ataqueCombate(PokemonSeleccionado.get().getAttacks().get(0), Pokemoncpu.get());
 		ponerMensaje(vidacpu, vida);
 
 	}
 
 	@FXML
 	void onataque2(ActionEvent event) {
-		double vida = Pokemoncpu.get().getVida();
-		double vidacpu = Pokemoncpu.get().getVida();
-		ataqueCombate(PokemonSeleccionado.get().getAtaques().get(1), Pokemoncpu.get());
+		double vida = Pokemoncpu.get().getHealth();
+		double vidacpu = Pokemoncpu.get().getHealth();
+		ataqueCombate(PokemonSeleccionado.get().getAttacks().get(1), Pokemoncpu.get());
 		ponerMensaje(vidacpu, vida);
 	}
 
 	@FXML
 	void onataque3(ActionEvent event) {
-		double vida = Pokemoncpu.get().getVida();
-		double vidacpu = Pokemoncpu.get().getVida();
-		ataqueCombate(PokemonSeleccionado.get().getAtaques().get(2), Pokemoncpu.get());
+		double vida = Pokemoncpu.get().getHealth();
+		double vidacpu = Pokemoncpu.get().getHealth();
+		ataqueCombate(PokemonSeleccionado.get().getAttacks().get(2), Pokemoncpu.get());
 		ponerMensaje(vidacpu, vida);
 
 	}
 
 	@FXML
 	void onataque4(ActionEvent event) {
-		double vida = Pokemoncpu.get().getVida();
-		double vidacpu = Pokemoncpu.get().getVida();
-		ataqueCombate(PokemonSeleccionado.get().getAtaques().get(3), Pokemoncpu.get());
+		double vida = Pokemoncpu.get().getHealth();
+		double vidacpu = Pokemoncpu.get().getHealth();
+		ataqueCombate(PokemonSeleccionado.get().getAttacks().get(3), Pokemoncpu.get());
 		ponerMensaje(vidacpu, vida);
 
 	}
@@ -259,10 +259,10 @@ public class ModoBatallaController implements Initializable {
 	private void ataqueCombate(Ataque ataque, Pokemon pk) {
 
 		Combate.ataque(ataque, pk);
-		if (pk.getVida() < 100) {
+		if (pk.getHealth() < 100) {
 			Pokemoncpu.set(entrenador2.get((int) Math.floor(Math.random() * entrenador2.getSize())));
 		}
-		if (pk.getVida() <= 0) {
+		if (pk.getHealth() <= 0) {
 			entrenador2.get().remove(Pokemoncpu.get());
 			labelcontPokcpu.setText("" + entrenador2.getSize());
 			if (entrenador2.get().size() > 0) {
@@ -282,7 +282,7 @@ public class ModoBatallaController implements Initializable {
 			Combate.ataquecpu(PokemonSeleccionado.get());
 		}
 
-		if (PokemonSeleccionado.get().getVida() <= 0) {
+		if (PokemonSeleccionado.get().getHealth() <= 0) {
 			entrenador1.get().remove(PokemonSeleccionado.get());
 			labelcontPok.setText("" + entrenador1.getSize());
 		}
@@ -299,21 +299,21 @@ public class ModoBatallaController implements Initializable {
 	}
 
 	private void cargarBotones(Pokemon pk) {
-		ataque1.textProperty().bind(pk.getAtaques().get(0).nombreProperty());
-		ataque1Label.setText("" + pk.getAtaques().get(0));
-		ataque2.textProperty().bind(pk.getAtaques().get(1).nombreProperty());
-		ataque2Label.setText("" + pk.getAtaques().get(1));
-		ataque3.textProperty().bind(pk.getAtaques().get(2).nombreProperty());
-		ataque3Label.setText("" + pk.getAtaques().get(2));
-		ataque4.textProperty().bind(pk.getAtaques().get(3).nombreProperty());
-		ataque4Label.setText("" + pk.getAtaques().get(3));
+		ataque1.textProperty().bind(pk.getAttacks().get(0).nombreProperty());
+		ataque1Label.setText("" + pk.getAttacks().get(0));
+		ataque2.textProperty().bind(pk.getAttacks().get(1).nombreProperty());
+		ataque2Label.setText("" + pk.getAttacks().get(1));
+		ataque3.textProperty().bind(pk.getAttacks().get(2).nombreProperty());
+		ataque3Label.setText("" + pk.getAttacks().get(2));
+		ataque4.textProperty().bind(pk.getAttacks().get(3).nombreProperty());
+		ataque4Label.setText("" + pk.getAttacks().get(3));
 	}
 
 	private void ponerMensaje(double vidacpu, double vida) {
-		double daño = vidacpu - Pokemoncpu.get().getVida();
-		double daño2 = vida - PokemonSeleccionado.get().getVida();
-		mensajeataqueLabel.setText("ATAQUE: " + PokemonSeleccionado.get().getNombre() + " con una \ncantidad de: "
-				+ daño + "\nDEFENSA: " + Pokemoncpu.get().getNombre() + " con una \ncantidad de: " + daño2);
+		double daño = vidacpu - Pokemoncpu.get().getHealth();
+		double daño2 = vida - PokemonSeleccionado.get().getHealth();
+		mensajeataqueLabel.setText("ATAQUE: " + PokemonSeleccionado.get().getName() + " con una \ncantidad de: "
+				+ daño + "\nDEFENSA: " + Pokemoncpu.get().getName() + " con una \ncantidad de: " + daño2);
 
 	}
 

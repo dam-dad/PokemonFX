@@ -1,10 +1,7 @@
 package dad.pokemonfx.batalla;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 import org.jdom2.Document;
