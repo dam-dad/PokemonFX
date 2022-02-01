@@ -7,6 +7,11 @@
 	-fx-font-family: "Pokemon Pixel Font";
 	-fx-font-size:50;
 }
+
+.label {
+	-fx-font-family: "Pokemon Pixel Font";
+	-fx-font-size:50;
+}
 .list-view{
 	-fx-font-family: "Pokemon Pixel Font";
 	-fx-font-size:20;

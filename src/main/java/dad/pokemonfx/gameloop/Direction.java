@@ -1,9 +1,9 @@
-package dad.pokemonfx.gamelop;
+package dad.pokemonfx.gameloop;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import dad.pokemonfx.gamelop.Direction;
+import dad.pokemonfx.gameloop.Direction;
 import javafx.scene.image.Image;
 
 public enum Direction {

@@ -1,4 +1,4 @@
-package dad.pokemonfx.gamelop;
+package dad.pokemonfx.gameloop;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;

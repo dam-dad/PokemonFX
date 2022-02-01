@@ -1,4 +1,4 @@
-package dad.pokemonfx.gamelop;
+package dad.pokemonfx.gameloop;
 
 import static java.util.stream.Stream.of;
 

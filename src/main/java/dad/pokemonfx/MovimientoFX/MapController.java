@@ -5,8 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import dad.pokemonfx.gamelop.GameLoop;
-import dad.pokemonfx.gamelop.Player;
+import dad.pokemonfx.gameloop.GameLoop;
+import dad.pokemonfx.gameloop.Player;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

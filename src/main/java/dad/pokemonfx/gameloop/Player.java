@@ -1,7 +1,7 @@
-package dad.pokemonfx.gamelop;
+package dad.pokemonfx.gameloop;
 
 
-import static dad.pokemonfx.gamelop.Direction.DOWN;
+import static dad.pokemonfx.gameloop.Direction.DOWN;
 
 import javafx.scene.image.Image;
 
