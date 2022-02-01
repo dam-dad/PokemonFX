@@ -2,6 +2,8 @@ package dad.pokemonfx.batalla;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.BooleanProperty;
@@ -14,21 +16,29 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 
 public class EleccionController implements Initializable {
+	
+	private static final int TOTAL_POKEMONS = 6;
 
-	private static ListProperty<Pokemon> listpokemon = new SimpleListProperty<>(FXCollections.observableArrayList());
-	private static ListProperty<Pokemon> entrenador = new SimpleListProperty<>(FXCollections.observableArrayList());
+	// model
+	
+	private ListProperty<Pokemon> listpokemon = new SimpleListProperty<>(FXCollections.observableArrayList());
+	private ListProperty<Pokemon> entrenador = new SimpleListProperty<>(FXCollections.observableArrayList());
 	private BooleanProperty botonPulsado = new SimpleBooleanProperty();
-	private BooleanProperty listanoLlena = new SimpleBooleanProperty();
-	private ObjectProperty<Pokemon> PokemonSeleccionado = new SimpleObjectProperty<>();
+	private BooleanProperty listaLlena = new SimpleBooleanProperty();
+	private ObjectProperty<Pokemon> pokemonSeleccionado = new SimpleObjectProperty<>();
+	
+	// view
+	
+	private List<ImageView> poks;
 
 	@FXML
 	private ImageView pok1;
@@ -66,46 +76,30 @@ public class EleccionController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		botonPulsado.set(false);
-		listanoLlena.set(true);
 		listPokemon.itemsProperty().bind(listpokemon);
-		PokemonSeleccionado.bind(listPokemon.getSelectionModel().selectedItemProperty());
-		jugarButton.disableProperty().bind(listanoLlena);
+		pokemonSeleccionado.bind(listPokemon.getSelectionModel().selectedItemProperty());
+		jugarButton.disableProperty().bind(listaLlena);
+		poks = Arrays.asList(pok1, pok2, pok3, pok4, pok5, pok6);
+		
+		listaLlena.bind(listpokemon.sizeProperty().isEqualTo(TOTAL_POKEMONS));
+		
+		
 	}
 
 	@FXML
 	void onClicked(MouseEvent event) {
-		if (entrenador.getSize() < 6) {
-			entrenador.add(PokemonSeleccionado.get());
-			switch (entrenador.getSize()) {
-			case 1:
-				pok1.setImage(PokemonSeleccionado.get().getCpu());
-				break;
-			case 2:
-				pok2.setImage(PokemonSeleccionado.get().getCpu());
-				break;
-			case 3:
-				pok3.setImage(PokemonSeleccionado.get().getCpu());
-				break;
-			case 4:
-				pok4.setImage(PokemonSeleccionado.get().getCpu());
-				break;
-			case 5:
-				pok5.setImage(PokemonSeleccionado.get().getCpu());
-				break;
-			case 6:
-				pok6.setImage(PokemonSeleccionado.get().getCpu());
-				break;
-
-			default:
-				break;
-			}
-
+		if (entrenador.getSize() < TOTAL_POKEMONS) {
+			
+			entrenador.add(pokemonSeleccionado.get());
+			
+			poks.get(entrenador.getSize())
+				.setImage(pokemonSeleccionado.get().getFront());
+			
 			listPokemon.getItems().remove(listPokemon.getSelectionModel().getSelectedIndex());
-			if (entrenador.getSize() > 5) {
-				listanoLlena.set(false);
-			}
+			
+			
 		}else {
-			App.info("Error", "Ya has elegido 6 Pokemon", null);
+			App.info("Error", "Ya has elegido " + TOTAL_POKEMONS + " Pokemon", null);
 		}
 
 	}
@@ -120,7 +114,7 @@ public class EleccionController implements Initializable {
 	}
 
 	public final ListProperty<Pokemon> listpokemonProperty() {
-		return EleccionController.listpokemon;
+		return listpokemon;
 	}
 
 	public final ObservableList<Pokemon> getListpokemon() {
@@ -144,7 +138,7 @@ public class EleccionController implements Initializable {
 	}
 
 	public final ListProperty<Pokemon> entrenadorProperty() {
-		return EleccionController.entrenador;
+		return entrenador;
 	}
 
 	public final ObservableList<Pokemon> getEntrenador() {

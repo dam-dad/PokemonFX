@@ -1,10 +1,14 @@
 package dad.pokemonfx.batalla;
 
 import java.util.Arrays;
+import java.util.List;
 
-public class TablaTipos {
-    public static float[][] tablaTipos =
-    {   //                   NOR  FIR  WAT  ELE  GRA  ICE  FIG  POI  GRO  FLY  PSY  BUG  ROC  GHO  DRA  DAR  STE 
+public class Damage {
+	
+    private static final List<PokemonType> POKEMON_TYPES = Arrays.asList(PokemonType.values());
+
+    private static final float[][] DAMAGE_MULTIPLIER = {
+        //                   NOR  FIR  WAT  ELE  GRA  ICE  FIG  POI  GRO  FLY  PSY  BUG  ROC  GHO  DRA  DAR  STE 
         /*NOR*/new float[] { 1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  0.5f,0f,  1f,  1f,  0.5f},
         /*FUE*/new float[] { 1f, 0.5f, 0.5f,1f,  2f,  2f,  1f,  1f,  1f,  1f,  1f,  2f,  0.5f,1f,  0.5f,1f,  2f  },
         /*AGU*/new float[] { 1f,  2f,  0.5f,1f,  0.5f,1f,  1f,  1f,  2f,  1f,  1f,  1f,  2f,  1f,  0.5f,1f,  1f  },
@@ -24,21 +28,11 @@ public class TablaTipos {
         /*STE*/new float[] { 1f,  0.5f,0.5f,0.5f,1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  0.5f},
     };
 
-    public static double GetEfectividad(String tipoAtaque, String tipoDefensa)
-    {
-        if (tipoAtaque == pokemonType[0] || tipoDefensa == pokemonType[0])
-        {
-            return 1;
-        }
-        int row = Arrays.asList(pokemonType).indexOf(tipoAtaque) - 1;
-        int col = Arrays.asList(pokemonType).indexOf(tipoDefensa) - 1;
-
-        return tablaTipos[row][col];
-        
+    public static double getEffectivity(PokemonType tipoAtaque, PokemonType tipoDefensa) {
+        int row = POKEMON_TYPES.indexOf(tipoAtaque);
+        int col = POKEMON_TYPES.indexOf(tipoDefensa);
+        return DAMAGE_MULTIPLIER[row][col];        
     }
     
-    public static String[] pokemonType = new String[] { "NONE",  "NORMAL",  "FUEGO",  "AGUA",  "ELECTRICO",  "PLANTA",
-    		"HIELO",  "LUCHA",  "VENENO",  "TIERRA",  "VOLADOR",  "PSIQUICO",  "BICHO", "ROCA",  "FANTASMA",  "DRAGON",
-    		"SINIESTRO", "ACERO"};
     
 }

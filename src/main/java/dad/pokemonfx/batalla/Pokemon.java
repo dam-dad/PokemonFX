@@ -1,108 +1,137 @@
 package dad.pokemonfx.batalla;
 
-import java.util.ArrayList;
+import java.util.List;
+
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 
 public class Pokemon {
 
-	private StringProperty nombre = new SimpleStringProperty();
-	private String tipo;
-	private Integer nivel;
-	private Image delante;
-	private Image cpu;
-	private ArrayList<Ataque> ataques;
-	private DoubleProperty vida = new SimpleDoubleProperty();
+	private StringProperty name = new SimpleStringProperty();
+	private ObjectProperty<PokemonType> type = new SimpleObjectProperty<>();
+	private IntegerProperty level = new SimpleIntegerProperty();
+	private ObjectProperty<Image> back = new SimpleObjectProperty<>();
+	private ObjectProperty<Image> front = new SimpleObjectProperty<>();
+	private ListProperty<Ataque> attacks = new SimpleListProperty<>(FXCollections.observableArrayList());
+	private DoubleProperty health = new SimpleDoubleProperty();
 
-	public Pokemon(String nombre, String tipo, Integer nivel, ArrayList<Ataque> ataques) {
+	public Pokemon(String name, PokemonType type, Integer level, List<Ataque> attacks) {
 		super();
-		this.setDelante(new Image("file:src/main/resources/images/" + nombre + ".png"));
-		this.setCpu(new Image("file:src/main/resources/images/" + nombre + "-CPU.png"));
-		this.nombre.set(nombre);
-		this.tipo = tipo;
-		this.nivel = nivel;
-		this.ataques = ataques;
-		if (nivel > 0 && nivel < 100) {
-			for (int i = 0; i < ataques.size(); i++) {
-				Double poder = ataques.get(i).getPoder();
-				ataques.get(i).setPoder(poder + (nivel / 100) * nivel);
-			}
+		this.setBack(new Image("/images/" + name + ".png"));
+		this.setFront(new Image("/images/" + name + "-CPU.png"));
+		this.setName(name);
+		this.setType(type);
+		this.setLevel(level);
+		this.attacks.setAll(attacks);
+		if (level > 0 && level < 100) {			
+			attacks.stream().forEach(attack -> {
+				Double poder = attack.getPoder();
+				attack.setPoder(poder + (level / 100) * level);				
+			});
 		} else {
-			System.out.println("El nivel tiene que estar entre 0 y 100");
+			throw new IllegalArgumentException("El nivel tiene que estar entre 0 y 100");
 		}
-		this.setVida(400 + nivel * 0.5);
-	}
-
-	public Integer getNivel() {
-		return nivel;
-	}
-
-	public void setNivel(Integer nivel) {
-		this.nivel = nivel;
-	}
-
-	public ArrayList<Ataque> getAtaques() {
-		return ataques;
-	}
-
-	public void setAtaques(ArrayList<Ataque> ataques) {
-		this.ataques = ataques;
-	}
-
-	public DoubleProperty vidaProperty() {
-		return this.vida;
-	}
-
-	public double getVida() {
-		return this.vidaProperty().get();
-	}
-
-	public void setVida(final double vida) {
-		this.vidaProperty().set(vida);
-	}
-
-	public Image getDelante() {
-		return delante;
-	}
-
-	public void setDelante(Image delante) {
-		this.delante = delante;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+		this.setHealth(400 + level * 0.5);
 	}
 
 	@Override
 	public String toString() {
-		return this.getNombre() + "->" + this.getTipo();
+		return this.getName() + "->" + this.getType();
 	}
 
-	public Image getCpu() {
-		return cpu;
+	public final StringProperty nameProperty() {
+		return this.name;
 	}
 
-	public void setCpu(Image cpu) {
-		this.cpu = cpu;
+	public final String getName() {
+		return this.nameProperty().get();
 	}
 
-	public StringProperty nombreProperty() {
-		return this.nombre;
+	public final void setName(final String name) {
+		this.nameProperty().set(name);
 	}
 
-	public String getNombre() {
-		return this.nombreProperty().get();
+	public final ObjectProperty<PokemonType> typeProperty() {
+		return this.type;
 	}
 
-	public void setNombre(final String nombre) {
-		this.nombreProperty().set(nombre);
+	public final PokemonType getType() {
+		return this.typeProperty().get();
+	}
+
+	public final void setType(final PokemonType type) {
+		this.typeProperty().set(type);
+	}
+
+	public final IntegerProperty levelProperty() {
+		return this.level;
+	}
+
+	public final int getLevel() {
+		return this.levelProperty().get();
+	}
+
+	public final void setLevel(final int level) {
+		this.levelProperty().set(level);
+	}
+
+	public final ObjectProperty<Image> backProperty() {
+		return this.back;
+	}
+
+	public final Image getBack() {
+		return this.backProperty().get();
+	}
+
+	public final void setBack(final Image back) {
+		this.backProperty().set(back);
+	}
+
+	public final ObjectProperty<Image> frontProperty() {
+		return this.front;
+	}
+
+	public final Image getFront() {
+		return this.frontProperty().get();
+	}
+
+	public final void setFront(final Image front) {
+		this.frontProperty().set(front);
+	}
+
+	public final ListProperty<Ataque> attacksProperty() {
+		return this.attacks;
+	}
+
+	public final ObservableList<Ataque> getAttacks() {
+		return this.attacksProperty().get();
+	}
+
+	public final void setAttacks(final ObservableList<Ataque> attacks) {
+		this.attacksProperty().set(attacks);
+	}
+
+	public final DoubleProperty healthProperty() {
+		return this.health;
+	}
+
+	public final double getHealth() {
+		return this.healthProperty().get();
+	}
+
+	public final void setHealth(final double health) {
+		this.healthProperty().set(health);
 	}
 
 }

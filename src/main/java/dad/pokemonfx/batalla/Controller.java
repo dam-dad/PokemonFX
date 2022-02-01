@@ -141,9 +141,9 @@ public class Controller implements Initializable {
 	}
 
 	public static void curarPokemones() {
-		for (int i = 0; i < listMapPokemon.getSize(); i++) {
-			listMapPokemon.get(i).setVida(400 + listMapPokemon.get(i).getNivel() * 0.5);
-		}
+		listMapPokemon.stream().forEach(pokemon -> {
+			pokemon.setHealth(400 + pokemon.getLevel() * 0.5);
+		});
 	}
 
 	public BorderPane getView() {

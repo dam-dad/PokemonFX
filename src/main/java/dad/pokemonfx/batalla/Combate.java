@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -47,7 +48,7 @@ public class Combate {
 		if (numeroaletatorio <= ataque.getPrecision()) {
 			
 			// variable tipo
-			Double cantidadAtaque = ataque.getPoder() * TablaTipos.GetEfectividad(ataque.getTipoAtaque(), pok.getTipo());
+			Double cantidadAtaque = ataque.getPoder() * Damage.getEffectivity(PokemonType.valueOf(ataque.getTipoAtaque()), pok.getType());
 			
 			/*
 			// variable crítico, desactivada para testear más fácil el resto de cosas
@@ -60,10 +61,10 @@ public class Combate {
 	        }	        
 	        cantidadAtaque = cantidadAtaque * critical;
 	        */
-			if (cantidadAtaque > pok.getVida()) {
-				pok.setVida(0);
+			if (cantidadAtaque > pok.getHealth()) {
+				pok.setHealth(0);
 			} else {
-				pok.setVida(pok.getVida() - cantidadAtaque);
+				pok.setHealth(pok.getHealth() - cantidadAtaque);
 			}
 		}
 
@@ -71,7 +72,7 @@ public class Combate {
 
 	public static void ataquecpu(Pokemon pok) {
 		int valorDado = (int) Math.floor(Math.random() * 4);
-		Ataque ataque = pok.getAtaques().get(valorDado);
+		Ataque ataque = pok.getAttacks().get(valorDado);
 		ataque(ataque, pok);
 
 	}
@@ -79,25 +80,30 @@ public class Combate {
 	public void cargarlistaPokemon() {
 		try {
 			SAXBuilder builder = new SAXBuilder();
-			File xml = new File("src/main/resources/Pokemon.xml");
-			Document document = builder.build(xml);
+			Document document = builder.build(getClass().getResource("/Pokemon.xml"));
 			Element root = document.getRootElement();
-			List<Element> list = root.getChildren("Pokemon");
-			for (int i = 0; i < list.size(); i++) {
-				Element Pokemon = list.get(i);
-				Element ataque = Pokemon.getChild("Ataques");
-				List<Element> ataques = ataque.getChildren();
-				ArrayList<Ataque> listaAtaques = new ArrayList<Ataque>();
-				for (int j = 0; j < ataques.size(); j++) {
-					double poder = Integer.valueOf(ataques.get(j).getAttributeValue("poder"));
-					double precision = Integer.valueOf(ataques.get(j).getAttributeValue("precision"));
-					listaAtaques.add(j, new Ataque(ataques.get(j).getText(), poder, precision,
-							ataques.get(j).getAttributeValue("tipo")));
-				}
-				int nivel = Integer.valueOf(list.get(i).getAttributeValue("nivel"));
-				Pokemon pok = new Pokemon(Pokemon.getAttributeValue("nombre"), Pokemon.getAttributeValue("tipo"), nivel,
-						listaAtaques);
-				eleccionController.getListpokemon().add(i, pok);
+			List<Element> pokemonElements = root.getChildren("Pokemon");
+			for (int i = 0; i < pokemonElements.size(); i++) {
+				
+				Element pokemonElement = pokemonElements.get(i);
+
+				List<Element> attackElements = pokemonElement.getChild("Ataques").getChildren();
+				
+				List<Ataque> listaAtaques = attackElements.stream()
+					.map(attackElement -> {
+						double poder = Integer.valueOf(attackElement.getAttributeValue("poder"));
+						double precision = Integer.valueOf(attackElement.getAttributeValue("precision"));
+						String nombre = attackElement.getText();
+						String tipo = attackElement.getAttributeValue("tipo");					
+						return new Ataque(nombre, poder, precision, tipo);
+					})
+					.collect(Collectors.toList());
+				
+				String nombre = pokemonElement.getAttributeValue("nombre");
+				int nivel = Integer.valueOf(pokemonElements.get(i).getAttributeValue("nivel"));
+				PokemonType tipo = PokemonType.valueOf(pokemonElement.getAttributeValue("tipo"));
+				Pokemon pok = new Pokemon(nombre, tipo, nivel,listaAtaques);
+				eleccionController.getListpokemon().add(pok);
 
 			}
 		} catch (JDOMException | IOException e) {
