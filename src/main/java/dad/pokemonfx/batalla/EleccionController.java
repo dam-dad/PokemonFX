@@ -81,7 +81,7 @@ public class EleccionController implements Initializable {
 		jugarButton.disableProperty().bind(listaLlena);
 		poks = Arrays.asList(pok1, pok2, pok3, pok4, pok5, pok6);
 		
-		listaLlena.bind(listpokemon.sizeProperty().isEqualTo(TOTAL_POKEMONS));
+		listaLlena.bind(listpokemon.sizeProperty().isNotEqualTo(TOTAL_POKEMONS));
 		
 		
 	}
@@ -92,7 +92,7 @@ public class EleccionController implements Initializable {
 			
 			entrenador.add(pokemonSeleccionado.get());
 			
-			poks.get(entrenador.getSize())
+			poks.get(entrenador.getSize() -1)
 				.setImage(pokemonSeleccionado.get().getFront());
 			
 			listPokemon.getItems().remove(listPokemon.getSelectionModel().getSelectedIndex());
