@@ -26,14 +26,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class EleccionModoBatallaController implements Initializable {
+public class ChooseBattleModeController implements Initializable {
 
 	private static ListProperty<Pokemon> listpokemon = new SimpleListProperty<>(FXCollections.observableArrayList());
 	private static ListProperty<Pokemon> entrenador = new SimpleListProperty<>(FXCollections.observableArrayList());
 	private BooleanProperty botonPulsado = new SimpleBooleanProperty();
 	private BooleanProperty listanoLlena = new SimpleBooleanProperty();
 	private ObjectProperty<Pokemon> PokemonSeleccionado = new SimpleObjectProperty<>();
-	ModoBatallaController modobatallaController;
+	BattleModeController modobatallaController;
 	Stage modobatallaStage;
 
 	@FXML
@@ -63,7 +63,7 @@ public class EleccionModoBatallaController implements Initializable {
 	@FXML
 	private AnchorPane view;
 
-	public EleccionModoBatallaController() throws IOException {
+	public ChooseBattleModeController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MenuEleccionModoBatalla.fxml"));
 		loader.setController(this);
 		loader.load();
@@ -118,7 +118,7 @@ public class EleccionModoBatallaController implements Initializable {
 
 	@FXML
 	void onjugarButton(ActionEvent event) throws IOException {
-		modobatallaController = new ModoBatallaController();
+		modobatallaController = new BattleModeController();
 		Scene scene = new Scene(modobatallaController.getView());
 		modobatallaStage = new Stage();
 		modobatallaStage.setScene(scene);
@@ -130,7 +130,7 @@ public class EleccionModoBatallaController implements Initializable {
 	}
 
 	public final ListProperty<Pokemon> listpokemonProperty() {
-		return EleccionModoBatallaController.listpokemon;
+		return ChooseBattleModeController.listpokemon;
 	}
 	
 
@@ -145,7 +145,7 @@ public class EleccionModoBatallaController implements Initializable {
 	
 
 	public final ListProperty<Pokemon> entrenadorProperty() {
-		return EleccionModoBatallaController.entrenador;
+		return ChooseBattleModeController.entrenador;
 	}
 	
 
