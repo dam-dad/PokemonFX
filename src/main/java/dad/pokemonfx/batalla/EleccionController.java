@@ -64,6 +64,8 @@ public class EleccionController implements Initializable {
 	@FXML
 	private ListView<Pokemon> pokemonListView;
 
+	private ListView<Pokemon> listPokemon;
+
 	@FXML
 	private AnchorPane view;
 
@@ -76,14 +78,21 @@ public class EleccionController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		botonPulsado.set(false);
+		
 		pokemonListView.itemsProperty().bind(listpokemon);
 		pokemonSeleccionado.bind(pokemonListView.getSelectionModel().selectedItemProperty());
 		jugarButton.disableProperty().bind(listaLlena);
 		poks = Arrays.asList(pok1, pok2, pok3, pok4, pok5, pok6);
 		
 		listaLlena.bind(listpokemon.sizeProperty().isEqualTo(TOTAL_POKEMONS));
+
+		listPokemon.itemsProperty().bind(listpokemon);
+		pokemonSeleccionado.bind(listPokemon.getSelectionModel().selectedItemProperty());
+		jugarButton.disableProperty().bind(listaLlena);
+		poks = Arrays.asList(pok1, pok2, pok3, pok4, pok5, pok6);
 		
-		
+		listaLlena.bind(listpokemon.sizeProperty().isNotEqualTo(TOTAL_POKEMONS));
+				
 	}
 
 	@FXML
@@ -96,7 +105,10 @@ public class EleccionController implements Initializable {
 				.setImage(pokemonSeleccionado.get().getFront());
 			
 			pokemonListView.getItems().remove(pokemonListView.getSelectionModel().getSelectedIndex());
+			poks.get(entrenador.getSize() -1)
+				.setImage(pokemonSeleccionado.get().getFront());
 			
+			listPokemon.getItems().remove(listPokemon.getSelectionModel().getSelectedIndex());
 			
 		}else {
 			App.info("Error", "Ya has elegido " + TOTAL_POKEMONS + " Pokemon", null);

@@ -28,10 +28,11 @@ public class Damage {
         /*STE*/new float[] { 1f,  0.5f,0.5f,0.5f,1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  1f,  0.5f},
     };
 
-    public static double getEffectivityMultiplier(PokemonType attackType, PokemonType defenseType) {
-        int row = POKEMON_TYPES.indexOf(attackType);
-        int col = POKEMON_TYPES.indexOf(defenseType);
+    public static double getEffectivity(PokemonType tipoAtaque, PokemonType tipoDefensa) {
+        int row = POKEMON_TYPES.indexOf(tipoAtaque);
+        int col = POKEMON_TYPES.indexOf(tipoDefensa);
         return DAMAGE_MULTIPLIER[row][col];        
-    }   
+    }
+    
     
 }

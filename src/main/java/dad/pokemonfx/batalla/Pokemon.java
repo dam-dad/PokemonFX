@@ -23,10 +23,10 @@ public class Pokemon {
 	private IntegerProperty level = new SimpleIntegerProperty();
 	private ObjectProperty<Image> back = new SimpleObjectProperty<>();
 	private ObjectProperty<Image> front = new SimpleObjectProperty<>();
-	private ListProperty<Attack> attacks = new SimpleListProperty<>(FXCollections.observableArrayList());
+	private ListProperty<Ataque> attacks = new SimpleListProperty<>(FXCollections.observableArrayList());
 	private DoubleProperty health = new SimpleDoubleProperty();
 
-	public Pokemon(String name, PokemonType type, Integer level, List<Attack> attacks) {
+	public Pokemon(String name, PokemonType type, Integer level, List<Ataque> attacks) {
 		super();
 		this.setBack(new Image("/images/" + name + ".png"));
 		this.setFront(new Image("/images/" + name + "-CPU.png"));
@@ -36,8 +36,8 @@ public class Pokemon {
 		this.attacks.setAll(attacks);
 		if (level > 0 && level < 100) {			
 			attacks.stream().forEach(attack -> {
-				Double poder = attack.getDamage();
-				attack.setDamage(poder + (level / 100) * level);				
+				Double poder = attack.getPoder();
+				attack.setPoder(poder + (level / 100) * level);				
 			});
 		} else {
 			throw new IllegalArgumentException("El nivel tiene que estar entre 0 y 100");
@@ -110,15 +110,15 @@ public class Pokemon {
 		this.frontProperty().set(front);
 	}
 
-	public final ListProperty<Attack> attacksProperty() {
+	public final ListProperty<Ataque> attacksProperty() {
 		return this.attacks;
 	}
 
-	public final ObservableList<Attack> getAttacks() {
+	public final ObservableList<Ataque> getAttacks() {
 		return this.attacksProperty().get();
 	}
 
-	public final void setAttacks(final ObservableList<Attack> attacks) {
+	public final void setAttacks(final ObservableList<Ataque> attacks) {
 		this.attacksProperty().set(attacks);
 	}
 

@@ -20,27 +20,27 @@ import javafx.fxml.Initializable;
 
 public class MenuController implements Initializable {
 
-	Media media1;
-	Media media2;
+	Media media;
 	MediaPlayer mediaPlayer;
+	Media media2;
 
-	private BooleanProperty buttonPressed = new SimpleBooleanProperty();
-	private BooleanProperty battleButtonPressed = new SimpleBooleanProperty();
-
-	@FXML
-	private Button battleButton;
+	private BooleanProperty botonPulsado = new SimpleBooleanProperty();
+	private BooleanProperty botonCombatePulsado = new SimpleBooleanProperty();
 
 	@FXML
-	private Button playButton;
+	private Button batallabutton;
 
 	@FXML
-	private Button leaveButton;
+	private Button jugarbutton;
+
+	@FXML
+	private Button salirbutton;
 	
 	@FXML
-    private Button enableMusicButton;
+    private Button activarmusicabutton;
 	
 	@FXML
-    private Button muteMusicButton;
+    private Button silenciarmusicabutton;
 
 	@FXML
 	private BorderPane view;
@@ -52,28 +52,27 @@ public class MenuController implements Initializable {
 
 	}
 
-	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		buttonPressed.set(false);
-		battleButtonPressed.set(false);
+		botonPulsado.set(false);
+		botonCombatePulsado.set(false);
 		view.sceneProperty().addListener((o, ov, nv) -> {
-			startTransition();
+			iniciarTransicion();
 		});
 		// menu song
 		try {
-			media1 = new Media((getClass().getResource("/music/Menu_Song.mp3")).toURI().toString());
+			media = new Media((getClass().getResource("/music/Menu_Song.mp3")).toURI().toString());
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		mediaPlayer = new MediaPlayer(media1);
+		mediaPlayer = new MediaPlayer(media);
 		mediaPlayer.setVolume(0.03);
 		mediaPlayer.play();
 
 	}
 
-	private void startTransition() {
+	private void iniciarTransicion() {
 		FadeTransition fade = new FadeTransition();
 		fade.setDuration(Duration.seconds(4));
 		fade.setFromValue(0.0);
@@ -83,56 +82,56 @@ public class MenuController implements Initializable {
 	}
 
 	@FXML
-	void onPlayButton(ActionEvent event) {
-		buttonPressed.set(true);
+	void onjugarbutton(ActionEvent event) {
+		botonPulsado.set(true);
 	}
 
 	@FXML
-    void onBattleButton(ActionEvent event) throws IOException {
-		battleButtonPressed.set(true);
+    void onbatallabutton(ActionEvent event) throws IOException {
+		botonCombatePulsado.set(true);
     }
 
 	@FXML
-	void onLeaveButton(ActionEvent event) {
+	void onsalirbutton(ActionEvent event) {
 		System.exit(0);
 	}
 	
 	@FXML
-    void onEnableMusicButton(ActionEvent event) {
+    void onactivarmusicabuttonaction(ActionEvent event) {
 		mediaPlayer.play();
     }
 	
 	@FXML
-    void onMuteMusicButton(ActionEvent event) {
+    void onsilenciarmusicabuttonaction(ActionEvent event) {
 		mediaPlayer.pause();
     }
 
-	public BooleanProperty buttonPressedProperty() {
-		return this.buttonPressed;
+	public BooleanProperty BotonPulsadoProperty() {
+		return this.botonPulsado;
 	}
 
-	public boolean isButtonPressed() {
-		return this.buttonPressedProperty().get();
+	public boolean isBotonPulsado() {
+		return this.BotonPulsadoProperty().get();
 	}
 
-	public void setButtonPressed(final boolean buttonValue) {
-		this.buttonPressedProperty().set(buttonValue);
+	public void setBotonPulsado(final boolean BotonValue) {
+		this.BotonPulsadoProperty().set(BotonValue);
 	}
 
 	public BorderPane getView() {
 		return view;
 	}
 
-	public final BooleanProperty battleButtonPressedProperty() {
-		return this.battleButtonPressed;
+	public final BooleanProperty botonCombatePulsadoProperty() {
+		return this.botonCombatePulsado;
 	}
 
-	public final boolean isBattleButtonPressed() {
-		return this.battleButtonPressedProperty().get();
+	public final boolean isBotonCombatePulsado() {
+		return this.botonCombatePulsadoProperty().get();
 	}
 
-	public final void setBattleButtonPressed(final boolean battleButtonPressed) {
-		this.battleButtonPressedProperty().set(battleButtonPressed);
+	public final void setBotonCombatePulsado(final boolean botonCombatePulsado) {
+		this.botonCombatePulsadoProperty().set(botonCombatePulsado);
 	}
 
 }

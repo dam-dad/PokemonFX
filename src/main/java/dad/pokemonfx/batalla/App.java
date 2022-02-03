@@ -38,30 +38,30 @@ public class App extends Application {
 		return primaryStage;
 	}
 
-	public static boolean confirm(String title, String header, String content) {
+	public static boolean confirm(String titulo, String cabezero, String Contenido) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.initOwner(primaryStage);
-		alert.setTitle(title);
-		alert.setHeaderText(header);
-		alert.setContentText(content);
+		alert.setTitle(titulo);
+		alert.setHeaderText(cabezero);
+		alert.setContentText(Contenido);
 		return alert.showAndWait().get().equals(ButtonType.OK);
 	}
 
-	public static void error(String header, String content) {
+	public static void error(String cabezero, String Contenido) {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.initOwner(primaryStage);
 		alert.setTitle("Error");
-		alert.setHeaderText(header);
-		alert.setContentText(content);
+		alert.setHeaderText(cabezero);
+		alert.setContentText(Contenido);
 		alert.showAndWait();
 	}
 
-	public static void info(String title, String header, String content) {
+	public static void info(String titulo, String cabezero, String Contenido) {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.initOwner(primaryStage);
-		alert.setTitle(title);
-		alert.setHeaderText(header);
-		alert.setContentText(content);
+		alert.setTitle(titulo);
+		alert.setHeaderText(cabezero);
+		alert.setContentText(Contenido);
 		alert.showAndWait();
 	}
 

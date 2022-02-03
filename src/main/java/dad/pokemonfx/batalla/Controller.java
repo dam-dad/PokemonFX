@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import dad.pokemonfx.battlemode.BattleModeController;
+import dad.pokemonfx.battlemode.ModoBatallaController;
 import dad.pokemonfx.MovimientoFX.MapController;
 import dad.pokemonfx.battlemode.MenuBattleModeController;
 import javafx.beans.property.ListProperty;
@@ -19,11 +19,11 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 public class Controller implements Initializable {
-	private MenuController menuController;
-	private BattleController battleController;
-	private MapController mapController;
-	private MenuBattleModeController menuBattleModeController;
-	private BattleModeController battleModeController;
+	private MenuController menucontroller;
+	private JuegoController juegoController;
+	private MapController mapcontroller;
+	private MenuBattleModeController menubattlemodeController;
+	private ModoBatallaController modobatallaController;
 	public static ListProperty<Pokemon> listMapPokemon = new SimpleListProperty<>(FXCollections.observableArrayList());
 	Media media;
 	MediaPlayer mediaPlayer;
@@ -37,46 +37,45 @@ public class Controller implements Initializable {
 		loader.load();
 	}
 
-	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			menuController = new MenuController();
-			mapController = new MapController();
-			battleController = new BattleController();
-			menuBattleModeController = new MenuBattleModeController();
-			battleModeController = new BattleModeController();
-			view.setCenter(menuController.getView());
+			menucontroller = new MenuController();
+			mapcontroller = new MapController();
+			juegoController = new JuegoController();
+			menubattlemodeController = new MenuBattleModeController();
+			modobatallaController = new ModoBatallaController();
+			view.setCenter(menucontroller.getView());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		menuController.buttonPressedProperty().addListener((o, ov, nv) -> sepulsoboton(o, ov, nv));
-		menuController.battleButtonPressedProperty().addListener((o, ov, nv) -> sepulsobotonModoBatalla(o, ov, nv));
-		mapController.getGameLoop().hayBatallaProperty().addListener((o, ov, nv) -> hayBatalla(o, ov, nv));
-		battleController.finCombateProperty().addListener((o, ov, nv) -> finCombate(o, ov, nv));
-		battleController.getCombate().chooseController.buttonPressedProperty()
+		menucontroller.BotonPulsadoProperty().addListener((o, ov, nv) -> sepulsoboton(o, ov, nv));
+		menucontroller.botonCombatePulsadoProperty().addListener((o, ov, nv) -> sepulsobotonModoBatalla(o, ov, nv));
+		mapcontroller.getGameLoop().hayBatallaProperty().addListener((o, ov, nv) -> hayBatalla(o, ov, nv));
+		juegoController.finCombateProperty().addListener((o, ov, nv) -> finCombate(o, ov, nv));
+		juegoController.getCombate().eleccionController.botonPulsadoProperty()
 				.addListener((o, ov, nv) -> botonEleccion(o, ov, nv));
-		menuBattleModeController.botonIrCombateProperty().addListener((o, ov, nv) -> irModoCombate(o, ov, nv));
-		menuBattleModeController.botonVolverProperty().addListener((o, ov, nv) -> battlevolverAtras(o, ov, nv));
-		battleModeController.finCombateProperty().addListener((o, ov, nv) -> battlevolverAtras(o, ov, nv));
+		menubattlemodeController.botonIrCombateProperty().addListener((o, ov, nv) -> irModoCombate(o, ov, nv));
+		menubattlemodeController.botonVolverProperty().addListener((o, ov, nv) -> battlevolverAtras(o, ov, nv));
+		modobatallaController.finCombateProperty().addListener((o, ov, nv) -> battlevolverAtras(o, ov, nv));
 
 	}
 
 	private void irModoCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
-		battleModeController.setFinCombate(false);
-		view.setCenter(battleModeController.getView());
+		modobatallaController.setFinCombate(false);
+		view.setCenter(modobatallaController.getView());
 	}
 
 	private void battlevolverAtras(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
-		menuController.setBattleButtonPressed(false);
-		view.setCenter(menuController.getView());
+		menucontroller.setBotonCombatePulsado(false);
+		view.setCenter(menucontroller.getView());
 	}
 
 	private void sepulsobotonModoBatalla(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
-		menuBattleModeController.setBotonIrCombate(false);
-		menuBattleModeController.setBotonVolver(false);
-		menuController.mediaPlayer.stop();
-		view.setCenter(menuBattleModeController.getView());
+		menubattlemodeController.setBotonIrCombate(false);
+		menubattlemodeController.setBotonVolver(false);
+		menucontroller.mediaPlayer.stop();
+		view.setCenter(menubattlemodeController.getView());
 		// battlemode song
 		try {
 			media = new Media((getClass().getResource("/music/Main_Menu_Battlemode.mp3")).toURI().toString());
@@ -90,9 +89,9 @@ public class Controller implements Initializable {
 	}
 
 	private void botonEleccion(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
-		view.setCenter(mapController.getView());
-		listMapPokemon.set(battleController.getCombate().getChooseController().getTrainer());
-		menuController.mediaPlayer.stop();
+		view.setCenter(mapcontroller.getView());
+		listMapPokemon.set(juegoController.getCombate().getEleccionController().getEntrenador());
+		menucontroller.mediaPlayer.stop();
 		// world song
 		try {
 			media = new Media((getClass().getResource("/music/Littleroot_Town.mp3")).toURI().toString());
@@ -106,9 +105,9 @@ public class Controller implements Initializable {
 	}
 
 	private void finCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
-		mapController.getGameLoop().setHayBatalla(false);
-		view.setCenter(mapController.getView());
-		battleController.setFinCombate(false);
+		mapcontroller.getGameLoop().setHayBatalla(false);
+		view.setCenter(mapcontroller.getView());
+		juegoController.setFinCombate(false);
 		mediaPlayer.stop();
 		// world song
 		try {
@@ -123,8 +122,8 @@ public class Controller implements Initializable {
 	}
 
 	private void hayBatalla(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
-		battleController.setCombate(new Battle());
-		view.setCenter(battleController.getView());
+		juegoController.setCombate(new Combate());
+		view.setCenter(juegoController.getView());
 		mediaPlayer.stop();
 		// battle song
 		try {
@@ -138,7 +137,7 @@ public class Controller implements Initializable {
 	}
 
 	private void sepulsoboton(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
-		view.setCenter(battleController.getCombate().getChooseController().getView());
+		view.setCenter(juegoController.getCombate().getEleccionController().getView());
 	}
 
 	public static void curarPokemones() {
