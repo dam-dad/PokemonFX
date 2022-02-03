@@ -10,8 +10,13 @@
 
 <AnchorPane fx:id="view" prefHeight="480.0" prefWidth="720.0" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+<<<<<<< Updated upstream
       <ListView fx:id="listViewPokemon" layoutX="56.0" layoutY="93.0" onMouseClicked="#onClicked" prefHeight="347.0" prefWidth="330.0" />
       <Button fx:id="playButton" layoutX="458.0" layoutY="396.0" mnemonicParsing="false" onAction="#onPlayButton" prefHeight="50.0" prefWidth="168.0" text="JUGAR" textAlignment="CENTER">
+=======
+      <ListView fx:id="pokemonListView" layoutX="56.0" layoutY="93.0" onMouseClicked="#onClicked" prefHeight="347.0" prefWidth="330.0" />
+      <Button fx:id="jugarButton" layoutX="458.0" layoutY="396.0" mnemonicParsing="false" onAction="#onjugarButton" prefHeight="50.0" prefWidth="168.0" text="JUGAR" textAlignment="CENTER">
+>>>>>>> Stashed changes
          <font>
             <Font size="27.0" />
          </font>
