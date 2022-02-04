@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import dad.pokemonfx.batalla.App;
 import dad.pokemonfx.batalla.Attack;
 import dad.pokemonfx.batalla.Battle;
-import dad.pokemonfx.batalla.Controller;
 import dad.pokemonfx.batalla.Pokemon;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
@@ -161,13 +160,12 @@ public class BattleModeController implements Initializable {
 
 	private void oncombatechanged(ObservableValue<? extends Battle> o, Battle ov, Battle nv) {
 		if (ov != null) {
-			trainer1.clear();
+			trainer1.unbind();
 			trainer2.unbind();
 			pokemonCombobox.itemsProperty().unbind();
 		}
 		if (nv != null) {
-			Controller.curarPokemones();
-			trainer1.get().addAll(Controller.listMapPokemon.get());
+			trainer1.bind(nv.trainer1Property());
 			trainer2.bind(nv.entrenador2Property());
 			pokemonCombobox.itemsProperty().bind(trainer1);
 			pokemonCombobox.getSelectionModel().selectFirst();
