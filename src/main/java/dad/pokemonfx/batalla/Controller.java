@@ -52,7 +52,7 @@ public class Controller implements Initializable {
 		}
 		menuController.buttonPressedProperty().addListener((o, ov, nv) -> sepulsoboton(o, ov, nv));
 		menuController.battleButtonPressedProperty().addListener((o, ov, nv) -> sepulsobotonModoBatalla(o, ov, nv));
-		mapController.getGameLoop().hayBatallaProperty().addListener((o, ov, nv) -> hayBatalla(o, ov, nv));
+//		mapController.getGameLoop().hayBatallaProperty().addListener((o, ov, nv) -> hayBatalla(o, ov, nv));
 		battleController.finCombateProperty().addListener((o, ov, nv) -> finCombate(o, ov, nv));
 		battleController.getCombate().chooseController.buttonPressedProperty()
 				.addListener((o, ov, nv) -> botonEleccion(o, ov, nv));
@@ -106,7 +106,7 @@ public class Controller implements Initializable {
 	}
 
 	private void finCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
-		mapController.getGameLoop().setHayBatalla(false);
+//		mapController.getGameLoop().setHayBatalla(false);
 		view.setCenter(mapController.getView());
 		battleController.setFinCombate(false);
 		mediaPlayer.stop();

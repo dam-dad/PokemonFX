@@ -30,7 +30,7 @@ public class TileEngine {
 	double tileLength = 48;
 	double tileWidth = 48;
 
-	public void generateTiles(GraphicsContext graphicsContext) {
+	public void render(GraphicsContext graphicsContext) {
 
 		int mapLength = tileMap.length;
 		int mapWidth = tileMap[0].length;
