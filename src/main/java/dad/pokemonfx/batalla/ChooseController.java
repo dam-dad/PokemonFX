@@ -25,20 +25,19 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class ChooseController implements Initializable {
-	
+
 	private static final int TOTAL_POKEMONS = 6;
 
 	// model
-	
+
 	private ListProperty<Pokemon> listPokemon = new SimpleListProperty<>(FXCollections.observableArrayList());
 	private ListProperty<Pokemon> trainer = new SimpleListProperty<>(FXCollections.observableArrayList());
 	private BooleanProperty pressButton = new SimpleBooleanProperty();
-	private BooleanProperty listPokemonFull = new SimpleBooleanProperty();
 	private ObjectProperty<Pokemon> selectedPokemon = new SimpleObjectProperty<>();
-	
+
 	// view
-	
-	private List<ImageView> pokemons;
+
+	private List<ImageView> pokemonImages;
 
 	@FXML
 	private ImageView imagePokemon1;
@@ -75,31 +74,38 @@ public class ChooseController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
 		pressButton.set(false);
+
 		listViewPokemon.itemsProperty().bind(listPokemon);
+
 		selectedPokemon.bind(listViewPokemon.getSelectionModel().selectedItemProperty());
-		playButton.disableProperty().bind(listPokemonFull);
-		pokemons = Arrays.asList(imagePokemon1, imagePokemon2, imagePokemon3, imagePokemon4, imagePokemon5, imagePokemon6);
-		
-		listPokemonFull.bind(listPokemon.sizeProperty().isNotEqualTo(TOTAL_POKEMONS));
-		
-		
+
+		playButton.disableProperty().bind(trainer.sizeProperty().isNotEqualTo(TOTAL_POKEMONS));
+
+		pokemonImages = Arrays.asList(imagePokemon1, imagePokemon2, imagePokemon3, imagePokemon4, imagePokemon5, imagePokemon6);
+
 	}
 
 	@FXML
 	void onClicked(MouseEvent event) {
-		if (trainer.getSize() < TOTAL_POKEMONS) {
-			
-			trainer.add(selectedPokemon.get());
-			
-			pokemons.get(trainer.getSize() -1)
-				.setImage(selectedPokemon.get().getFront());
-			
-			listViewPokemon.getItems().remove(listViewPokemon.getSelectionModel().getSelectedIndex());
-			
-			
-		}else {
-			App.info("Error", "Ya has elegido " + TOTAL_POKEMONS + " Pokemon", null);
+
+		if (selectedPokemon.get() != null) {
+
+			Pokemon selected = selectedPokemon.get();
+
+			if (trainer.getSize() < TOTAL_POKEMONS) {
+
+				listPokemon.remove(selected);
+				trainer.add(selected);
+				pokemonImages.get(trainer.getSize() - 1).setImage(selected.getFront());
+
+			} else {
+				
+				App.info("Error", "Ya has elegido " + TOTAL_POKEMONS + " Pokemon", null);
+				
+			}
+
 		}
 
 	}

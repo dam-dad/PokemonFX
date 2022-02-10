@@ -1,10 +1,12 @@
 package dad.pokemonfx.gameloop;
 
+import java.util.List;
 import java.util.Set;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
+import javafx.scene.shape.Shape;
 
 public class GameLoop extends AnimationTimer {
 
@@ -13,16 +15,16 @@ public class GameLoop extends AnimationTimer {
 
 	private GraphicsContext graphicsContext;
 	
-	private TileEngine tileEngine = new TileEngine();
 	private Player player;
+	private List<Entity> objects;
 	
 	private Set<KeyCode> input;
 
 	public GameLoop(Set<KeyCode> input, GraphicsContext graphicsContext, Player player) {
-		this.tileEngine = new TileEngine();
 		this.input = input;
 		this.graphicsContext = graphicsContext;
 		this.player = player;
+		this.objects = Tile.loadTile();
 	}
 	
 	@Override
@@ -73,13 +75,13 @@ public class GameLoop extends AnimationTimer {
 
 	// chequeamos colisions
 	private void checkCollisions() {
-		// TODO Auto-generated method stub
+
 		
 	}
 
 	// pinta todo
 	private void render() {
-		tileEngine.render(graphicsContext);
+		objects.stream().forEach(o -> o.render(graphicsContext));
 		player.render(graphicsContext);
 	}	
 

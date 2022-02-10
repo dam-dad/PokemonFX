@@ -1,58 +1,47 @@
 package dad.pokemonfx.gameloop;
 
 
-import static dad.pokemonfx.gameloop.Direction.DOWN;
-
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 public class Player extends Entity {
 	
 	private static final double SCALE = 0.43;
 	
-	private long timeAcc;
+	private final Animation walkDown = new Animation(100000, "/images/walkDown1.png", "/images/walkDown2.png");
+	private final Animation walkUp = new Animation(100000, "/images/walkUp1.png", "/images/walkUp2.png");
+	private final Animation walkRight = new Animation("/images/walkRight1.png", "/images/walkRight2.png");
+	private final Animation walkLeft = new Animation("/images/walkLeft1.png", "/images/walkLeft2.png");
 
-	private final List<Image> walkDown = Arrays.asList(
-			new Image("/images/walkDown1.png"),
-			new Image("/images/walkDown2.png")			
-		);
-
-	private final List<Image> walkUp = Arrays.asList(
-			new Image("/images/walkUp1.png"),
-			new Image("/images/walkUp2.png")			
-		);
-
-	private final List<Image> walkRight = Arrays.asList(
-			new Image("/images/walkRight1.png"),
-			new Image("/images/walkRight2.png")			
-		);
-
-	private final List<Image> walkLeft = Arrays.asList(
-			new Image("/images/walkLeft1.png"),
-			new Image("/images/walkLeft2.png")			
-		);
+	@SuppressWarnings("serial")
+	private final Map<Direction, Animation> idle = new HashMap<>() {{
+		put(Direction.UP, new Animation("/images/idleUp.png"));
+		put(Direction.DOWN, new Animation("/images/idleDown.png"));
+		put(Direction.LEFT, new Animation("/images/idleLeft.png"));
+		put(Direction.RIGHT, new Animation("/images/idleRight.png"));
+	}};
 	
 	@SuppressWarnings("serial")
-	private final Map<Direction, Image> idle = new HashMap<Direction, Image>() {{
-		put(Direction.UP, new Image("/images/idleUp.png"));
-		put(Direction.DOWN, new Image("/images/idleDown.png"));
-		put(Direction.LEFT, new Image("/images/idleLeft.png"));
-		put(Direction.RIGHT, new Image("/images/idleRight.png"));
+	private final Map<Direction, Animation> walk = new HashMap<>() {{
+		put(Direction.UP, walkUp);
+		put(Direction.DOWN, walkDown);
+		put(Direction.LEFT, walkLeft);
+		put(Direction.RIGHT, walkRight);
 	}};
 
-	int counter = 0;
-	int xSpeed;
-	int ySpeed;
-	boolean isWalking = false;
+	private double xSpeed;
+	private double ySpeed;
+	private boolean isWalking = false;
 	private Direction direction;
+	private Animation animation;
 
-	public Player(int posX, int posY, int speed) {
-
+	public Player(double posX, double posY, double speed) {
+		
 		// variables of movement speed
 		this.xSpeed = speed;
 		this.ySpeed = speed;
@@ -62,7 +51,7 @@ public class Player extends Entity {
 		this.posY = posY;
 
 		// default direction when starting
-		this.direction = DOWN;
+		this.direction = Direction.DOWN;
 
 		// variables of character size
 		this.width = (int) (100 * SCALE);
@@ -99,29 +88,26 @@ public class Player extends Entity {
 	}
 	
 	public void render(GraphicsContext gc) {
-		Image currentImage = null;
-		
-		if (!isWalking) {
-			currentImage = idle.get(direction);
-		} else {
-			switch (direction) {
-				case DOWN:currentImage = walkDown.get(counter); break;
-				case UP: currentImage = walkUp.get(counter); break;
-				case RIGHT: currentImage = walkRight.get(counter); break;
-				case LEFT: currentImage = walkLeft.get(counter); break;
-			}
-		}
-		gc.drawImage(currentImage, posX, posY, width, height);
+		gc.drawImage(animation.getFrame(), posX, posY, width, height);
+
+		Rectangle shape = (Rectangle) getShape();
+		gc.setStroke(Color.YELLOW);
+		gc.setFill(Color.YELLOW);
+		gc.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
 	}
 	
 	public void update(long timeDifference) {
-		if (timeAcc > 200000) {
-			counter++;
-			if (counter > 1) counter = 0;
-			timeAcc = 0;
+		if (!isWalking) {
+			animation = idle.get(direction);
+		} else {
+			animation = walk.get(direction);
 		}
-		timeAcc += timeDifference;
+		animation.update(timeDifference);
 	}
-	
+
+	@Override
+	public Shape getShape() {
+		return new Rectangle(posX, posY + height/2, width, height/2);
+	}
 
 }
