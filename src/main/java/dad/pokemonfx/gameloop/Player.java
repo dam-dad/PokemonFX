@@ -34,11 +34,12 @@ public class Player extends Entity {
 		put(Direction.RIGHT, walkRight);
 	}};
 
-	private double xSpeed;
-	private double ySpeed;
+	public double xSpeed;
+	public double ySpeed;
 	private boolean isWalking = false;
 	private Direction direction;
 	private Animation animation;
+	private Action action;
 
 	public Player(double posX, double posY, double speed) {
 		
@@ -58,45 +59,65 @@ public class Player extends Entity {
 		this.height = (int) (150 * SCALE);
 	}
 
+	public void move(Action action) {
+		this.action = action;
+	}
+	
 	// methods for movement
-	public void moveLeft() {
+	private void moveLeft() {
 		isWalking = true;
 		direction = Direction.LEFT;
 		posX -= xSpeed;
 	}
 
-	public void moveRight() {
+	private void moveRight() {
 		isWalking = true;
 		direction = Direction.RIGHT;
 		posX += xSpeed;
 	}
 
-	public void moveUp() {
+	private void moveUp() {
 		isWalking = true;
 		direction = Direction.UP;
 		posY -= ySpeed;
 	}
 
-	public void moveDown() {
+	private void moveDown() {
 		isWalking = true;
 		direction = Direction.DOWN;
 		posY += ySpeed;
 	}
 	
-	public void idle() {
+	private void idle() {
 		isWalking = false;
 	}
 	
 	public void render(GraphicsContext gc) {
-		gc.drawImage(animation.getFrame(), posX, posY, width, height);
-
+		
 		Rectangle shape = (Rectangle) getShape();
 		gc.setStroke(Color.YELLOW);
 		gc.setFill(Color.YELLOW);
 		gc.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
+		
+		gc.drawImage(animation.getFrame(), posX, posY, width, height);
+
+		
 	}
 	
 	public void update(long timeDifference) {
+		
+		if (action != null) {
+			switch (action.getDirection()) {
+			case DOWN: moveDown(); break;
+			case UP: moveUp(); break;
+			case LEFT: moveLeft(); break;
+			case RIGHT: moveRight(); break;
+			}
+			action = null;
+		} else {
+			idle();
+		}
+		
 		if (!isWalking) {
 			animation = idle.get(direction);
 		} else {
@@ -107,7 +128,23 @@ public class Player extends Entity {
 
 	@Override
 	public Shape getShape() {
-		return new Rectangle(posX, posY + height/2, width, height/2);
+		double shapeX = posX;
+		double shapeY = posY + height/2;
+		if (action != null) {
+			switch (action.getDirection()) {
+			case DOWN: shapeY += ySpeed; break;
+			case UP: shapeY -= ySpeed; break;
+			case LEFT: shapeX -= xSpeed; break;
+			case RIGHT: shapeX += xSpeed; break;
+			}
+		} 
+		
+		return new Rectangle(shapeX, shapeY, width, height/2);
+	}
+
+	public void setAction(Action action) {
+		this.action = action;
+		
 	}
 
 }

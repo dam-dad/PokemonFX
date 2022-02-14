@@ -42,7 +42,7 @@ public class Tile {
 				switch (tileMap[i][j]) {
 				case 0: entities.add(new StaticEntity(floorTile, j * tileWidth, i * tileLength)); break;
 				case 1: entities.add(new StaticEntity(tallGrassTile, j * tileWidth, i * tileLength)); break;
-				case 2: entities.add(new StaticEntity(treeTile, j * tileWidth, i * tileLength)); break;
+				case 2: entities.add(new Tree(j * tileWidth, i * tileLength)); break;
 				case 3: entities.add(new StaticEntity(flowerTile, j * tileWidth, i * tileLength)); break;
 				}
 				

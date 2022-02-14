@@ -57,26 +57,27 @@ public class GameLoop extends AnimationTimer {
 	// procesamos las entradas
 	private void processInput() {
 		if (input.contains(KeyCode.W)) {
-			player.moveUp();
+			player.setAction(new Action(Direction.UP));
 		}
 		if (input.contains(KeyCode.A)) {
-			player.moveLeft();
+			player.setAction(new Action(Direction.LEFT));
 		}
 		if (input.contains(KeyCode.S)) {
-			player.moveDown();
+			player.setAction(new Action(Direction.DOWN));
 		}
 		if (input.contains(KeyCode.D)) {
-			player.moveRight();
+			player.setAction(new Action(Direction.RIGHT));
 		}
 		if (input.isEmpty()) {
-			player.idle();
+			player.setAction(null);
 		}
 	}
 
 	// chequeamos colisions
 	private void checkCollisions() {
-
-		
+		if(player.getShape().intersects(0, 0, 40, 40)) {
+			player.setAction(null);
+		}			
 	}
 
 	// pinta todo

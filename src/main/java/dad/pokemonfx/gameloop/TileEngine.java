@@ -2,6 +2,9 @@ package dad.pokemonfx.gameloop;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 public class TileEngine {
 
@@ -32,20 +35,25 @@ public class TileEngine {
 
 	public void render(GraphicsContext graphicsContext) {
 
+		
+		
 		int mapLength = tileMap.length;
 		int mapWidth = tileMap[0].length;
+		
+		
 
 		for (int i = 0; i < mapLength; i++) { 
 			for (int j = 0; j < mapWidth; j++) { 
 
 				if (tileMap[i][j] == 0) {
 					graphicsContext.drawImage(floorTile, j * tileWidth, i * tileLength);
+					
 				}
 				if (tileMap[i][j] == 1) {
 					graphicsContext.drawImage(tallGrassTile, j * tileWidth, i * tileLength);
 				}
-				if (tileMap[i][j] == 2) {
-					graphicsContext.drawImage(treeTile, j * tileWidth, i * tileLength);
+				if (tileMap[i][j] == 2) {				
+					graphicsContext.drawImage(treeTile, j * tileWidth, i * tileLength);									
 				}
 				if (tileMap[i][j] == 3) {
 					graphicsContext.drawImage(flowerTile, j * tileWidth, i * tileLength);
@@ -53,6 +61,11 @@ public class TileEngine {
 				
 			}
 		}
+		
+	}
+
+	public Shape getShape() {
+		return new Rectangle(0, 0, 48, 48);
 	}
 
 }
