@@ -53,6 +53,18 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <Button fx:id="pdfButton" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onpdfButton" styleClass="botonesMenu" text="GENERAR PDF" textFill="RED">
+                     <font>
+                        <Font name="Modern No. 20" size="36.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="69.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/bola.gif" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                   <Button fx:id="leaveButton" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onLeaveButton" styleClass="botonesMenu" text="SALIR" textFill="RED">
                      <font>
                         <Font name="Modern No. 20" size="36.0" />

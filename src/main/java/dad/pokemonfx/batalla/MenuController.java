@@ -35,12 +35,15 @@ public class MenuController implements Initializable {
 
 	@FXML
 	private Button leaveButton;
-	
+
 	@FXML
-    private Button enableMusicButton;
-	
+	private Button enableMusicButton;
+
 	@FXML
-    private Button muteMusicButton;
+	private Button muteMusicButton;
+
+	@FXML
+	private Button pdfButton;
 
 	@FXML
 	private BorderPane view;
@@ -52,7 +55,6 @@ public class MenuController implements Initializable {
 
 	}
 
-	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		buttonPressed.set(false);
@@ -88,24 +90,29 @@ public class MenuController implements Initializable {
 	}
 
 	@FXML
-    void onBattleButton(ActionEvent event) throws IOException {
+	void onBattleButton(ActionEvent event) throws IOException {
 		battleButtonPressed.set(true);
-    }
+	}
 
 	@FXML
 	void onLeaveButton(ActionEvent event) {
 		System.exit(0);
 	}
-	
+
 	@FXML
-    void onEnableMusicButton(ActionEvent event) {
+	void onEnableMusicButton(ActionEvent event) {
 		mediaPlayer.play();
-    }
-	
+	}
+
 	@FXML
-    void onMuteMusicButton(ActionEvent event) {
+	void onMuteMusicButton(ActionEvent event) {
 		mediaPlayer.pause();
-    }
+	}
+
+	@FXML
+	void onpdfButton(ActionEvent event) {
+
+	}
 
 	public BooleanProperty buttonPressedProperty() {
 		return this.buttonPressed;
