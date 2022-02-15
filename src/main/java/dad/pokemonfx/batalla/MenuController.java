@@ -26,6 +26,7 @@ public class MenuController implements Initializable {
 
 	private BooleanProperty buttonPressed = new SimpleBooleanProperty();
 	private BooleanProperty battleButtonPressed = new SimpleBooleanProperty();
+	private BooleanProperty pdfButtonPressed = new SimpleBooleanProperty();
 
 	@FXML
 	private Button battleButton;
@@ -59,6 +60,7 @@ public class MenuController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		buttonPressed.set(false);
 		battleButtonPressed.set(false);
+		pdfButtonPressed.set(false);
 		view.sceneProperty().addListener((o, ov, nv) -> {
 			startTransition();
 		});
@@ -93,6 +95,10 @@ public class MenuController implements Initializable {
 	void onBattleButton(ActionEvent event) throws IOException {
 		battleButtonPressed.set(true);
 	}
+	@FXML
+	void onpdfButton(ActionEvent event) {
+       pdfButtonPressed.set(true);
+	}
 
 	@FXML
 	void onLeaveButton(ActionEvent event) {
@@ -109,10 +115,6 @@ public class MenuController implements Initializable {
 		mediaPlayer.pause();
 	}
 
-	@FXML
-	void onpdfButton(ActionEvent event) {
-
-	}
 
 	public BooleanProperty buttonPressedProperty() {
 		return this.buttonPressed;
@@ -141,5 +143,21 @@ public class MenuController implements Initializable {
 	public final void setBattleButtonPressed(final boolean battleButtonPressed) {
 		this.battleButtonPressedProperty().set(battleButtonPressed);
 	}
+
+	public BooleanProperty pdfButtonPressedProperty() {
+		return this.pdfButtonPressed;
+	}
+	
+
+	public boolean isPdfButtonPressed() {
+		return this.pdfButtonPressedProperty().get();
+	}
+	
+
+	public void setPdfButtonPressed(final boolean pdfButtonPressed) {
+		this.pdfButtonPressedProperty().set(pdfButtonPressed);
+	}
+	
+	
 
 }

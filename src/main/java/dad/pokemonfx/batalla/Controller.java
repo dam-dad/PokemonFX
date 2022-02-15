@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import dad.pokemonfx.battlemode.BattleModeController;
 import dad.pokemonfx.MovimientoFX.MapController;
 import dad.pokemonfx.battlemode.MenuBattleModeController;
+import dad.pokemonfx.fichero.GenerarPDF;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.value.ObservableValue;
@@ -17,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import net.sf.jasperreports.engine.JRException;
 
 public class Controller implements Initializable {
 	private MenuController menuController;
@@ -52,6 +54,7 @@ public class Controller implements Initializable {
 		}
 		menuController.buttonPressedProperty().addListener((o, ov, nv) -> sepulsoboton(o, ov, nv));
 		menuController.battleButtonPressedProperty().addListener((o, ov, nv) -> sepulsobotonModoBatalla(o, ov, nv));
+		menuController.pdfButtonPressedProperty().addListener((o, ov, nv) -> sepulsobotonPDF(o, ov, nv));
 //		mapController.getGameLoop().hayBatallaProperty().addListener((o, ov, nv) -> hayBatalla(o, ov, nv));
 		battleController.finCombateProperty().addListener((o, ov, nv) -> finCombate(o, ov, nv));
 		battleController.getCombate().chooseController.buttonPressedProperty()
@@ -61,6 +64,17 @@ public class Controller implements Initializable {
 		battleModeController.finCombateProperty().addListener((o, ov, nv) -> battlevolverAtras(o, ov, nv));
 
 	}
+
+	private void sepulsobotonPDF(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
+		try {
+			GenerarPDF.generarPdf(battleController.getCombate().getChooseController().getListPokemon());
+		} catch (JRException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 
 	private void irModoCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		battleModeController.setFinCombate(false);

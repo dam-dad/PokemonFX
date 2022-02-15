@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="factura" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1be1174-10be-4df1-b271-1fbc8431fe7b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Productos"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[name]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="340" height="50" uuid="07d340f1-4dba-4057-bd46-81cdc474f96e"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="27"/>
+				</textElement>
+				<text><![CDATA[Factura]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-8" y="0" width="568" height="20" forecolor="#000000" backcolor="#D1D1D1" uuid="b49681a7-1a16-4887-ab0d-5cc4c1038f8d"/>
+				<graphicElement>
+					<pen lineColor="rgba(0, 0, 0, 0.0)"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="280" height="20" uuid="dee8e752-925f-4ada-b196-0c9f2ec78055"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="90" height="20" uuid="be2e9d31-15a0-4cc9-8952-e464c91d0bca"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="90" height="20" uuid="4c24bfea-73d8-49bd-a2d8-0a524f9f8139"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unidades]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement x="280" y="0" width="90" height="30" uuid="68cc3423-529f-497a-8505-2ee7226a3f4d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="90" height="30" uuid="15c91a2e-0672-46a9-99c9-df60c310a971"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<image onErrorType="Icon">
+				<reportElement x="0" y="0" width="70" height="60" uuid="30865182-f578-4d80-b6c7-c3cad6baa53f"/>
+				<imageExpression><![CDATA["/src/main/resources/assets/textures/treeTile.png"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="180" y="0" width="100" height="30" uuid="ca17bae3-c7c7-442a-b8ba-21eda4c1d2d5"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="280" y="0" width="100" height="30" uuid="77a79a7e-9fad-4629-b8ce-cb24ba1b0a4b"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="30">
+			<textField pattern="#,##0.00¤;-#,##0.00 ¤">
+				<reportElement x="460" y="0" width="90" height="30" uuid="45d76b46-3a77-4d02-90c8-7f812108ccdc"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

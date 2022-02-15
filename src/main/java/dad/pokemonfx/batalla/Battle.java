@@ -40,25 +40,20 @@ public class Battle {
 
 	}
 
-	
 	public static void playerAttack(Attack attack, Pokemon pokemon) {
 		int randomNum = (int) (Math.random() * 100 + 1);
 		if (randomNum <= attack.getAccuracy()) {
-			
+
 			// variable tipo
-			Double damageAmount = attack.getDamage() * Damage.getEffectivityMultiplier(PokemonType.valueOf(attack.getAttackType()), pokemon.getType());
-			
+			Double damageAmount = attack.getDamage()
+					* Damage.getEffectivityMultiplier(PokemonType.valueOf(attack.getAttackType()), pokemon.getType());
+
 			/*
-			// variable crítico, desactivada para testear más fácil el resto de cosas
-			Random r = new Random();
-	        int randomInt = r.nextInt(100) + 1;		
-			float critical = 1f;	
-	        if (randomInt <= 6.25f)//then we have a critical hit
-	        {
-	            critical = 2f;
-	        }	        
-	        cantidadAtaque = cantidadAtaque * critical;
-	        */
+			 * // variable crítico, desactivada para testear más fácil el resto de cosas
+			 * Random r = new Random(); int randomInt = r.nextInt(100) + 1; float critical =
+			 * 1f; if (randomInt <= 6.25f)//then we have a critical hit { critical = 2f; }
+			 * cantidadAtaque = cantidadAtaque * critical;
+			 */
 			if (damageAmount > pokemon.getHealth()) {
 				pokemon.setHealth(0);
 			} else {
@@ -82,25 +77,23 @@ public class Battle {
 			Element root = document.getRootElement();
 			List<Element> pokemonElements = root.getChildren("Pokemon");
 			for (int i = 0; i < pokemonElements.size(); i++) {
-				
+
 				Element pokemonElement = pokemonElements.get(i);
 
 				List<Element> attackElements = pokemonElement.getChild("Ataques").getChildren();
-				
-				List<Attack> attackList = attackElements.stream()
-					.map(attackElement -> {
-						double damage = Integer.valueOf(attackElement.getAttributeValue("poder"));
-						double accuracy = Integer.valueOf(attackElement.getAttributeValue("precision"));
-						String name = attackElement.getText();
-						String type = attackElement.getAttributeValue("tipo");					
-						return new Attack(name, damage, accuracy, type);
-					})
-					.collect(Collectors.toList());
-				
+
+				List<Attack> attackList = attackElements.stream().map(attackElement -> {
+					double damage = Integer.valueOf(attackElement.getAttributeValue("poder"));
+					double accuracy = Integer.valueOf(attackElement.getAttributeValue("precision"));
+					String name = attackElement.getText();
+					String type = attackElement.getAttributeValue("tipo");
+					return new Attack(name, damage, accuracy, type);
+				}).collect(Collectors.toList());
+
 				String name = pokemonElement.getAttributeValue("nombre");
 				int level = Integer.valueOf(pokemonElements.get(i).getAttributeValue("nivel"));
 				PokemonType type = PokemonType.valueOf(pokemonElement.getAttributeValue("tipo"));
-				Pokemon pokemon = new Pokemon(name, type, level,attackList);
+				Pokemon pokemon = new Pokemon(name, type, level, attackList);
 				chooseController.getListPokemon().add(pokemon);
 
 			}
@@ -111,7 +104,6 @@ public class Battle {
 
 	}
 
-	
 	public ListProperty<Pokemon> trainer1Property() {
 		return this.trainer1;
 	}
