@@ -18,7 +18,7 @@
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font size="27"/>
 				</textElement>
-				<text><![CDATA[Factura]]></text>
+				<text><![CDATA[Lista de Pokemones]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -35,21 +35,21 @@
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Descripción]]></text>
+				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="280" y="0" width="90" height="20" uuid="be2e9d31-15a0-4cc9-8952-e464c91d0bca"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Precio]]></text>
+				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="370" y="0" width="90" height="20" uuid="4c24bfea-73d8-49bd-a2d8-0a524f9f8139"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Unidades]]></text>
+				<text><![CDATA[Nombre]]></text>
 			</staticText>
 		</band>
 	</columnHeader>

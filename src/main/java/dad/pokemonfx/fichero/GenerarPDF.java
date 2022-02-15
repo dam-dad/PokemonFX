@@ -19,7 +19,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 public class GenerarPDF {
 
 	public static final String JRXML_FILE = "/reports/Pokemon.jrxml";
-	public static final String PDF_FILE = "pdf/factura.pdf";
+	public static final String PDF_FILE = "ListaPokemon.pdf";
 
 	public static void generarPdf(List<Pokemon> lista) throws JRException, IOException {
 
