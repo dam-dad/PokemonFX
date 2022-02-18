@@ -21,7 +21,7 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnSpan="2">
@@ -79,18 +79,9 @@
                   </Button>
                </children>
             </VBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <HBox alignment="CENTER_RIGHT" spacing="5.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="muteMusicButton" mnemonicParsing="false" onAction="#onMuteMusicButton" styleClass="botonesAudio">
-                     <graphic>
-                        <ImageView pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/music-off-icon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="enableMusicButton" mnemonicParsing="false" onAction="#onEnableMusicButton" styleClass="botonesAudio">
+                  <Button fx:id="controlMusicButton" mnemonicParsing="false" onAction="#onControlMusicButton" styleClass="botonesAudio">
                      <graphic>
                         <ImageView pickOnBounds="true" preserveRatio="true">
                            <image>

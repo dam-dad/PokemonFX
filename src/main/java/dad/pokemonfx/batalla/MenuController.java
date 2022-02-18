@@ -1,10 +1,10 @@
 package dad.pokemonfx.batalla;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dad.pokemonfx.music.MusicThread;
 import javafx.animation.FadeTransition;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -19,6 +19,9 @@ import javafx.util.Duration;
 import javafx.fxml.Initializable;
 
 public class MenuController implements Initializable {
+	
+	//Musica
+	private static MusicThread music;
 
 	Media media1;
 	Media media2;
@@ -27,6 +30,7 @@ public class MenuController implements Initializable {
 	private BooleanProperty buttonPressed = new SimpleBooleanProperty();
 	private BooleanProperty battleButtonPressed = new SimpleBooleanProperty();
 	private BooleanProperty pdfButtonPressed = new SimpleBooleanProperty();
+	private BooleanProperty controlMusicButtonPressed = new SimpleBooleanProperty();
 
 	@FXML
 	private Button battleButton;
@@ -38,10 +42,7 @@ public class MenuController implements Initializable {
 	private Button leaveButton;
 
 	@FXML
-	private Button enableMusicButton;
-
-	@FXML
-	private Button muteMusicButton;
+    private Button controlMusicButton;
 
 	@FXML
 	private Button pdfButton;
@@ -61,20 +62,10 @@ public class MenuController implements Initializable {
 		buttonPressed.set(false);
 		battleButtonPressed.set(false);
 		pdfButtonPressed.set(false);
+		controlMusicButtonPressed.set(false);
 		view.sceneProperty().addListener((o, ov, nv) -> {
 			startTransition();
 		});
-		// menu song
-		try {
-			media1 = new Media((getClass().getResource("/music/Menu_Song.mp3")).toURI().toString());
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		mediaPlayer = new MediaPlayer(media1);
-		mediaPlayer.setVolume(0.03);
-		mediaPlayer.play();
-
 	}
 
 	private void startTransition() {
@@ -106,15 +97,10 @@ public class MenuController implements Initializable {
 	}
 
 	@FXML
-	void onEnableMusicButton(ActionEvent event) {
-		mediaPlayer.play();
-	}
-
-	@FXML
-	void onMuteMusicButton(ActionEvent event) {
-		mediaPlayer.pause();
-	}
-
+    void onControlMusicButton(ActionEvent event) {
+		controlMusicButtonPressed.set(true);
+		music.pause();
+    }
 
 	public BooleanProperty buttonPressedProperty() {
 		return this.buttonPressed;

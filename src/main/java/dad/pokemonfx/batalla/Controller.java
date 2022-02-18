@@ -8,6 +8,7 @@ import dad.pokemonfx.battlemode.BattleModeController;
 import dad.pokemonfx.MovimientoFX.MapController;
 import dad.pokemonfx.battlemode.MenuBattleModeController;
 import dad.pokemonfx.fichero.GenerarPDF;
+import dad.pokemonfx.music.MusicThread;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.value.ObservableValue;
@@ -21,6 +22,10 @@ import javafx.scene.media.MediaPlayer;
 import net.sf.jasperreports.engine.JRException;
 
 public class Controller implements Initializable {
+	
+	// Musica
+	private static MusicThread music;
+	
 	private MenuController menuController;
 	private BattleController battleController;
 	private MapController mapController;
@@ -62,6 +67,9 @@ public class Controller implements Initializable {
 		menuBattleModeController.botonIrCombateProperty().addListener((o, ov, nv) -> irModoCombate(o, ov, nv));
 		menuBattleModeController.botonVolverProperty().addListener((o, ov, nv) -> battlevolverAtras(o, ov, nv));
 		battleModeController.finCombateProperty().addListener((o, ov, nv) -> battlevolverAtras(o, ov, nv));
+		// Music menu
+		music = new MusicThread("Menu_Song");
+		music.play();
 
 	}
 
@@ -79,76 +87,57 @@ public class Controller implements Initializable {
 	private void irModoCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		battleModeController.setFinCombate(false);
 		view.setCenter(battleModeController.getView());
+		// Music batalla
+		music.pause();
+		music = new MusicThread("Battle_Song");
+		music.play();
 	}
 
 	private void battlevolverAtras(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		menuController.setBattleButtonPressed(false);
 		view.setCenter(menuController.getView());
+		//Musica menu
+		music.pause();
+		music = new MusicThread("Menu_Song");
+		music.play();
 	}
 
 	private void sepulsobotonModoBatalla(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		menuBattleModeController.setBotonIrCombate(false);
 		menuBattleModeController.setBotonVolver(false);
-		menuController.mediaPlayer.stop();
 		view.setCenter(menuBattleModeController.getView());
-		// battlemode song
-		try {
-			media = new Media((getClass().getResource("/music/Main_Menu_Battlemode.mp3")).toURI().toString());
-		} catch (URISyntaxException e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		mediaPlayer = new MediaPlayer(media);
-		mediaPlayer.setVolume(0.03);
-		mediaPlayer.play();
+		// Music battlemode
+		music.pause();
+		music = new MusicThread("Main_Menu_Battlemode");
+		music.play();
 	}
 
 	private void botonEleccion(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		view.setCenter(mapController.getView());
 		listMapPokemon.set(battleController.getCombate().getChooseController().getTrainer());
-		menuController.mediaPlayer.stop();
-		// world song
-		try {
-			media = new Media((getClass().getResource("/music/Littleroot_Town.mp3")).toURI().toString());
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
-		}
-		mediaPlayer = new MediaPlayer(media);
-		mediaPlayer.setVolume(0.03);
-		mediaPlayer.play();
-
+		// Music mundo
+		music.pause();
+		music = new MusicThread("Littleroot_Town");
+		music.play();
 	}
 
 	private void finCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 //		mapController.getGameLoop().setHayBatalla(false);
 		view.setCenter(mapController.getView());
 		battleController.setFinCombate(false);
-		mediaPlayer.stop();
-		// world song
-		try {
-			media = new Media((getClass().getResource("/music/Littleroot_Town.mp3")).toURI().toString());
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
-		}
-		mediaPlayer = new MediaPlayer(media);
-		mediaPlayer.setVolume(0.03);
-		mediaPlayer.play();
-
+		// Music mundo
+		music.pause();
+		music = new MusicThread("Littleroot_Town");
+		music.play();
 	}
 
 	private void hayBatalla(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		battleController.setCombate(new Battle());
 		view.setCenter(battleController.getView());
-		mediaPlayer.stop();
-		// battle song
-		try {
-			media = new Media((getClass().getResource("/music/Battle_Song.mp3")).toURI().toString());
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
-		}
-		mediaPlayer = new MediaPlayer(media);
-		mediaPlayer.setVolume(0.021);
-		mediaPlayer.play();
+		// Music batalla
+		music.pause();
+		music = new MusicThread("Battle_Song");
+		music.play();
 	}
 
 	private void sepulsoboton(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
