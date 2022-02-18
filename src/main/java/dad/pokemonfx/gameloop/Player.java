@@ -13,8 +13,8 @@ public class Player extends Entity {
 	
 	private static final double SCALE = 0.43;
 	
-	private final Animation walkDown = new Animation(100000, "/images/walkDown1.png", "/images/walkDown2.png");
-	private final Animation walkUp = new Animation(100000, "/images/walkUp1.png", "/images/walkUp2.png");
+	private final Animation walkDown = new Animation("/images/walkDown1.png", "/images/walkDown2.png");
+	private final Animation walkUp = new Animation("/images/walkUp1.png", "/images/walkUp2.png");
 	private final Animation walkRight = new Animation("/images/walkRight1.png", "/images/walkRight2.png");
 	private final Animation walkLeft = new Animation("/images/walkLeft1.png", "/images/walkLeft2.png");
 
@@ -105,7 +105,6 @@ public class Player extends Entity {
 	}
 	
 	public void update(long timeDifference) {
-		
 		if (action != null) {
 			switch (action.getDirection()) {
 			case DOWN: moveDown(); break;

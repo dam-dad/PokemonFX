@@ -6,6 +6,8 @@ import java.util.Set;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
 public class GameLoop extends AnimationTimer {
@@ -75,9 +77,13 @@ public class GameLoop extends AnimationTimer {
 
 	// chequeamos colisions
 	private void checkCollisions() {
-		if(player.getShape().intersects(0, 0, 40, 40)) {
+		if(player.getShape().intersects(0, 0, 48, 480)
+				|| player.getShape().intersects(0, 0, 720, 48)
+				|| player.getShape().intersects(672, 0, 48, 480)
+				|| player.getShape().intersects(0, 432, 720, 48)) {
 			player.setAction(null);
-		}			
+		}
+		//if(player.getShape().intersects());			
 	}
 
 	// pinta todo

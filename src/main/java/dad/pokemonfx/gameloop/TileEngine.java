@@ -8,7 +8,7 @@ import javafx.scene.shape.Shape;
 
 public class TileEngine {
 
-	int[][] tileMap = {
+	/*int[][] tileMap = {
 			{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
 			{2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2},
 			{2, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 2},
@@ -67,5 +67,6 @@ public class TileEngine {
 	public Shape getShape() {
 		return new Rectangle(0, 0, 48, 48);
 	}
+	*/
 
 }
