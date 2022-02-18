@@ -22,13 +22,8 @@ public class StaticEntity extends Entity {
 	public void render(GraphicsContext gc) {
 		gc.drawImage(image, posX, posY);
 		
-		/*if(image.getUrl().contains("tree")) {
-			shape = new Rectangle(posX, posY, 48, 48);
-			gc.setStroke(Color.YELLOW);
-			gc.setFill(Color.YELLOW);
-			gc.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
-		}	
-		*/	
+		
+			
 	}
 
 	@Override
