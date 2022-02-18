@@ -19,9 +19,6 @@ import javafx.util.Duration;
 import javafx.fxml.Initializable;
 
 public class MenuController implements Initializable {
-	
-	//Musica
-	private static MusicThread music;
 
 	Media media1;
 	Media media2;
@@ -99,7 +96,7 @@ public class MenuController implements Initializable {
 	@FXML
     void onControlMusicButton(ActionEvent event) {
 		controlMusicButtonPressed.set(true);
-		music.pause();
+		App.stopMusic();
     }
 
 	public BooleanProperty buttonPressedProperty() {

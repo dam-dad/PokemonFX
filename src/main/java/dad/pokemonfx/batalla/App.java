@@ -1,5 +1,6 @@
 package dad.pokemonfx.batalla;
 
+import dad.pokemonfx.music.MusicThread;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -10,6 +11,9 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class App extends Application {
+	
+	//Musica
+	private static MusicThread music;
 
 	Controller controller;
 	private static Stage primaryStage;
@@ -63,6 +67,16 @@ public class App extends Application {
 		alert.setHeaderText(header);
 		alert.setContentText(content);
 		alert.showAndWait();
+	}
+	
+	public static void playMusic(String file) {
+		music = new MusicThread(file);
+		music.play();
+	}
+
+	public static void stopMusic() {
+		// if cambiar a juego
+		music.pause();
 	}
 
 }

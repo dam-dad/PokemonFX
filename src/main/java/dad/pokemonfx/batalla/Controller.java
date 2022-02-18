@@ -1,14 +1,12 @@
 package dad.pokemonfx.batalla;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import dad.pokemonfx.battlemode.BattleModeController;
 import dad.pokemonfx.MovimientoFX.MapController;
 import dad.pokemonfx.battlemode.MenuBattleModeController;
 import dad.pokemonfx.fichero.GenerarPDF;
-import dad.pokemonfx.music.MusicThread;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.value.ObservableValue;
@@ -22,9 +20,6 @@ import javafx.scene.media.MediaPlayer;
 import net.sf.jasperreports.engine.JRException;
 
 public class Controller implements Initializable {
-	
-	// Musica
-	private static MusicThread music;
 	
 	private MenuController menuController;
 	private BattleController battleController;
@@ -68,8 +63,7 @@ public class Controller implements Initializable {
 		menuBattleModeController.botonVolverProperty().addListener((o, ov, nv) -> battlevolverAtras(o, ov, nv));
 		battleModeController.finCombateProperty().addListener((o, ov, nv) -> battlevolverAtras(o, ov, nv));
 		// Music menu
-		music = new MusicThread("Menu_Song");
-		music.play();
+		App.playMusic("Menu_Song");
 
 	}
 
@@ -88,18 +82,16 @@ public class Controller implements Initializable {
 		battleModeController.setFinCombate(false);
 		view.setCenter(battleModeController.getView());
 		// Music batalla
-		music.pause();
-		music = new MusicThread("Battlemode_Battle_Song");
-		music.play();
+		App.stopMusic();
+		App.playMusic("Battlemode_Battle_Song");
 	}
 
 	private void battlevolverAtras(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		menuController.setBattleButtonPressed(false);
 		view.setCenter(menuController.getView());
 		//Musica menu
-		music.pause();
-		music = new MusicThread("Menu_Song");
-		music.play();
+		App.stopMusic();
+		App.playMusic("Menu_Song");
 	}
 
 	private void sepulsobotonModoBatalla(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
@@ -107,18 +99,16 @@ public class Controller implements Initializable {
 		menuBattleModeController.setBotonVolver(false);
 		view.setCenter(menuBattleModeController.getView());
 		// Music battlemode
-		music.pause();
-		music = new MusicThread("Main_Menu_Battlemode");
-		music.play();
+		App.stopMusic();
+		App.playMusic("Main_Menu_Battlemode");
 	}
 
 	private void botonEleccion(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		view.setCenter(mapController.getView());
 		listMapPokemon.set(battleController.getCombate().getChooseController().getTrainer());
 		// Music mundo
-		music.pause();
-		music = new MusicThread("Littleroot_Town");
-		music.play();
+		App.stopMusic();
+		App.playMusic("Littleroot_Town");
 	}
 
 	private void finCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
@@ -126,18 +116,16 @@ public class Controller implements Initializable {
 		view.setCenter(mapController.getView());
 		battleController.setFinCombate(false);
 		// Music mundo
-		music.pause();
-		music = new MusicThread("Littleroot_Town");
-		music.play();
+		App.stopMusic();
+		App.playMusic("Littleroot_Town");
 	}
 
 	private void hayBatalla(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		battleController.setCombate(new Battle());
 		view.setCenter(battleController.getView());
 		// Music batalla
-		music.pause();
-		music = new MusicThread("Battle_Song");
-		music.play();
+		App.stopMusic();
+		App.playMusic("Battle_Song");
 	}
 
 	private void sepulsoboton(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
