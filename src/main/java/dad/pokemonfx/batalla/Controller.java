@@ -89,7 +89,7 @@ public class Controller implements Initializable {
 		view.setCenter(battleModeController.getView());
 		// Music batalla
 		music.pause();
-		music = new MusicThread("Battle_Song");
+		music = new MusicThread("Battlemode_Battle_Song");
 		music.play();
 	}
 

@@ -22,7 +22,7 @@ public class MusicThread extends Thread {
 		try {
 			media = new Media(path.toURI().toString());
 			player = new MediaPlayer(media);
-			player.setVolume(0.03);
+			player.setVolume(1);
 			player.setCycleCount(Transition.INDEFINITE);
 			player.play();
 		} catch (URISyntaxException e) {
