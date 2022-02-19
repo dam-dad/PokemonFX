@@ -5,12 +5,45 @@
 
 .botonesMenu {
 	-fx-font-family: "Pokemon Pixel Font";
-	-fx-font-size:50;
+	-fx-font-size:30;
+	-fx-opacity: 0.75;
+	-fx-background-radius: 0;
+	-fx-background-color:  #ccffcc;
+	-fx-pref-height: 65px;
+    -fx-pref-width: 325px;
+}
+
+.botonesMenu:hover {
+	-fx-opacity: 1.0;
+}
+
+.botonAudioMenu {
+	-fx-opacity: 0.75;
+	-fx-background-radius: 0;
+	-fx-background-color: #ccffcc;
+}
+
+.botonAudioMenu:hover {
+	-fx-opacity: 1;
+}
+
+.botonJugarEleccion {
+	-fx-font-family: "Pokemon Pixel Font";
+	-fx-font-size:30;
+	-fx-opacity: 0.75;
+	-fx-background-radius: 0;
+	-fx-background-color:  #ccffcc;
+	-fx-text-fill: red;
+}
+
+.botonJugarEleccion:hover {
+	-fx-opacity: 1.0;
 }
 
 .label {
 	-fx-font-family: "Pokemon Pixel Font";
 	-fx-font-size:50;
+	-fx-text-fill:  #ccffcc;
 }
 .list-view{
 	-fx-font-family: "Pokemon Pixel Font";

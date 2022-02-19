@@ -26,7 +26,7 @@
          <children>
             <HBox alignment="BOTTOM_RIGHT" spacing="5.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="siguientebutton" alignment="CENTER" cache="true" contentDisplay="RIGHT" defaultButton="true" depthTest="DISABLE" graphicTextGap="6.0" mnemonicParsing="false" onAction="#onsiguientebutton" text="¡VAMOS A LUCHAR!" textFill="RED" textOverrun="CLIP">
+                  <Button fx:id="siguientebutton" alignment="CENTER" cache="true" contentDisplay="RIGHT" depthTest="DISABLE" graphicTextGap="6.0" mnemonicParsing="false" onAction="#onsiguientebutton" text="¡VAMOS A LUCHAR!" textFill="RED" textOverrun="CLIP">
                      <font>
                         <Font size="18.0" />
                      </font>
