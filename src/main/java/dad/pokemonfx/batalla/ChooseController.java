@@ -22,7 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
 public class ChooseController implements Initializable {
 
@@ -32,7 +32,8 @@ public class ChooseController implements Initializable {
 
 	private ListProperty<Pokemon> listPokemon = new SimpleListProperty<>(FXCollections.observableArrayList());
 	private ListProperty<Pokemon> trainer = new SimpleListProperty<>(FXCollections.observableArrayList());
-	private BooleanProperty pressButton = new SimpleBooleanProperty();
+	private BooleanProperty pulsarJugarButton = new SimpleBooleanProperty();
+	private BooleanProperty pulsarCancelarButton = new SimpleBooleanProperty();
 	private ObjectProperty<Pokemon> selectedPokemon = new SimpleObjectProperty<>();
 
 	// view
@@ -59,15 +60,18 @@ public class ChooseController implements Initializable {
 
 	@FXML
 	private Button playButton;
+	
+	@FXML
+	private Button cancelButton;
 
 	@FXML
 	private ListView<Pokemon> listViewPokemon;
 
 	@FXML
-	private AnchorPane view;
+	private GridPane view;
 
 	public ChooseController() throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MenuEleccionView.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MenuEleccionView2.fxml"));
 		loader.setController(this);
 		loader.load();
 	}
@@ -75,13 +79,15 @@ public class ChooseController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		pressButton.set(false);
+		pulsarJugarButton.set(false);
+		pulsarCancelarButton.set(false);
 
 		listViewPokemon.itemsProperty().bind(listPokemon);
 
 		selectedPokemon.bind(listViewPokemon.getSelectionModel().selectedItemProperty());
 
 		playButton.disableProperty().bind(trainer.sizeProperty().isNotEqualTo(TOTAL_POKEMONS));
+		cancelButton.disableProperty().bind(pulsarCancelarButton);
 
 		pokemonImages = Arrays.asList(imagePokemon1, imagePokemon2, imagePokemon3, imagePokemon4, imagePokemon5, imagePokemon6);
 
@@ -112,47 +118,90 @@ public class ChooseController implements Initializable {
 
 	@FXML
 	void onPlayButton(ActionEvent event) {
-		pressButton.set(true);
+		pulsarJugarButton.set(true);
 	}
+	
+	@FXML
+    void onCancelButton(ActionEvent event) {
+		pulsarCancelarButton.set(true);
+    }
 
-	public AnchorPane getView() {
+	public GridPane getView() {
 		return view;
 	}
 
 	public final ListProperty<Pokemon> listPokemonProperty() {
-		return listPokemon;
+		return this.listPokemon;
 	}
+	
 
 	public final ObservableList<Pokemon> getListPokemon() {
 		return this.listPokemonProperty().get();
 	}
+	
 
-	public final void setListpokemon(final ObservableList<Pokemon> listPokemon) {
+	public final void setListPokemon(final ObservableList<Pokemon> listPokemon) {
 		this.listPokemonProperty().set(listPokemon);
 	}
-
-	public final BooleanProperty buttonPressedProperty() {
-		return this.pressButton;
-	}
-
-	public final boolean isButtonPressed() {
-		return this.buttonPressedProperty().get();
-	}
-
-	public final void setButtonPressed(final boolean buttonPressed) {
-		this.buttonPressedProperty().set(buttonPressed);
-	}
+	
 
 	public final ListProperty<Pokemon> trainerProperty() {
-		return trainer;
+		return this.trainer;
 	}
+	
 
 	public final ObservableList<Pokemon> getTrainer() {
 		return this.trainerProperty().get();
 	}
+	
 
 	public final void setTrainer(final ObservableList<Pokemon> trainer) {
 		this.trainerProperty().set(trainer);
+	}
+	
+
+	public final BooleanProperty pulsarJugarButtonProperty() {
+		return this.pulsarJugarButton;
+	}
+	
+
+	public final boolean isPulsarJugarButton() {
+		return this.pulsarJugarButtonProperty().get();
+	}
+	
+
+	public final void setPulsarJugarButton(final boolean pulsarJugarButton) {
+		this.pulsarJugarButtonProperty().set(pulsarJugarButton);
+	}
+	
+
+	public final BooleanProperty pulsarCancelarButtonProperty() {
+		return this.pulsarCancelarButton;
+	}
+	
+
+	public final boolean isPulsarCancelarButton() {
+		return this.pulsarCancelarButtonProperty().get();
+	}
+	
+
+	public final void setPulsarCancelarButton(final boolean pulsarCancelarButton) {
+		this.pulsarCancelarButtonProperty().set(pulsarCancelarButton);
+	}
+	
+
+	public final ObjectProperty<Pokemon> selectedPokemonProperty() {
+		return this.selectedPokemon;
+	}
+	
+
+	public final Pokemon getSelectedPokemon() {
+		return this.selectedPokemonProperty().get();
+	}
+	
+
+	public final void setSelectedPokemon(final Pokemon selectedPokemon) {
+		this.selectedPokemonProperty().set(selectedPokemon);
 	}
 
 }

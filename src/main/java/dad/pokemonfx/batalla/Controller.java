@@ -57,8 +57,10 @@ public class Controller implements Initializable {
 		menuController.pdfButtonPressedProperty().addListener((o, ov, nv) -> sepulsobotonPDF(o, ov, nv));
 //		mapController.getGameLoop().hayBatallaProperty().addListener((o, ov, nv) -> hayBatalla(o, ov, nv));
 		battleController.finCombateProperty().addListener((o, ov, nv) -> finCombate(o, ov, nv));
-		battleController.getCombate().chooseController.buttonPressedProperty()
+		battleController.getCombate().chooseController.pulsarJugarButtonProperty()
 				.addListener((o, ov, nv) -> botonEleccion(o, ov, nv));
+		battleController.getCombate().chooseController.pulsarCancelarButtonProperty()
+		.addListener((o, ov, nv) -> botonEleccionAtras(o, ov, nv));
 		menuBattleModeController.botonIrCombateProperty().addListener((o, ov, nv) -> irModoCombate(o, ov, nv));
 		menuBattleModeController.botonVolverProperty().addListener((o, ov, nv) -> battlevolverAtras(o, ov, nv));
 		battleModeController.finCombateProperty().addListener((o, ov, nv) -> battlevolverAtras(o, ov, nv));
@@ -109,6 +111,14 @@ public class Controller implements Initializable {
 		// Music mundo
 		App.stopMusic();
 		App.playMusic("Littleroot_Town");
+	}
+	
+	private void botonEleccionAtras(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
+		menuController.setButtonPressed(false);
+		view.setCenter(menuController.getView());
+		// Music mundo
+		App.stopMusic();
+		App.playMusic("Menu_Song");
 	}
 
 	private void finCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
