@@ -2,7 +2,6 @@ package dad.pokemonfx.gameloop;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
@@ -16,14 +15,13 @@ public class StaticEntity extends Entity {
 		this.image = image;
 		this.posX = x;
 		this.posY = y;
+		this.width = image.getWidth();
+		this.height = image.getHeight();
 	}
 
 	@Override
 	public void render(GraphicsContext gc) {
 		gc.drawImage(image, posX, posY);
-		
-		
-			
 	}
 
 	@Override
@@ -35,7 +33,5 @@ public class StaticEntity extends Entity {
 	public Shape getShape() {
 		return new Rectangle(posX, posY, width, height);
 	}
-	
-	
 
 }

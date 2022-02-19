@@ -6,6 +6,6 @@ public class Tree extends StaticEntity {
 	
 	public Tree(double x, double y) {
 		super(new Image("/images/treeTile.png"), x, y);
-	}	
+	}
 
 }

@@ -6,9 +6,6 @@ import java.util.Set;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 
 public class GameLoop extends AnimationTimer {
 
@@ -58,16 +55,16 @@ public class GameLoop extends AnimationTimer {
 
 	// procesamos las entradas
 	private void processInput() {
-		if (input.contains(KeyCode.W)) {
+		if (input.contains(KeyCode.W) || input.contains(KeyCode.UP)) {
 			player.setAction(new Action(Direction.UP));
 		}
-		if (input.contains(KeyCode.A)) {
+		if (input.contains(KeyCode.A) || input.contains(KeyCode.LEFT)) {
 			player.setAction(new Action(Direction.LEFT));
 		}
-		if (input.contains(KeyCode.S)) {
+		if (input.contains(KeyCode.S) || input.contains(KeyCode.DOWN)) {
 			player.setAction(new Action(Direction.DOWN));
 		}
-		if (input.contains(KeyCode.D)) {
+		if (input.contains(KeyCode.D) || input.contains(KeyCode.RIGHT)) {
 			player.setAction(new Action(Direction.RIGHT));
 		}
 		if (input.isEmpty()) {
@@ -77,13 +74,15 @@ public class GameLoop extends AnimationTimer {
 
 	// chequeamos colisions
 	private void checkCollisions() {
-		if(player.getShape().intersects(0, 0, 48, 480)
-				|| player.getShape().intersects(0, 0, 720, 48)
-				|| player.getShape().intersects(672, 0, 48, 480)
-				|| player.getShape().intersects(0, 432, 720, 48)) {
-			player.setAction(null);
+		
+		for (Entity entity : objects) {
+			
+			if (player.checkCollision(entity)) {
+				player.setAction(null);				
+			}
+			
 		}
-		//if(player.getShape().intersects());			
+
 	}
 
 	// pinta todo

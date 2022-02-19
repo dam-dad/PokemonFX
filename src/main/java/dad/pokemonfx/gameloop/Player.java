@@ -11,8 +11,6 @@ import javafx.scene.shape.Shape;
 
 public class Player extends Entity {
 	
-	private static final double SCALE = 0.43;
-	
 	private final Animation walkDown = new Animation("/images/walkDown1.png", "/images/walkDown2.png");
 	private final Animation walkUp = new Animation("/images/walkUp1.png", "/images/walkUp2.png");
 	private final Animation walkRight = new Animation("/images/walkRight1.png", "/images/walkRight2.png");
@@ -42,6 +40,7 @@ public class Player extends Entity {
 	private Action action;
 
 	public Player(double posX, double posY, double speed) {
+		super();
 		
 		// variables of movement speed
 		this.xSpeed = speed;
