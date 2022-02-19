@@ -31,11 +31,7 @@
                <children>
                   <Button fx:id="controlMusicButton" mnemonicParsing="false" onAction="#onControlMusicButton" styleClass="botonAudioMenu">
                      <graphic>
-                        <ImageView pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/music-on-icon.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView fx:id="controlMusicImg" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </Button>
                </children>

@@ -12,6 +12,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -23,6 +25,11 @@ public class MenuController implements Initializable {
 	Media media1;
 	Media media2;
 	MediaPlayer mediaPlayer;
+	Image img1 = new Image("/images/music-on-icon.png");
+	ImageView view1 = new ImageView(img1);
+    Image img2 = new Image("/images/music-off-icon.png");
+    ImageView view2 = new ImageView(img2);
+
 
 	private BooleanProperty buttonPressed = new SimpleBooleanProperty();
 	private BooleanProperty battleButtonPressed = new SimpleBooleanProperty();
@@ -39,10 +46,13 @@ public class MenuController implements Initializable {
 	private Button leaveButton;
 
 	@FXML
-    private Button controlMusicButton;
+	private Button controlMusicButton;
 
 	@FXML
 	private Button pdfButton;
+
+	@FXML
+	private ImageView controlMusicImg;
 
 	@FXML
 	private BorderPane view;
@@ -60,6 +70,7 @@ public class MenuController implements Initializable {
 		battleButtonPressed.set(false);
 		pdfButtonPressed.set(false);
 		controlMusicButtonPressed.set(false);
+	    controlMusicButton.setGraphic(view1);
 		view.sceneProperty().addListener((o, ov, nv) -> {
 			startTransition();
 		});
@@ -83,9 +94,10 @@ public class MenuController implements Initializable {
 	void onBattleButton(ActionEvent event) throws IOException {
 		battleButtonPressed.set(true);
 	}
+
 	@FXML
 	void onpdfButton(ActionEvent event) {
-       pdfButtonPressed.set(true);
+		pdfButtonPressed.set(true);
 	}
 
 	@FXML
@@ -94,25 +106,32 @@ public class MenuController implements Initializable {
 	}
 
 	@FXML
-    void onControlMusicButton(ActionEvent event) {
-		controlMusicButtonPressed.set(true);
-		App.stopMusic();
-    }
-
-	public BooleanProperty buttonPressedProperty() {
-		return this.buttonPressed;
-	}
-
-	public boolean isButtonPressed() {
-		return this.buttonPressedProperty().get();
-	}
-
-	public void setButtonPressed(final boolean buttonValue) {
-		this.buttonPressedProperty().set(buttonValue);
+	void onControlMusicButton(ActionEvent event) {
+		controlMusicButton.setOnAction(e -> {
+			if (controlMusicButton.getGraphic().equals(view1)) {
+				controlMusicButton.setGraphic(view2);
+				App.stopMusic();
+			} else {
+				controlMusicButton.setGraphic(view1);
+				App.playMusic("Menu_Song");
+			}
+		});
 	}
 
 	public BorderPane getView() {
 		return view;
+	}
+
+	public final BooleanProperty buttonPressedProperty() {
+		return this.buttonPressed;
+	}
+
+	public final boolean isButtonPressed() {
+		return this.buttonPressedProperty().get();
+	}
+
+	public final void setButtonPressed(final boolean buttonPressed) {
+		this.buttonPressedProperty().set(buttonPressed);
 	}
 
 	public final BooleanProperty battleButtonPressedProperty() {
@@ -127,20 +146,27 @@ public class MenuController implements Initializable {
 		this.battleButtonPressedProperty().set(battleButtonPressed);
 	}
 
-	public BooleanProperty pdfButtonPressedProperty() {
+	public final BooleanProperty pdfButtonPressedProperty() {
 		return this.pdfButtonPressed;
 	}
-	
 
-	public boolean isPdfButtonPressed() {
+	public final boolean isPdfButtonPressed() {
 		return this.pdfButtonPressedProperty().get();
 	}
-	
 
-	public void setPdfButtonPressed(final boolean pdfButtonPressed) {
+	public final void setPdfButtonPressed(final boolean pdfButtonPressed) {
 		this.pdfButtonPressedProperty().set(pdfButtonPressed);
 	}
-	
-	
 
+	public final BooleanProperty controlMusicButtonPressedProperty() {
+		return this.controlMusicButtonPressed;
+	}
+
+	public final boolean isControlMusicButtonPressed() {
+		return this.controlMusicButtonPressedProperty().get();
+	}
+
+	public final void setControlMusicButtonPressed(final boolean controlMusicButtonPressed) {
+		this.controlMusicButtonPressedProperty().set(controlMusicButtonPressed);
+	}
 }

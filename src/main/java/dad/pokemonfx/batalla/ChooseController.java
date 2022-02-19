@@ -71,7 +71,7 @@ public class ChooseController implements Initializable {
 	private GridPane view;
 
 	public ChooseController() throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MenuEleccionView2.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MenuEleccionView.fxml"));
 		loader.setController(this);
 		loader.load();
 	}

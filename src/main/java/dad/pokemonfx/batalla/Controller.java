@@ -55,6 +55,7 @@ public class Controller implements Initializable {
 		menuController.buttonPressedProperty().addListener((o, ov, nv) -> sepulsoboton(o, ov, nv));
 		menuController.battleButtonPressedProperty().addListener((o, ov, nv) -> sepulsobotonModoBatalla(o, ov, nv));
 		menuController.pdfButtonPressedProperty().addListener((o, ov, nv) -> sepulsobotonPDF(o, ov, nv));
+		menuController.controlMusicButtonPressedProperty().addListener((o, ov, nv) -> sepulsobotonControlMusica(o, ov, nv));
 //		mapController.getGameLoop().hayBatallaProperty().addListener((o, ov, nv) -> hayBatalla(o, ov, nv));
 		battleController.finCombateProperty().addListener((o, ov, nv) -> finCombate(o, ov, nv));
 		battleController.getCombate().chooseController.pulsarJugarButtonProperty()
@@ -69,6 +70,12 @@ public class Controller implements Initializable {
 
 	}
 
+	private void sepulsobotonControlMusica(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
+		menuController.setControlMusicButtonPressed(false);
+		App.stopMusic();
+	}
+
+
 	private void sepulsobotonPDF(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		try {
 			GenerarPDF.generarPdf(battleController.getCombate().getChooseController().getListPokemon());
@@ -78,7 +85,6 @@ public class Controller implements Initializable {
 		}
 		
 	}
-
 
 	private void irModoCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		battleModeController.setFinCombate(false);

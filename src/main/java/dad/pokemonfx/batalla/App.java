@@ -75,8 +75,6 @@ public class App extends Application {
 	}
 
 	public static void stopMusic() {
-		// if cambiar a juego
 		music.pause();
 	}
-
 }
