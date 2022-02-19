@@ -72,7 +72,7 @@ public class Controller implements Initializable {
 
 	private void sepulsobotonControlMusica(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		menuController.setControlMusicButtonPressed(false);
-		App.stopMusic();
+		
 	}
 
 

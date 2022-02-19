@@ -8,6 +8,7 @@ import dad.pokemonfx.music.MusicThread;
 import javafx.animation.FadeTransition;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -107,6 +108,9 @@ public class MenuController implements Initializable {
 
 	@FXML
 	void onControlMusicButton(ActionEvent event) {
+		Task<Void> actualizarEstadoMusica = new Task<Void>() {
+		protected Void call() throws Exception {
+		controlMusicButtonPressed.set(true);
 		controlMusicButton.setOnAction(e -> {
 			if (controlMusicButton.getGraphic().equals(view1)) {
 				controlMusicButton.setGraphic(view2);
@@ -116,6 +120,10 @@ public class MenuController implements Initializable {
 				App.playMusic("Menu_Song");
 			}
 		});
+				return null;
+		}
+		};
+		new Thread(actualizarEstadoMusica).start();
 	}
 
 	public BorderPane getView() {
