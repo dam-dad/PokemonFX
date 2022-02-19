@@ -87,7 +87,6 @@ public class ChooseController implements Initializable {
 		selectedPokemon.bind(listViewPokemon.getSelectionModel().selectedItemProperty());
 
 		playButton.disableProperty().bind(trainer.sizeProperty().isNotEqualTo(TOTAL_POKEMONS));
-		cancelButton.disableProperty().bind(pulsarCancelarButton);
 
 		pokemonImages = Arrays.asList(imagePokemon1, imagePokemon2, imagePokemon3, imagePokemon4, imagePokemon5, imagePokemon6);
 
@@ -111,9 +110,7 @@ public class ChooseController implements Initializable {
 				App.info("Error", "Ya has elegido " + TOTAL_POKEMONS + " Pokemon", null);
 				
 			}
-
 		}
-
 	}
 
 	@FXML
