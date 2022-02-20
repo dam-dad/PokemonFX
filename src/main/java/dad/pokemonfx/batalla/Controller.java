@@ -62,9 +62,9 @@ public class Controller implements Initializable {
 				.addListener((o, ov, nv) -> botonEleccion(o, ov, nv));
 		battleController.getCombate().chooseController.pulsarCancelarButtonProperty()
 		.addListener((o, ov, nv) -> botonEleccionAtras(o, ov, nv));
-		menuBattleModeController.botonIrCombateProperty().addListener((o, ov, nv) -> irModoCombate(o, ov, nv));
-		menuBattleModeController.botonVolverProperty().addListener((o, ov, nv) -> battlevolverAtras(o, ov, nv));
-		battleModeController.finCombateProperty().addListener((o, ov, nv) -> battlevolverAtras(o, ov, nv));
+		menuBattleModeController.botonIrCombateProperty().addListener((o, ov, nv) -> battleModeIniciarCombate(o, ov, nv));
+		menuBattleModeController.botonVolverProperty().addListener((o, ov, nv) -> battleModeVolverAtras(o, ov, nv));
+		battleModeController.finCombateProperty().addListener((o, ov, nv) -> battleModeVolverAtras(o, ov, nv));
 		// Music menu
 		App.playMusic("Menu_Song");
 
@@ -86,7 +86,7 @@ public class Controller implements Initializable {
 		
 	}
 
-	private void irModoCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
+	private void battleModeIniciarCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		battleModeController.setFinCombate(false);
 		view.setCenter(battleModeController.getView());
 		// Music batalla
@@ -94,7 +94,7 @@ public class Controller implements Initializable {
 		App.playMusic("Battlemode_Battle_Song");
 	}
 
-	private void battlevolverAtras(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
+	private void battleModeVolverAtras(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		menuController.setBattleButtonPressed(false);
 		view.setCenter(menuController.getView());
 		//Musica menu

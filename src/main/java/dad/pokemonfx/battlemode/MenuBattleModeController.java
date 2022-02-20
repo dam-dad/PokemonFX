@@ -3,6 +3,8 @@ package dad.pokemonfx.battlemode;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.animation.FadeTransition;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
@@ -11,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Duration;
 
 public class MenuBattleModeController implements Initializable {
 
@@ -36,6 +39,18 @@ public class MenuBattleModeController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		botonVolver.set(false);
 		botonIrCombate.set(false);
+		view.sceneProperty().addListener((o, ov, nv) -> {
+			startTransition();
+		});
+	}
+	
+	private void startTransition() {
+		FadeTransition fade = new FadeTransition();
+		fade.setDuration(Duration.seconds(4));
+		fade.setFromValue(0.0);
+		fade.setToValue(1.0);
+		fade.setNode(view);
+		fade.play();
 	}
 
 	@FXML

@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javafx.animation.FadeTransition;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
@@ -23,6 +24,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.util.Duration;
 
 public class ChooseController implements Initializable {
 
@@ -89,7 +91,19 @@ public class ChooseController implements Initializable {
 		playButton.disableProperty().bind(trainer.sizeProperty().isNotEqualTo(TOTAL_POKEMONS));
 
 		pokemonImages = Arrays.asList(imagePokemon1, imagePokemon2, imagePokemon3, imagePokemon4, imagePokemon5, imagePokemon6);
-
+		
+		view.sceneProperty().addListener((o, ov, nv) -> {
+			startTransition();
+		});
+	}
+	
+	private void startTransition() {
+		FadeTransition fade = new FadeTransition();
+		fade.setDuration(Duration.seconds(4));
+		fade.setFromValue(0.0);
+		fade.setToValue(1.0);
+		fade.setNode(view);
+		fade.play();
 	}
 
 	@FXML

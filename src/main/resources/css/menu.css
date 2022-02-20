@@ -45,10 +45,25 @@
 	-fx-font-size:50;
 	-fx-text-fill:  #ccffcc;
 }
-.list-view{
+
+.list-cell {
 	-fx-font-family: "Pokemon Pixel Font";
 	-fx-font-size:20;
-}	
+	-fx-background-color:  #ccffcc;
+	-fx-opacity: 0.75;
+}
+
+.list-cell:hover {
+	-fx-opacity: 1;
+	-fx-background-color: #000000;
+	-fx-text-fill: #ccffcc;
+}
+
+.list-view {
+	-fx-background-color:  #ccffcc;
+	-fx-opacity: 0.75;
+}
+
 #view {
     -fx-background-image:url('../images/background.gif');
     -fx-background-size:100% 100%;

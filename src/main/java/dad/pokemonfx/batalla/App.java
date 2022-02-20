@@ -2,10 +2,12 @@ package dad.pokemonfx.batalla;
 
 import dad.pokemonfx.music.MusicThread;
 import javafx.application.Application;
+import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -20,16 +22,22 @@ public class App extends Application {
 	static Scene mainScene;
 
 	public void start(Stage primaryStage) throws Exception {
+		
+		Image cursorImage = new Image("/images/pokeball-cursor.png");
 
 		App.primaryStage = primaryStage;
 		controller = new Controller();
 		mainScene = new Scene(controller.getView());
 		Font.loadFont(getClass().getResourceAsStream("/font/pokemon_pixel_font.ttf"), 14);
 		primaryStage.setTitle("Batalla Pokemon");
+		primaryStage.getIcons().add(new Image("/images/pokemonfx-main-icon-32x32.png"));
 		primaryStage.setResizable(false);
 		primaryStage.setFullScreen(false);
 		primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 		primaryStage.setScene(mainScene);
+		primaryStage.getScene().setCursor(new ImageCursor(cursorImage,
+				cursorImage.getWidth() / 2,
+				cursorImage.getHeight() /2));
 		primaryStage.show();
 
 	}
