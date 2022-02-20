@@ -93,11 +93,15 @@ public class Player extends Entity {
 	
 	public void render(GraphicsContext gc) {
 		
+		//cuadrado amarillo para testeo de area colisiones
+		/*
 		Rectangle shape = (Rectangle) getShape();
 		gc.setStroke(Color.YELLOW);
 		gc.setFill(Color.YELLOW);
 		gc.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
+		*/
 		
+		//pintar jugador
 		gc.drawImage(animation.getFrame(), posX, posY, width, height);
 
 		

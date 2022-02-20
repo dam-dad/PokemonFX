@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Tile {
 
-	private static int[][] tileMap = { 
-			{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
+	public static int[][] tileMap1 = { 
+			{ 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2 },
 			{ 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2 }, 
 			{ 2, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 2 },
 			{ 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2 }, 
@@ -17,11 +17,24 @@ public class Tile {
 			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2 },
 			{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
 	};
+	
+	public static int[][] tileMap2 = { 
+			{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
+			{ 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 }, 
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 }, 
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 }, 
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 }, 
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 2, 2, 2, 2, 2, 5, 5, 2, 2, 2, 2, 2, 2, 2 },
+	};
 
 	private static double tileLength = 48;
 	private static double tileWidth = 48;
 
-	public static List<Entity> loadTile() {
+	public static List<Entity> loadTile(int[][] tileMap) {
 
 		List<Entity> entities = new ArrayList<>();
 
@@ -44,6 +57,12 @@ public class Tile {
 				case 3:
 					entities.add(new Flower(j * tileWidth, i * tileLength));
 					break;
+				case 4:
+					entities.add(new Map1Transition(j * tileWidth, i * tileLength));
+					break;
+				case 5:
+					entities.add(new Map2Transition(j * tileWidth, i * tileLength));
+					break;
 				}
 
 			}
@@ -52,4 +71,11 @@ public class Tile {
 		return entities;
 	}
 
+	public static double getTileLength() {
+		return tileLength;
+	}
+
+	public static double getTileWidth() {
+		return tileWidth;
+	}		
 }

@@ -7,8 +7,7 @@ import javafx.scene.shape.Shape;
 
 public class StaticEntity extends Entity {
 	
-	protected Image image;
-	public Rectangle shape;
+	
 	
 	public StaticEntity(Image image, double x, double y) {
 		super();
@@ -33,5 +32,7 @@ public class StaticEntity extends Entity {
 	public Shape getShape() {
 		return new Rectangle(posX, posY, width, height);
 	}
+	
+	
 
 }

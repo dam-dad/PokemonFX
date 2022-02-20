@@ -18,12 +18,15 @@ public class GameLoop extends AnimationTimer {
 	private List<Entity> objects;
 	
 	private Set<KeyCode> input;
+	private boolean nextMap1 = false;
+	private boolean nextMap2 = false;
+	private boolean enterCombat = false;
 
 	public GameLoop(Set<KeyCode> input, GraphicsContext graphicsContext, Player player) {
 		this.input = input;
 		this.graphicsContext = graphicsContext;
 		this.player = player;
-		this.objects = Tile.loadTile();
+		this.objects = Tile.loadTile(Tile.tileMap1);
 	}
 	
 	@Override
@@ -51,6 +54,17 @@ public class GameLoop extends AnimationTimer {
 
 	private void update() {
 		player.update(timeDifference);
+		if(nextMap1 == true) {
+			this.objects = Tile.loadTile(Tile.tileMap2);
+			nextMap1 = false; 
+			player.posY = (Tile.tileMap2.length)*Tile.getTileLength()-
+					(Tile.getTileLength()/2+Tile.getTileLength());
+		}
+		else if(nextMap2 == true) {
+			this.objects = Tile.loadTile(Tile.tileMap1);
+			nextMap2 = false; 
+			player.posY = 0;
+		}	
 	}
 
 	// procesamos las entradas
@@ -66,7 +80,7 @@ public class GameLoop extends AnimationTimer {
 		}
 		if (input.contains(KeyCode.D) || input.contains(KeyCode.RIGHT)) {
 			player.setAction(new Action(Direction.RIGHT));
-		}
+		}		
 		if (input.isEmpty()) {
 			player.setAction(null);
 		}
@@ -78,7 +92,15 @@ public class GameLoop extends AnimationTimer {
 		for (Entity entity : objects) {
 			
 			if (player.checkCollision(entity)) {
-				player.setAction(null);				
+				if(entity.getImage().getUrl().contains("Transition1")) {
+					nextMap1 = true;
+				} else if(entity.getImage().getUrl().contains("Transition2")) {
+					nextMap2 = true;
+				} else if ( entity.getImage().getUrl().contains("npc")
+						&& input.contains(KeyCode.Z)) {
+					//enter combat, cambiar imagen por npc
+				}
+					player.setAction(null);				
 			}
 			
 		}
