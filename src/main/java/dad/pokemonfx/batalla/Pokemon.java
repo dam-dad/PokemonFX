@@ -25,19 +25,21 @@ public class Pokemon {
 	private ObjectProperty<Image> front = new SimpleObjectProperty<>();
 	private ListProperty<Attack> attacks = new SimpleListProperty<>(FXCollections.observableArrayList());
 	private DoubleProperty health = new SimpleDoubleProperty();
+	private StringProperty rutapdf = new SimpleStringProperty();
 
 	public Pokemon(String name, PokemonType type, Integer level, List<Attack> attacks) {
 		super();
+		this.setRutapdf("images/" + name + "-CPU.png");
 		this.setBack(new Image("/images/" + name + ".png"));
 		this.setFront(new Image("/images/" + name + "-CPU.png"));
 		this.setName(name);
 		this.setType(type);
 		this.setLevel(level);
 		this.attacks.setAll(attacks);
-		if (level > 0 && level < 100) {			
+		if (level > 0 && level < 100) {
 			attacks.stream().forEach(attack -> {
 				Double poder = attack.getDamage();
-				attack.setDamage(poder + (level / 100) * level);				
+				attack.setDamage(poder + (level / 100) * level);
 			});
 		} else {
 			throw new IllegalArgumentException("El nivel tiene que estar entre 0 y 100");
@@ -132,6 +134,18 @@ public class Pokemon {
 
 	public final void setHealth(final double health) {
 		this.healthProperty().set(health);
+	}
+
+	public StringProperty rutapdfProperty() {
+		return this.rutapdf;
+	}
+
+	public String getRutapdf() {
+		return this.rutapdfProperty().get();
+	}
+
+	public void setRutapdf(final String rutapdf) {
+		this.rutapdfProperty().set(rutapdf);
 	}
 
 }

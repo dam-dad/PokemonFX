@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="factura" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1be1174-10be-4df1-b271-1fbc8431fe7b">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Pokemon" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1be1174-10be-4df1-b271-1fbc8431fe7b">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Productos"/>
 	<queryString>
 		<![CDATA[]]>
@@ -8,11 +8,20 @@
 	<field name="name" class="java.lang.String">
 		<fieldDescription><![CDATA[name]]></fieldDescription>
 	</field>
+	<field name="type" class="dad.pokemonfx.batalla.PokemonType">
+		<fieldDescription><![CDATA[type]]></fieldDescription>
+	</field>
+	<field name="rutapdf" class="java.lang.String">
+		<fieldDescription><![CDATA[rutapdf]]></fieldDescription>
+	</field>
+	<field name="level" class="java.lang.Integer">
+		<fieldDescription><![CDATA[level]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="70" splitType="Stretch">
+		<band height="85" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="340" height="50" uuid="07d340f1-4dba-4057-bd46-81cdc474f96e"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -23,7 +32,7 @@
 		</band>
 	</title>
 	<columnHeader>
-		<band height="24" splitType="Stretch">
+		<band height="25" splitType="Stretch">
 			<rectangle>
 				<reportElement x="-8" y="0" width="568" height="20" forecolor="#000000" backcolor="#D1D1D1" uuid="b49681a7-1a16-4887-ab0d-5cc4c1038f8d"/>
 				<graphicElement>
@@ -31,44 +40,56 @@
 				</graphicElement>
 			</rectangle>
 			<staticText>
-				<reportElement x="0" y="0" width="280" height="20" uuid="dee8e752-925f-4ada-b196-0c9f2ec78055"/>
+				<reportElement x="40" y="2" width="280" height="20" uuid="dee8e752-925f-4ada-b196-0c9f2ec78055"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nombre]]></text>
+				<text><![CDATA[Apariencia]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="280" y="0" width="90" height="20" uuid="be2e9d31-15a0-4cc9-8952-e464c91d0bca"/>
+				<reportElement x="200" y="0" width="90" height="20" uuid="be2e9d31-15a0-4cc9-8952-e464c91d0bca"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="370" y="0" width="90" height="20" uuid="4c24bfea-73d8-49bd-a2d8-0a524f9f8139"/>
+				<reportElement x="320" y="0" width="90" height="20" uuid="4c24bfea-73d8-49bd-a2d8-0a524f9f8139"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nombre]]></text>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="0" width="90" height="20" uuid="33859f5b-a280-4db4-a370-31640bc1fa88"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nivel]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="80" splitType="Stretch">
+		<band height="81" splitType="Stretch">
 			<textField>
-				<reportElement x="280" y="0" width="90" height="30" uuid="68cc3423-529f-497a-8505-2ee7226a3f4d"/>
+				<reportElement x="200" y="0" width="90" height="30" uuid="68cc3423-529f-497a-8505-2ee7226a3f4d"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="370" y="0" width="90" height="30" uuid="15c91a2e-0672-46a9-99c9-df60c310a971"/>
+				<reportElement x="320" y="0" width="90" height="30" uuid="15c91a2e-0672-46a9-99c9-df60c310a971"/>
 				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
 			</textField>
-			<image onErrorType="Icon">
-				<reportElement x="0" y="0" width="70" height="60" uuid="30865182-f578-4d80-b6c7-c3cad6baa53f"/>
-				<imageExpression><![CDATA["/src/main/resources/assets/textures/treeTile.png"]]></imageExpression>
+			<image>
+				<reportElement x="50" y="0" width="50" height="50" uuid="c3773baa-0fb5-48bc-a60c-6645bedd16d4"/>
+				<imageExpression><![CDATA[$F{rutapdf}]]></imageExpression>
 			</image>
+			<textField>
+				<reportElement x="430" y="0" width="90" height="30" uuid="652b5a12-4879-45d9-b478-5a6663e7c80d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{level}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>
@@ -86,14 +107,6 @@
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="30">
-			<textField pattern="#,##0.00¤;-#,##0.00 ¤">
-				<reportElement x="460" y="0" width="90" height="30" uuid="45d76b46-3a77-4d02-90c8-7f812108ccdc"/>
-				<textElement textAlignment="Right">
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="30"/>
 	</summary>
 </jasperReport>

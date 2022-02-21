@@ -59,5 +59,6 @@ public class Attack {
 	public void setName(final String name) {
 		this.nameProperty().set(name);
 	}
+	
 
 }
