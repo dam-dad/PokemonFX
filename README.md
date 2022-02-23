@@ -61,4 +61,5 @@ Genera un pdf con la lista de los Pokemons disponibles en el juego.
 
 ## :scroll: Licencia :scroll:
 
-Proyecto con licencia GPL-3.0 License. [LICENSE](https://github.com/dam-dad/PokemonFX/blob/main/LICENSE)
+Proyecto con licencia GPL-3.0 License. 
+[LICENSE](https://github.com/dam-dad/PokemonFX/blob/main/LICENSE)
