@@ -11,6 +11,10 @@ import javafx.scene.shape.Shape;
 
 public class Player extends Entity {
 	
+	/**
+	 *  Clase que genera un player en el mundo
+	 */
+	
 	private final Animation walkDown = new Animation("/images/walkDown1.png", "/images/walkDown2.png");
 	private final Animation walkUp = new Animation("/images/walkUp1.png", "/images/walkUp2.png");
 	private final Animation walkRight = new Animation("/images/walkRight1.png", "/images/walkRight2.png");
@@ -92,15 +96,7 @@ public class Player extends Entity {
 	}
 	
 	public void render(GraphicsContext gc) {
-		
-		//cuadrado amarillo para testeo de area colisiones
-		/*
-		Rectangle shape = (Rectangle) getShape();
-		gc.setStroke(Color.YELLOW);
-		gc.setFill(Color.YELLOW);
-		gc.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
-		*/
-		
+				
 		//pintar jugador
 		gc.drawImage(animation.getFrame(), posX, posY, width, height);		
 	}

@@ -8,6 +8,10 @@ import javafx.scene.image.Image;
 
 public class Animation {
 	
+	/**
+	 * Clase que realiza las animaciones de un player o cualquier tipo de animacion que quisieramos implementar
+	 */
+	
 	private long duration = 200000;
 	private long timeAcc = 0;
 	private List<Image> frames;
@@ -30,6 +34,11 @@ public class Animation {
 		return frames.get(counter);
 	}
 
+
+	/**
+	 * El método update es llamado por cada frame
+	 * @param diferencia de tiempo para que sea frame independiente
+	 */
 	public void update(long timeDifference) {
 		if (timeAcc > duration) {
 			counter++;

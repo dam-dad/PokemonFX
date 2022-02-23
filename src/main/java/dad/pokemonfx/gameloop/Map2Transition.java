@@ -6,6 +6,10 @@ import javafx.scene.shape.Shape;
 
 public class Map2Transition extends StaticEntity{
 	
+	/**
+	 *   Genera un objeto de transición que visualmente es igual a un tile de suelo
+	 */
+	
 	public Map2Transition(double x, double y) {
 		super(new Image("/images/grassTileTransition2.png"), x, y);
 	}

@@ -10,6 +10,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 
 public class GameLoop extends AnimationTimer {
+	
+	/**
+	 *  Clase que crea un objeto gameloop que realiza acciones cada frame, entre ellas recibir el input, comprobar colisiones 
+	 *  y pintar el mapa del juego y las entidades
+	 */
 
 	private long time;
 	private long timeDifference;
@@ -36,6 +41,8 @@ public class GameLoop extends AnimationTimer {
 		this.time = System.nanoTime();
 		super.start();
 	}
+
+	
 
 	// method for game loop
 	public void handle(long currentNanoTime) {

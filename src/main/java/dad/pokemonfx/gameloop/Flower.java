@@ -5,6 +5,10 @@ import javafx.scene.shape.Shape;
 
 public class Flower extends StaticEntity {
 	
+	/**
+	 *  Clase que genera tile de flor
+	 */
+	
 	public Flower(double x, double y) {
 		super(new Image("/images/flowerTile.png"), x, y);
 	}

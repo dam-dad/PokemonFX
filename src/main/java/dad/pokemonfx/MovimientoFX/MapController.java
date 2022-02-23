@@ -48,7 +48,7 @@ public class MapController implements Initializable {
 		
 		graphicsContext = canvas.getGraphicsContext2D();
 		
-		player = new Player(48, 48, 5);		
+		player = new Player(48, 48, 2);		
 		
 		gameLoop = new GameLoop(input, graphicsContext, player);
 		gameLoop.start();

@@ -5,6 +5,10 @@ import javafx.scene.shape.Shape;
 
 public class FloorGrass extends StaticEntity{
 	
+	/**
+	 *  Clase que genera tile de hierba
+	 */
+	
 	public FloorGrass(double x, double y) {
 		super(new Image("/images/grassTile.png"), x, y);
 	}

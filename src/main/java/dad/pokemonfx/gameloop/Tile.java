@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tile {
+	
+	/**
+	 *   Clase que contiene los tilemap y contiene el método que carga los tiles que se pintan 
+	 *   del juego según el número de cada posición del tilemap
+	 */
 
 	public static int[][] tileMap1 = { 
 			{ 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2 },
@@ -34,6 +39,13 @@ public class Tile {
 	private static double tileLength = 48;
 	private static double tileWidth = 48;
 
+	
+	/**
+	 * Recorremos el tilemap pasado y cargamos un tile según el número que detecta dentro del tilemap
+	 * @param Le pasamos por parámetro el tilemap y lo recorremos
+	 * @return
+	 */
+	
 	public static List<Entity> loadTile(int[][] tileMap) {
 
 		List<Entity> entities = new ArrayList<>();
