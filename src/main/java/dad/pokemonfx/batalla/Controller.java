@@ -70,7 +70,9 @@ public class Controller implements Initializable {
 		menuBattleModeController.botonIrCombateProperty().addListener((o, ov, nv) -> battleModeIniciarCombate(o, ov, nv));
 		menuBattleModeController.botonVolverProperty().addListener((o, ov, nv) -> battleModeVolverAtras(o, ov, nv));
 		battleModeController.finCombateProperty().addListener((o, ov, nv) -> battleModeVolverAtras(o, ov, nv));
-		// Music menu
+		/**
+		 *  Music menu
+		 */
 		App.playMusic("Menu_Song");
 
 	}
@@ -106,7 +108,9 @@ public class Controller implements Initializable {
 	private void battleModeIniciarCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		battleModeController.setFinCombate(false);
 		view.setCenter(battleModeController.getView());
-		// Music batalla
+		/**
+		 * Music batalla
+		 */
 		App.stopMusic();
 		App.playMusic("Battlemode_Battle_Song");
 	}
@@ -115,7 +119,9 @@ public class Controller implements Initializable {
 		battleModeController.combateProperty().set(new Battle());
 		menuController.setBattleButtonPressed(false);
 		view.setCenter(menuController.getView());
-		//Musica menu
+		/**
+		 * Musica menu
+		 */
 		App.stopMusic();
 		App.playMusic("Menu_Song");
 	}
@@ -124,7 +130,9 @@ public class Controller implements Initializable {
 		menuBattleModeController.setBotonIrCombate(false);
 		menuBattleModeController.setBotonVolver(false);
 		view.setCenter(menuBattleModeController.getView());
-		// Music battlemode
+		/**
+		 * Music battlemode
+		 */
 		App.stopMusic();
 		App.playMusic("Main_Menu_Battlemode");
 	}
@@ -132,7 +140,9 @@ public class Controller implements Initializable {
 	private void botonEleccion(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		view.setCenter(mapController.getView());
 		listMapPokemon.set(battleController.getCombate().getChooseController().getTrainer());
-		// Music mundo
+		/**
+		 * Music mundo
+		 */
 		App.stopMusic();
 		App.playMusic("Littleroot_Town");
 	}
@@ -140,7 +150,9 @@ public class Controller implements Initializable {
 	private void botonEleccionAtras(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		menuController.setButtonPressed(false);
 		view.setCenter(menuController.getView());
-		// Music mundo
+		/**
+		 * Music mundo
+		 */
 		App.stopMusic();
 		App.playMusic("Menu_Song");
 	}
@@ -148,7 +160,9 @@ public class Controller implements Initializable {
 	private void finCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
         menuController.setButtonPressed(false);
 		view.setCenter(menuController.getView());
-		// Music mundo
+		/**
+		 * Music mundo
+		 */
 		App.stopMusic();
 		App.playMusic("Littleroot_Town");
 	}
@@ -156,7 +170,9 @@ public class Controller implements Initializable {
 	private void hayBatalla(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
 		battleController.setCombate(new Battle());
 		view.setCenter(battleController.getView());
-		// Music batalla
+		/**
+		 * Music batalla
+		 */
 		App.stopMusic();
 		App.playMusic("Battle_Song");
 	}
