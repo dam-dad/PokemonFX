@@ -69,6 +69,7 @@ public class GameLoop extends AnimationTimer {
 
 	// procesamos las entradas
 	private void processInput() {
+		
 		if (input.contains(KeyCode.W) || input.contains(KeyCode.UP)) {
 			player.setAction(new Action(Direction.UP));
 		}
@@ -97,7 +98,7 @@ public class GameLoop extends AnimationTimer {
 				} else if(entity.getImage().getUrl().contains("Transition2")) {
 					nextMap2 = true;
 				} else if ( entity.getImage().getUrl().contains("npc")
-						|| input.contains(KeyCode.Z)) {
+						&& input.contains(KeyCode.Z)) {
 					System.out.println("Combate");
 				}
 					player.setAction(null);				
