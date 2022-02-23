@@ -31,7 +31,7 @@ En el "Modo Elegir" seleccionamos una lista de 6 pokemons para luego poder comba
 
 ### Modo Jugar
 
-En el "Modo Jugar" tendremos el mundo abierto en perspectiva top-down donde nos podremos mover con las flechas de movimiento o las teclas "W" "A" "S" "D", para interaccionar con el npc y entrar en batalla, 
+En el "Modo Jugar" tendremos el mundo abierto en perspectiva top-down donde nos podremos mover con las flechas de movimiento o las teclas "W" "A" "S" "D", y la tecla "Z" para interaccionar con el npc y entrar en batalla.
 
 ![5](https://user-images.githubusercontent.com/67567838/155406577-747457a5-a4d4-4a2e-b2e0-c1852a84ed72.png))
 
