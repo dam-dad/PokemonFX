@@ -1,11 +1,11 @@
 # PokemonFX
 ![image](https://user-images.githubusercontent.com/71700574/155287484-f4f6bf62-e03e-48de-ad92-b3925e1431e9.png)
 
-## Introducción
+:video_game: ## Introducción :video_game:
 
 Juego de Pokemon realizado en JavaFX en el juego Pokemon Esmeralda.
 
-## Grupo :pencil2:
+:pencil2: ## Grupo :pencil2:
 
 **PokemonFX** ha sido desarrollado por un grupo de estudiantes del Ciclo Superior Desarrollo De Aplicaciones Multiplataforma:
 
@@ -15,7 +15,7 @@ Juego de Pokemon realizado en JavaFX en el juego Pokemon Esmeralda.
 
 - [Ancor José Rojas Díaz](https://github.com/Ancori)
 
-## Construido con :construction_worker:
+:construction_worker: ## Construido con :construction_worker:
 
 * JavaFX -> Creación de aplicaciones multimedia interactivas.
 * Maven -> Manejador de dependencias.
