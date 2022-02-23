@@ -16,6 +16,9 @@ public class MusicThread extends Thread {
 		this.file = file;
 	}
 	
+	/**
+	 * Método para iniciar musica
+	 */
 	public void play() {
 		URL path = getClass().getResource("/music/" + file + ".mp3");
 		Media media;
@@ -30,6 +33,9 @@ public class MusicThread extends Thread {
 		}
 	}
 	
+	/**
+	 * Método para pausar la música
+	 */
 	public void pause() {
 		try {
 			player.stop();
@@ -37,5 +43,4 @@ public class MusicThread extends Thread {
 			e.printStackTrace();
 		}
 	}
-
 }
