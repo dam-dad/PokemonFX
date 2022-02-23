@@ -35,12 +35,36 @@
 	-fx-border-color:black;
 }
 
+.button:hover{
+	-fx-text-fill: #d98c50;
+	-fx-background-color: black;
+}
+
 
 .combo-box-base{
 	-fx-font-size: 18px;
     -fx-background-color:#CD853F;
     -fx-padding: 2 2;
 }
+
+.list-cell {
+	-fx-font-family: "Pokemon Pixel Font";
+	-fx-font-size:18px;
+	-fx-background-color: #CD853F;
+	-fx-opacity: 0.75;
+}
+
+.list-cell:hover {
+	-fx-background-color: black;
+	-fx-text-fill: #CD853F;
+}
+
+.list-cell:selected {
+	-fx-background-color: #CD853F;
+	-fx-text-fill: white;
+	-fx-opacity: 1;
+}
+
 .progress-bar {
 	-fx-accent: #76db9a;
 }
