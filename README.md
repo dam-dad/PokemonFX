@@ -17,8 +17,8 @@ Juego de Pokemon realizado en JavaFX en el juego Pokemon Esmeralda.
 
 ## Construido con :construction_worker:
 
-* Maven -> Manejador de dependencias.
 * JavaFX -> Creación de aplicaciones multimedia interactivas.
+* Maven -> Manejador de dependencias.
 
 ## Interfaz
 
