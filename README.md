@@ -5,3 +5,12 @@ Pokemon RPG turn-based game.
 
 [Lista de tareas del proyecto](https://github.com/orgs/dam-dad/projects/25)
 
+**PokemonFX** ha sido desarrollado por un grupo de estudiantes del Ciclo Superior Desarrollo De Aplicaciones Multiplataforma:
+
+- [Alejandro Rodríguez Ramallo](https://github.com/Alejandrorodram)
+
+- [Jorge Torres Padrón](https://github.com/JorgeTorresPadron)
+
+- [Ancor José Rojas Díaz](https://github.com/Ancori)
+
+  
