@@ -26,26 +26,22 @@ Pokemon RPG turn-based game.
 ### Pantalla Principal
 
 -
-
-![Pantalla Principal](C:\Users\ancor\Desktop\Pantalla Principal.png)
-
-
+![Pantalla Principal](https://user-images.githubusercontent.com/71700574/155313138-e20d4c05-f172-4a42-8ead-9c7a20724a3e.png)
 
 ### Modo jugar
 
 -
+![2](https://user-images.githubusercontent.com/71700574/155313241-2d84c352-d312-45e3-a597-b2dbde6d8b7b.png)
 
-![2](C:\Users\ancor\Desktop\2.png)
 
-![3](C:\Users\ancor\Desktop\3.png)
+![3](https://user-images.githubusercontent.com/71700574/155313260-8334f1a1-1eec-46e0-afff-4477042d27c7.png)
 
 ### Modo batalla
 
 -
+![4](https://user-images.githubusercontent.com/71700574/155313272-7fce2fd0-a42a-4ae7-a439-cd1eb5bcfb7e.png)
 
-![4](C:\Users\ancor\Desktop\4.png)
-
-![5](C:\Users\ancor\Desktop\5.png)
+![5](https://user-images.githubusercontent.com/71700574/155313291-ffd54124-b842-4044-8267-088beefeca9b.png)
 
 
 
@@ -53,7 +49,7 @@ Pokemon RPG turn-based game.
 
 -
 
-![6](C:\Users\ancor\Desktop\6.png)
+![6](https://user-images.githubusercontent.com/71700574/155313318-ed2a18c1-9ef4-4713-9ec9-efe4736485ae.png)
 
 ## Instalador
 
