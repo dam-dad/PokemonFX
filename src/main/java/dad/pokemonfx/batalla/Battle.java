@@ -32,12 +32,13 @@ public class Battle {
 			e.printStackTrace();
 		}
 		loadPokemonList();
-		int pokemonNumber = 0;
 		for (int i = 0; i < 6; i++) {
+			int pokemonNumber = (int)(Math.random() * 12);
 			trainer1.get().add(i, chooseController.getListPokemon().get(pokemonNumber));
 			pokemonNumber++;
 		}
 		for (int i = 0; i < 6; i++) {
+			int pokemonNumber = (int)(Math.random() * 12);
 			trainer2.add(i, chooseController.getListPokemon().get(pokemonNumber));
 			pokemonNumber++;
 		}
