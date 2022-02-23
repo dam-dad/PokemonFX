@@ -23,6 +23,7 @@ public class App extends Application {
 
 	public void start(Stage primaryStage) throws Exception {
 		
+		// La imagen del cursor
 		Image cursorImage = new Image("/images/pokeball-cursor.png");
 
 		App.primaryStage = primaryStage;
@@ -35,6 +36,8 @@ public class App extends Application {
 		primaryStage.setFullScreen(false);
 		primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 		primaryStage.setScene(mainScene);
+		
+		// El cursor
 		primaryStage.getScene().setCursor(new ImageCursor(cursorImage,
 				cursorImage.getWidth() / 2,
 				cursorImage.getHeight() /2));
@@ -77,11 +80,18 @@ public class App extends Application {
 		alert.showAndWait();
 	}
 	
+	/**
+	 * Inicia la musica
+	 * @param El archivo de la musica
+	 */
 	public static void playMusic(String file) {
 		music = new MusicThread(file);
 		music.play();
 	}
 
+	/**
+	 * Pausa la musica
+	 */
 	public static void stopMusic() {
 		music.pause();
 	}
