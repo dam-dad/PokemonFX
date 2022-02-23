@@ -23,21 +23,31 @@ public class GenerarPDF {
 
 	public static void generarPdf(List<Pokemon> lista) throws JRException, IOException {
 
-		// compila el informe
+		/**
+		 * Compilamos el informe
+		 */
 		JasperReport report = JasperCompileManager.compileReport(GenerarPDF.class.getResourceAsStream(JRXML_FILE));
 
-		// mapa de parámetros para el informe
+		/**
+		 * Mapeamos los parametros para el informe
+		 */
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("anyo", 2014); // no lo uso, pero se lo paso
 
-		// generamos el informe (combinamos el informe compilado con los datos)
+		/**
+		 * Generamos el pdf (combinamos el informe compilado con los datos)
+		 */
 		JasperPrint jasperPrint = JasperFillManager.fillReport(report, parameters,
 				new JRBeanCollectionDataSource(lista));
 
-		// exporta el informe a un fichero PDF
+		/**
+		 * exportamos el informe a un fichero PDF
+		 */
 		JasperExportManager.exportReportToPdfFile(jasperPrint, PDF_FILE);
 
-		// Abre el archivo PDF generado con el programa predeterminado del sistema
+		/**
+		 * Abrrimos el archivo PDF generado con el programa predeterminado del sistema
+		 */
 		Desktop.getDesktop().open(new File(PDF_FILE));
 	}
 

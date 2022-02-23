@@ -51,7 +51,6 @@
 	-fx-font-family: "Pokemon Pixel Font";
 	-fx-font-size:18px;
 	-fx-background-color: #CD853F;
-	-fx-opacity: 0.75;
 }
 
 .list-cell:hover {
@@ -62,7 +61,6 @@
 .list-cell:selected {
 	-fx-background-color: #CD853F;
 	-fx-text-fill: white;
-	-fx-opacity: 1;
 }
 
 .progress-bar {
