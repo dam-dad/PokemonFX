@@ -1,5 +1,5 @@
 # PokemonFX
-![image](https://user-images.githubusercontent.com/71700574/155287484-f4f6bf62-e03e-48de-ad92-b3925e1431e9.png)![pikachu gif pokemon - PicMix](https://img1.picmix.com/output/stamp/normal/0/9/0/4/1604090_a14a5.gif)
+![image](https://user-images.githubusercontent.com/71700574/155287484-f4f6bf62-e03e-48de-ad92-b3925e1431e9.png)
 
 Pokemon RPG turn-based game.
 
