@@ -23,11 +23,17 @@ En la pantalla principal encontramos los botones para ir a los modos de juego "J
 
 ![Pantalla Principal](https://user-images.githubusercontent.com/71700574/155313138-e20d4c05-f172-4a42-8ead-9c7a20724a3e.png)
 
-### Modo jugar
+### Modo Elegir
 
--
+En el "Modo Elegir" seleccionamos una lista de 6 pokemons para luego poder combatir con ellos, cuando los seleccionemos el botón "Todo Listo" se activara y podemos continuar al mundo.
+
 ![2](https://user-images.githubusercontent.com/71700574/155313241-2d84c352-d312-45e3-a597-b2dbde6d8b7b.png)
 
+### Modo Jugar
+
+En el "Modo Jugar" tendremos el mundo abierto en perspectiva top-down donde nos podremos mover con las flechas de movimiento o las teclas "W" "A" "S" "D", para interaccionar con el npc y entrar en batalla, 
+
+![5](https://user-images.githubusercontent.com/49475382/155369116-8859e1df-9d1e-4903-944e-54d0f368a34a.png)
 
 ![3](https://user-images.githubusercontent.com/71700574/155313260-8334f1a1-1eec-46e0-afff-4477042d27c7.png)
 
