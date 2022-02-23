@@ -20,7 +20,6 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 	
-	//Musica
 	private static MusicThread music;
 
 	Controller controller;
@@ -29,7 +28,9 @@ public class App extends Application {
 
 	public void start(Stage primaryStage) throws Exception {
 		
-		// La imagen del cursor
+		/**
+		 * La imagen del cursor
+		 */
 		Image cursorImage = new Image("/images/pokeball-cursor.png");
 
 		App.primaryStage = primaryStage;
@@ -44,15 +45,12 @@ public class App extends Application {
 		primaryStage.setScene(mainScene);
 		
 		/**
-		 * 
-		 *Metodo que da imagen al cursor
-		 *
+		 * Añadimos el cursor a la escena
 		 */
 		primaryStage.getScene().setCursor(new ImageCursor(cursorImage,
 				cursorImage.getWidth() / 2,
 				cursorImage.getHeight() /2));
 		primaryStage.show();
-
 	}
 
 	public static void main(String[] args) {
@@ -63,6 +61,13 @@ public class App extends Application {
 		return primaryStage;
 	}
 
+	/**
+	 * Alertas de confimacion
+	 * @param titulo
+	 * @param cabecera
+	 * @param contenido
+	 * @return
+	 */
 	public static boolean confirm(String title, String header, String content) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.initOwner(primaryStage);
@@ -71,7 +76,12 @@ public class App extends Application {
 		alert.setContentText(content);
 		return alert.showAndWait().get().equals(ButtonType.OK);
 	}
-
+	
+	/**
+	 * Alertas de error 
+	 * @param cabecera
+	 * @param contenido
+	 */
 	public static void error(String header, String content) {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.initOwner(primaryStage);
@@ -81,6 +91,12 @@ public class App extends Application {
 		alert.showAndWait();
 	}
 
+	/**
+	 * Alerta para informacion
+	 * @param titulo
+	 * @param cabecera
+	 * @param contenido
+	 */
 	public static void info(String title, String header, String content) {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.initOwner(primaryStage);
