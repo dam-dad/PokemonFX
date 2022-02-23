@@ -58,3 +58,7 @@ Durante la batalla podemos seleccionar 1 ataque de 4 disponibles, además podemo
 Genera un pdf con la lista de los Pokemons disponibles en el juego.
 
 ![6](https://user-images.githubusercontent.com/71700574/155313318-ed2a18c1-9ef4-4713-9ec9-efe4736485ae.png)
+
+## :scroll: Licencia :scroll:
+
+Este proyecto está bajo la Licencia GPL-3.0 License. Para más información, consulte el archivo [LICENSE](https://github.com/dam-dad/PokemonFX/blob/main/LICENSE)
