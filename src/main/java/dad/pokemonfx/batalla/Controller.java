@@ -112,6 +112,7 @@ public class Controller implements Initializable {
 	}
 
 	private void battleModeVolverAtras(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
+		battleModeController.combateProperty().set(new Battle());
 		menuController.setBattleButtonPressed(false);
 		view.setCenter(menuController.getView());
 		//Musica menu
