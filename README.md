@@ -15,7 +15,7 @@ Juego de Pokemon realizado en JavaFX en el juego Pokemon Esmeralda.
 
 - [Ancor José Rojas Díaz](https://github.com/Ancori)
 
-## Construido con
+## Construido con :construction_worker:
 
 * Maven - Manejador de dependencias.
 * JavaFX - Creación de aplicaciones multimedia interactivas.
