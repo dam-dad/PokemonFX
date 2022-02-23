@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import java.util.Set;
 
 import dad.pokemonfx.gameloop.GameLoop;
+import dad.pokemonfx.gameloop.NPC;
 import dad.pokemonfx.gameloop.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,7 @@ public class MapController implements Initializable {
 
 	private GameLoop gameLoop;
 	Player player;
+	NPC npc;
 	GraphicsContext graphicsContext;
 
 	@FXML
@@ -46,7 +48,7 @@ public class MapController implements Initializable {
 		
 		graphicsContext = canvas.getGraphicsContext2D();
 		
-		player = new Player(48, 48, 5);
+		player = new Player(48, 48, 5);		
 		
 		gameLoop = new GameLoop(input, graphicsContext, player);
 		gameLoop.start();

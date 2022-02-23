@@ -17,6 +17,9 @@ import javafx.util.Duration;
 
 public class MenuBattleModeController implements Initializable {
 
+	/**
+	 * Constructor del menu de batalla rapida
+	 */
 	BooleanProperty botonVolver = new SimpleBooleanProperty();
 	BooleanProperty botonIrCombate = new SimpleBooleanProperty();
 

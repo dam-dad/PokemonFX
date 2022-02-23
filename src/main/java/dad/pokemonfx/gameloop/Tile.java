@@ -20,7 +20,7 @@ public class Tile {
 	
 	public static int[][] tileMap2 = { 
 			{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
-			{ 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 }, 
+			{ 2, 0, 3, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 2 }, 
 			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
 			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 }, 
 			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
@@ -62,8 +62,12 @@ public class Tile {
 					break;
 				case 5:
 					entities.add(new Map2Transition(j * tileWidth, i * tileLength));
+					break;				
+				case 6:
+					entities.add(new NPC(j * tileWidth, i * tileLength));
 					break;
 				}
+				
 
 			}
 		}

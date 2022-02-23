@@ -29,7 +29,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.NumberStringConverter;
 
 public class BattleController implements Initializable {
-	
+	/**
+	 * Constructor que se encarga de batalla en el mapa
+	 */
 	private ObjectProperty<Battle> battle = new SimpleObjectProperty<>();
 	private ObjectProperty<Pokemon> selectedPokemon = new SimpleObjectProperty<>();
 	private ObjectProperty<Pokemon> cpuPokemon = new SimpleObjectProperty<>();

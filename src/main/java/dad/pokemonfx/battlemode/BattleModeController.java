@@ -32,6 +32,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.NumberStringConverter;
 
+/**
+ * Esta clase es el controlador del modo batalla
+ *
+ */
 public class BattleModeController implements Initializable {
 
 	private ObjectProperty<Battle> battle = new SimpleObjectProperty<>();
@@ -46,7 +50,6 @@ public class BattleModeController implements Initializable {
 	private BooleanProperty combatEnded = new SimpleBooleanProperty();
 	private DoubleProperty maxHealthPlayer = new SimpleDoubleProperty();
 	private DoubleProperty maxHealthCpu = new SimpleDoubleProperty();
-	
 
 	@FXML
 	private ImageView pokemonImage1;
@@ -71,7 +74,7 @@ public class BattleModeController implements Initializable {
 
 	@FXML
 	private Label nameLabelPlayer;
-	
+
 	@FXML
 	private Label nameLabelCpu;
 
@@ -92,7 +95,7 @@ public class BattleModeController implements Initializable {
 
 	@FXML
 	private Label healthPlayerLabel;
-	
+
 	@FXML
 	private Label healthCpuLabel;
 
@@ -100,7 +103,7 @@ public class BattleModeController implements Initializable {
 	private Label numberPokemonAlivePlayerLabel;
 
 	@FXML
-	private Label numberPokemonAliveCpuLabel;	
+	private Label numberPokemonAliveCpuLabel;
 
 	@FXML
 	private ProgressBar healthPlayerProgressbar;
@@ -110,7 +113,7 @@ public class BattleModeController implements Initializable {
 
 	@FXML
 	private Label levelPlayerLabel;
-	
+
 	@FXML
 	private Label levelCpuLabel;
 
@@ -123,7 +126,6 @@ public class BattleModeController implements Initializable {
 		loader.load();
 	}
 
-	
 	public void initialize(URL location, ResourceBundle resources) {
 		combatEnded.set(false);
 		battle.set(new Battle());
@@ -139,7 +141,7 @@ public class BattleModeController implements Initializable {
 		maxHealthCpu.set(healthCpu.get());
 		healthPlayerLabel.textProperty().bindBidirectional(healthPlayer, new NumberStringConverter());
 		healthCpuLabel.textProperty().bindBidirectional(healthCpu, new NumberStringConverter());
-		healthPlayerProgressbar.progressProperty().bind(healthPlayer.divide(maxHealthPlayer));		
+		healthPlayerProgressbar.progressProperty().bind(healthPlayer.divide(maxHealthPlayer));
 		healthEnemyProgressbar.progressProperty().bind(healthCpu.divide(maxHealthCpu));
 		nameLabelPlayer.textProperty().bind(namePokemonPlayer);
 		namePokemonPlayer.bind(selectedPokemon.get().nameProperty());
@@ -256,10 +258,10 @@ public class BattleModeController implements Initializable {
 	private void ataqueCombate(Attack ataque, Pokemon pk) {
 
 		Battle.playerAttack(ataque, pk);
-		/*if (pk.getVida() < 100) {
-			Pokemoncpu.set(entrenador2.get((int) Math.floor(Math.random() * entrenador2.getSize())));
-		}
-		*/
+		/*
+		 * if (pk.getVida() < 100) { Pokemoncpu.set(entrenador2.get((int)
+		 * Math.floor(Math.random() * entrenador2.getSize()))); }
+		 */
 		if (pk.getHealth() <= 0) {
 			trainer2.get().remove(cpuPokemon.get());
 			numberPokemonAliveCpuLabel.setText("" + trainer2.getSize());
@@ -310,8 +312,8 @@ public class BattleModeController implements Initializable {
 	private void ponerMensaje(double vidacpu, double vida) {
 		double damage = vidacpu - cpuPokemon.get().getHealth();
 		double damage2 = vida - selectedPokemon.get().getHealth();
-		attackMessageLabel.setText("ATAQUE: " + selectedPokemon.get().getName() + " con una \ncantidad de: "
-				+ damage + "\nDEFENSA: " + cpuPokemon.get().getName() + " con una \ncantidad de: " + damage2);
+		attackMessageLabel.setText("ATAQUE: " + selectedPokemon.get().getName() + " con una \ncantidad de: " + damage
+				+ "\nDEFENSA: " + cpuPokemon.get().getName() + " con una \ncantidad de: " + damage2);
 
 	}
 
@@ -319,7 +321,6 @@ public class BattleModeController implements Initializable {
 		return view;
 	}
 
-	
 	public final BooleanProperty finCombateProperty() {
 		return this.combatEnded;
 	}

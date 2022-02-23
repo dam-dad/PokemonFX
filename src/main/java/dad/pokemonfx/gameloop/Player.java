@@ -102,9 +102,7 @@ public class Player extends Entity {
 		*/
 		
 		//pintar jugador
-		gc.drawImage(animation.getFrame(), posX, posY, width, height);
-
-		
+		gc.drawImage(animation.getFrame(), posX, posY, width, height);		
 	}
 	
 	public void update(long timeDifference) {
