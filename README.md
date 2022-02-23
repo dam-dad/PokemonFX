@@ -43,7 +43,7 @@ Pokemon RPG turn-based game.
 
 Para movernos por el mapa usaremos wasd o las flechas de movimiento.
 
-![teclas](![image](https://user-images.githubusercontent.com/67567838/155402491-7ca26a34-d198-4ef3-8aef-dda912d09686.png)
+![teclas](https://user-images.githubusercontent.com/67567838/155402491-7ca26a34-d198-4ef3-8aef-dda912d09686.png)
 
 
 ![5](https://user-images.githubusercontent.com/49475382/155369116-8859e1df-9d1e-4903-944e-54d0f368a34a.png)
