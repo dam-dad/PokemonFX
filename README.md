@@ -5,7 +5,7 @@
 
 Juego de Pokemon realizado en JavaFX en el juego Pokemon Esmeralda.
 
-## Grupo :black_nib:
+## Grupo
 
 **PokemonFX** ha sido desarrollado por un grupo de estudiantes del Ciclo Superior Desarrollo De Aplicaciones Multiplataforma:
 
@@ -15,7 +15,7 @@ Juego de Pokemon realizado en JavaFX en el juego Pokemon Esmeralda.
 
 - [Ancor José Rojas Díaz](https://github.com/Ancori)
 
-## Construido con :hammer:
+## Construido con
 
 * Maven - Manejador de dependencias.
 * JavaFX - Creación de aplicaciones multimedia interactivas.
