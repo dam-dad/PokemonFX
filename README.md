@@ -3,7 +3,6 @@
 
 Pokemon RPG turn-based game.
 
-[Lista de tareas del proyecto](https://github.com/orgs/dam-dad/projects/25)
 
 ## Introducción
 
@@ -52,5 +51,6 @@ Pokemon RPG turn-based game.
 
 ## Instalador
 
-....
+![image](https://user-images.githubusercontent.com/49475382/155384204-bb4d1850-1dd8-48ca-b956-7a1b98c70473.png)
+
 
