@@ -60,4 +60,14 @@ public class MapController implements Initializable {
 		return view;
 	}
 
+	public GameLoop getGameLoop() {
+		return gameLoop;
+	}
+
+	public void setGameLoop(GameLoop gameLoop) {
+		this.gameLoop = gameLoop;
+	}
+	
+	
+
 }

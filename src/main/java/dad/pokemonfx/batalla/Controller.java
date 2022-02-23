@@ -61,7 +61,7 @@ public class Controller implements Initializable {
 		menuController.battleButtonPressedProperty().addListener((o, ov, nv) -> sepulsobotonModoBatalla(o, ov, nv));
 		menuController.pdfButtonPressedProperty().addListener((o, ov, nv) -> sepulsobotonPDF(o, ov, nv));
 		menuController.controlMusicButtonPressedProperty().addListener((o, ov, nv) -> sepulsobotonControlMusica(o, ov, nv));
-//		mapController.getGameLoop().hayBatallaProperty().addListener((o, ov, nv) -> hayBatalla(o, ov, nv));
+		mapController.getGameLoop().hayBatallaProperty().addListener((o, ov, nv) -> hayBatalla(o, ov, nv));
 		battleController.finCombateProperty().addListener((o, ov, nv) -> finCombate(o, ov, nv));
 		battleController.getCombate().chooseController.pulsarJugarButtonProperty()
 				.addListener((o, ov, nv) -> botonEleccion(o, ov, nv));
@@ -145,9 +145,8 @@ public class Controller implements Initializable {
 	}
 
 	private void finCombate(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
-//		mapController.getGameLoop().setHayBatalla(false);
-		view.setCenter(mapController.getView());
-		battleController.setFinCombate(false);
+        menuController.setButtonPressed(false);
+		view.setCenter(menuController.getView());
 		// Music mundo
 		App.stopMusic();
 		App.playMusic("Littleroot_Town");
