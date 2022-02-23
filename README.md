@@ -23,7 +23,37 @@ Pokemon RPG turn-based game.
 
 ## Interfaz
 
-....
+### Pantalla Principal
+
+-
+
+![Pantalla Principal](C:\Users\ancor\Desktop\Pantalla Principal.png)
+
+
+
+### Modo jugar
+
+-
+
+![2](C:\Users\ancor\Desktop\2.png)
+
+![3](C:\Users\ancor\Desktop\3.png)
+
+### Modo batalla
+
+-
+
+![4](C:\Users\ancor\Desktop\4.png)
+
+![5](C:\Users\ancor\Desktop\5.png)
+
+
+
+### Generar pdf
+
+-
+
+![6](C:\Users\ancor\Desktop\6.png)
 
 ## Instalador
 
