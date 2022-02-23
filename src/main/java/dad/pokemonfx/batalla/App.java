@@ -12,6 +12,12 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * Clase que llama al controlador principal e inicia la aplicacion
+ *@param controlador
+ *
+ */
 public class App extends Application {
 	
 	//Musica
@@ -37,7 +43,11 @@ public class App extends Application {
 		primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 		primaryStage.setScene(mainScene);
 		
-		// El cursor
+		/**
+		 * 
+		 *Metodo que da imagen al cursor
+		 *
+		 */
 		primaryStage.getScene().setCursor(new ImageCursor(cursorImage,
 				cursorImage.getWidth() / 2,
 				cursorImage.getHeight() /2));

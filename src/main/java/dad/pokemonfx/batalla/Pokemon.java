@@ -17,7 +17,12 @@ import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 
 public class Pokemon {
+	/**
+	 * Clase que crea un objeto pokemon
+	 * @param detalles del pokemon
+	 */
 
+	
 	private StringProperty name = new SimpleStringProperty();
 	private ObjectProperty<PokemonType> type = new SimpleObjectProperty<>();
 	private IntegerProperty level = new SimpleIntegerProperty();
@@ -27,6 +32,10 @@ public class Pokemon {
 	private DoubleProperty health = new SimpleDoubleProperty();
 	private StringProperty rutapdf = new SimpleStringProperty();
 
+	/**
+	 * Constructor de la clase pokemon
+	 * @return pokemon
+	 */
 	public Pokemon(String name, PokemonType type, Integer level, List<Attack> attacks) {
 		super();
 		this.setRutapdf("images/" + name + "-CPU.png");

@@ -27,7 +27,11 @@ import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 
 public class ChooseController implements Initializable {
-
+	/**
+	 * Constructor que se encarga de la opcion de elegir tus 6 pokemon
+	 * @param lista de pokemon
+	 * @return lista de 6 pokemon para navegar por el mapa
+	 */
 	private static final int TOTAL_POKEMONS = 6;
 
 	// model

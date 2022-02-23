@@ -1,5 +1,8 @@
 package dad.pokemonfx.batalla;
-
+/**
+ * Lista de tipos de pokemon
+ *
+ */
 public enum PokemonType {
 	NORMAL,
 	FUEGO,

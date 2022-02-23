@@ -4,12 +4,21 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Attack {
+	/**
+	 * Clase que genera cada ataque de un pokemon
+	 * @param pokemon
+	 */
 
 	private StringProperty name = new SimpleStringProperty();
 	private Double damage;
 	private Double accuracy;
 	private String attackType;
 	
+	/**
+	 * Constructor
+	 * @return ataque
+	 */
+
 	public Attack(String nameText, Double damage, Double accuracy, String attackType) {
 		super();
 		name.set(nameText);
@@ -17,7 +26,6 @@ public class Attack {
 		this.accuracy = accuracy;
 		this.attackType = attackType;
 	}
-	
 
 	public Double getAccuracy() {
 		return accuracy;

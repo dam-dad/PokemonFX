@@ -21,6 +21,10 @@ import javafx.scene.media.MediaPlayer;
 import net.sf.jasperreports.engine.JRException;
 
 public class Controller implements Initializable {
+	/**
+	 * Clase que se encarga de enlazar todos los controladores
+	 * @param controladores
+	 */
 	
 	private MenuController menuController;
 	private BattleController battleController;

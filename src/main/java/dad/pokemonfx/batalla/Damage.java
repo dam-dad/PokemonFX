@@ -4,7 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Damage {
-	
+	/**
+	 * Clase que devuelve el daño segun el tipo de pokemon
+	 * @param lista de tipos de pokemon
+	 * @return daño según el tipo
+	 */
     private static final List<PokemonType> POKEMON_TYPES = Arrays.asList(PokemonType.values());
 
     private static final float[][] DAMAGE_MULTIPLIER = {

@@ -308,10 +308,10 @@ public class BattleModeController implements Initializable {
 	}
 
 	private void ponerMensaje(double vidacpu, double vida) {
-		double daño = vidacpu - cpuPokemon.get().getHealth();
-		double daño2 = vida - selectedPokemon.get().getHealth();
+		double damage = vidacpu - cpuPokemon.get().getHealth();
+		double damage2 = vida - selectedPokemon.get().getHealth();
 		attackMessageLabel.setText("ATAQUE: " + selectedPokemon.get().getName() + " con una \ncantidad de: "
-				+ daño + "\nDEFENSA: " + cpuPokemon.get().getName() + " con una \ncantidad de: " + daño2);
+				+ damage + "\nDEFENSA: " + cpuPokemon.get().getName() + " con una \ncantidad de: " + damage2);
 
 	}
 

@@ -15,6 +15,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Battle {
+	/**
+	 * Clase batalla,crea una batalla predeterminada
+	 * @return batalla
+	 */
 
 	ChooseController chooseController;
 	private ListProperty<Pokemon> trainer1 = new SimpleListProperty<>(FXCollections.observableArrayList());
