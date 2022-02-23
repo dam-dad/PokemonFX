@@ -5,7 +5,7 @@
 
 Juego de Pokemon realizado en JavaFX en el juego Pokemon Esmeralda.
 
-## Grupo
+## Grupo :pencil2:
 
 **PokemonFX** ha sido desarrollado por un grupo de estudiantes del Ciclo Superior Desarrollo De Aplicaciones Multiplataforma:
 
