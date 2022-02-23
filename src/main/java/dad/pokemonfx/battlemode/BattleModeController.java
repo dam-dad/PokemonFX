@@ -255,6 +255,11 @@ public class BattleModeController implements Initializable {
 
 	}
 
+	/**
+	 * Metodo que controla el resultado del combate
+	 * @param ataque
+	 * @param pk
+	 */
 	private void ataqueCombate(Attack ataque, Pokemon pk) {
 
 		Battle.playerAttack(ataque, pk);
@@ -298,6 +303,7 @@ public class BattleModeController implements Initializable {
 
 	}
 
+	
 	private void cargarBotones(Pokemon pk) {
 		attackButton1.textProperty().bind(pk.getAttacks().get(0).nameProperty());
 		attack1Label.setText("" + pk.getAttacks().get(0));

@@ -37,7 +37,7 @@ public class App extends Application {
 		controller = new Controller();
 		mainScene = new Scene(controller.getView());
 		Font.loadFont(getClass().getResourceAsStream("/font/pokemon_pixel_font.ttf"), 14);
-		primaryStage.setTitle("Batalla Pokemon");
+		primaryStage.setTitle("PokemonFX");
 		primaryStage.getIcons().add(new Image("/images/pokemonfx-main-icon-32x32.png"));
 		primaryStage.setResizable(false);
 		primaryStage.setFullScreen(false);

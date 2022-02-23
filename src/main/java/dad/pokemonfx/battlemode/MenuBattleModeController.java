@@ -47,6 +47,9 @@ public class MenuBattleModeController implements Initializable {
 		});
 	}
 	
+	/**
+	 * Transicion
+	 */
 	private void startTransition() {
 		FadeTransition fade = new FadeTransition();
 		fade.setDuration(Duration.seconds(4));

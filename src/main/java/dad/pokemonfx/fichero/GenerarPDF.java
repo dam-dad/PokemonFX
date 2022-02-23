@@ -32,7 +32,6 @@ public class GenerarPDF {
 		 * Mapeamos los parametros para el informe
 		 */
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("anyo", 2014); // no lo uso, pero se lo paso
 
 		/**
 		 * Generamos el pdf (combinamos el informe compilado con los datos)

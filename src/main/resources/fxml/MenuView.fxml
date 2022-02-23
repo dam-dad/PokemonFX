@@ -26,7 +26,7 @@
           <RowConstraints vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <HBox alignment="CENTER_RIGHT" spacing="5.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+            <HBox alignment="CENTER_RIGHT" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
                   <Button fx:id="controlMusicButton" mnemonicParsing="false" onAction="#onControlMusicButton" styleClass="botonAudioMenu">
                      <graphic>
@@ -97,6 +97,14 @@
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" text="POKEMONFX" textAlignment="CENTER" />
                </children>
+            </HBox>
+            <HBox alignment="CENTER" GridPane.rowIndex="2">
+               <children>
+                  <Label fx:id="hechoPorLabel" alignment="CENTER" styleClass="hechoPorLabel" text="Alejandro Rodriguez Ramallo, Ancor Jose Rojas Diaz y Jorge Torres Padron" textAlignment="CENTER" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </HBox>
          </children>
       </GridPane>
