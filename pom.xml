@@ -62,9 +62,16 @@
 						<configuration>
 							<mainClass>dad.pokemonfx.batalla.Main</mainClass>
 							<bundleJre>true</bundleJre>
+							<additionalResources>
+								<additionalResource>README.md</additionalResource>
+							</additionalResources>
 							<generateInstaller>true</generateInstaller>
 							<customizedJre>false</customizedJre>
 							<platform>windows</platform>
+							<winConfig>
+								<icoFile>icono.ico</icoFile>
+								<generateMsi>true</generateMsi>
+							</winConfig>
 						</configuration>
 					</execution>
 				</executions>
