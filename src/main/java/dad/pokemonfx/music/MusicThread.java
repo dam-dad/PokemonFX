@@ -12,6 +12,10 @@ public class MusicThread extends Thread {
 	private String file;
 	private MediaPlayer player;
 	
+	/**
+	 * Constructor que recibe el nombre del archivo de musica
+	 * @param el fichero de musica
+	 */
 	public MusicThread(String file) {
 		this.file = file;
 	}
