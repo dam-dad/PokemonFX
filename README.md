@@ -1,7 +1,7 @@
 # PokemonFX
 ![image](https://user-images.githubusercontent.com/71700574/155287484-f4f6bf62-e03e-48de-ad92-b3925e1431e9.png)
 
-## :video_game: introducción :video_game:
+## :video_game: Introducción :video_game:
 
 Juego de Pokemon realizado en JavaFX en el juego Pokemon Esmeralda.
 
