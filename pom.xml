@@ -67,7 +67,7 @@
 							</additionalResources>
 							<generateInstaller>true</generateInstaller>
 							<customizedJre>false</customizedJre>
-							<platform>windows</platform>
+							<organizationName>PokemonFX</organizationName>
 							<winConfig>
 								<icoFile>pokemonfx-ico.ico</icoFile>
 								<generateMsi>true</generateMsi>
