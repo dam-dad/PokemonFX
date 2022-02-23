@@ -11,6 +11,7 @@ import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -77,12 +78,24 @@ public class Controller implements Initializable {
 
 
 	private void sepulsobotonPDF(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
-		try {
-			GenerarPDF.generarPdf(battleController.getCombate().getChooseController().getListPokemon());
-		} catch (JRException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Task<Void> tarea = new Task<Void>() {
+			@Override
+			public Void call() {
+				try {
+					try {
+						GenerarPDF.generarPdf(battleController.getCombate().getChooseController().getListPokemon());
+					} catch (JRException | IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+				} catch (Exception e) {
+
+				}
+				return null;
+			}
+		};
+		new Thread(tarea).start();
 		
 	}
 
