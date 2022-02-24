@@ -15,6 +15,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
 
+/**
+ * Controlador del menu del modo batalla
+ */
 public class MenuBattleModeController implements Initializable {
 
 	/**

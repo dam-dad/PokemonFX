@@ -28,6 +28,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.NumberStringConverter;
 
+/**
+ * Controlador que gestiona la batalla
+ */
 public class BattleController implements Initializable {
 	/**
 	 * Constructor que se encarga de batalla en el mapa

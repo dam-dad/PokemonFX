@@ -26,6 +26,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 
+/**
+ * Controlador que gestiona la eleccion de Pokemon
+ */
 public class ChooseController implements Initializable {
 	/**
 	 * Constructor que se encarga de la opcion de elegir tus 6 pokemon

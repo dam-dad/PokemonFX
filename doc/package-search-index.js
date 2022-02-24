@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"dad.pokemonfx.batalla"},{"l":"dad.pokemonfx.battlemode"},{"l":"dad.pokemonfx.fichero"},{"l":"dad.pokemonfx.gameloop"},{"l":"dad.pokemonfx.MovimientoFX"},{"l":"dad.pokemonfx.music"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"dad.pokemonfx.batalla"},{"l":"dad.pokemonfx.battlemode"},{"l":"dad.pokemonfx.fichero"},{"l":"dad.pokemonfx.gameloop"},{"l":"dad.pokemonfx.MovimientoFX"},{"l":"dad.pokemonfx.music"}]

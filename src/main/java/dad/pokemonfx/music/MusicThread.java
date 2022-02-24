@@ -7,6 +7,10 @@ import javafx.animation.Transition;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+/**
+ * Clase que controla la musica
+ *
+ */
 public class MusicThread extends Thread {
 	
 	private String file;

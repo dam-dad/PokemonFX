@@ -6,12 +6,11 @@ import java.util.stream.Collectors;
 
 import javafx.scene.image.Image;
 
+/**
+ * Clase que realiza las animaciones de un player o cualquier tipo de animacion que quisieramos implementar
+ */
 public class Animation {
-	
-	/**
-	 * Clase que realiza las animaciones de un player o cualquier tipo de animacion que quisieramos implementar
-	 */
-	
+		
 	private long duration = 200000;
 	private long timeAcc = 0;
 	private List<Image> frames;

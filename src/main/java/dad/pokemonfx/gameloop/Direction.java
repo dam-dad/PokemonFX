@@ -1,10 +1,10 @@
 package dad.pokemonfx.gameloop;
 
+/**
+ * Enum de direcciones de movimiento
+ */
 public enum Direction {
 	
-	/**
-	 * Enum de direcciones
-	 */
 	UP, 
 	DOWN, 
 	LEFT, 

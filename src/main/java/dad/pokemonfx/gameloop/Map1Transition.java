@@ -4,12 +4,12 @@ import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
+
+/**
+ *   Genera un objeto de transición que visualmente es igual a un tile de suelo
+ */
 public class Map1Transition extends StaticEntity{
 	
-	/**
-	 *   Genera un objeto de transición que visualmente es igual a un tile de suelo
-	 */
-
 	public Map1Transition(double x, double y) {
 		super(new Image("/images/grassTileTransition1.png"), x, y);
 	}

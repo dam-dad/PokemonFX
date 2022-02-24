@@ -16,6 +16,9 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
+/**
+ * Clase que genera el PDF
+ */
 public class GenerarPDF {
 
 	public static final String JRXML_FILE = "/reports/Pokemon.jrxml";

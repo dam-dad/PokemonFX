@@ -1,10 +1,10 @@
 package dad.pokemonfx.gameloop;
 
+/**
+ * Clase que permite realizar el movimiento de una dirección, necesaria para comprobar las colisiones y permitir el action según 
+ * colision o no
+ */
 public class Action {
-	/**
-	 * Clase que permite realizar el movimiento de una dirección, necesaria para comprobar las colisiones y permitir el action según 
-	 * colision o no
-	 */
 	
 	private Direction direction;
 	

@@ -1,19 +1,16 @@
 package dad.pokemonfx.gameloop;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
+/**
+ *  Clase que genera un player en el mundo
+ */
 public class Player extends Entity {
-	
-	/**
-	 *  Clase que genera un player en el mundo
-	 */
 	
 	private final Animation walkDown = new Animation("/images/walkDown1.png", "/images/walkDown2.png");
 	private final Animation walkUp = new Animation("/images/walkUp1.png", "/images/walkUp2.png");

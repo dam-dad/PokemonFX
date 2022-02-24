@@ -3,6 +3,9 @@ package dad.pokemonfx.batalla;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Clase con la tabla de multiplicadores de ataques
+ */
 public class Damage {
 	/**
 	 * Clase que devuelve el daño segun el tipo de pokemon

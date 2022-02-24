@@ -3,11 +3,11 @@ package dad.pokemonfx.batalla;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+/**
+ * Clase que genera cada ataque de un pokemon
+ * @param pokemon
+ */
 public class Attack {
-	/**
-	 * Clase que genera cada ataque de un pokemon
-	 * @param pokemon
-	 */
 
 	private StringProperty name = new SimpleStringProperty();
 	private Double damage;

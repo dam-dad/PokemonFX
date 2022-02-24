@@ -20,6 +20,9 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import net.sf.jasperreports.engine.JRException;
 
+/**
+ * Controlador principal de la aplicacion aqui tambien se gestiona toda la musica del juego 
+ */
 public class Controller implements Initializable {
 	/**
 	 * Clase que se encarga de enlazar todos los controladores

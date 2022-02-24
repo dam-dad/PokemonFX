@@ -17,6 +17,9 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 
+/**
+ * Controlador que gestiona el mapa del juego
+ */
 public class MapController implements Initializable {
 
 	private GameLoop gameLoop;

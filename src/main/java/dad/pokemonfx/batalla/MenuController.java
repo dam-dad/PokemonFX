@@ -20,6 +20,9 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import javafx.fxml.Initializable;
 
+/**
+ * Controlador que gestiona el menu principal
+ */
 public class MenuController implements Initializable {
 
 	Media media1;

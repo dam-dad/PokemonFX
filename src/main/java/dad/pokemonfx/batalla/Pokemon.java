@@ -16,12 +16,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 
+/**
+ * Clase que crea un objeto pokemon
+ * @param detalles del pokemon
+ */
 public class Pokemon {
-	/**
-	 * Clase que crea un objeto pokemon
-	 * @param detalles del pokemon
-	 */
-
 	
 	private StringProperty name = new SimpleStringProperty();
 	private ObjectProperty<PokemonType> type = new SimpleObjectProperty<>();

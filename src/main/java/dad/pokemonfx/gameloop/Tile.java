@@ -3,13 +3,12 @@ package dad.pokemonfx.gameloop;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *   Clase que contiene los tilemap y contiene el método que carga los tiles que se pintan 
+ *   del juego según el número de cada posición del tilemap
+ */
 public class Tile {
 	
-	/**
-	 *   Clase que contiene los tilemap y contiene el método que carga los tiles que se pintan 
-	 *   del juego según el número de cada posición del tilemap
-	 */
-
 	public static int[][] tileMap1 = { 
 			{ 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2 },
 			{ 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2 }, 

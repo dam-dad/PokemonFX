@@ -5,12 +5,11 @@ import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
+/**
+ *   Genera un objeto de transición que visualmente es igual a un tile de suelo
+ *   emplea el método getShape para comprobar colisiones con el player
+ */
 public class StaticEntity extends Entity {
-	
-	/**
-	 *   Genera un objeto de transición que visualmente es igual a un tile de suelo
-	 *   emplea el método getShape para comprobar colisiones con el player
-	 */
 	
 	public StaticEntity(Image image, double x, double y) {
 		super();
