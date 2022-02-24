@@ -23,8 +23,8 @@ public abstract class Entity {
 	public abstract Shape getShape();
 	
 	/**
-	 * comprobar las colisiones usando la intersección
-	 * @param entidad para comprobar colisión
+	 * comprobar las colisiones usando la interseccion
+	 * @param entidad para comprobar colision
 	 * @return
 	 */
 	public boolean checkCollision(Entity entity) {

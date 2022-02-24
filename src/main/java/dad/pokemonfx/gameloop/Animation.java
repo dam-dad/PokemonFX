@@ -35,7 +35,7 @@ public class Animation {
 
 
 	/**
-	 * El método update es llamado por cada frame
+	 * El metodo update es llamado por cada frame
 	 * @param diferencia de tiempo para que sea frame independiente
 	 */
 	public void update(long timeDifference) {

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *   Clase que contiene los tilemap y contiene el método que carga los tiles que se pintan 
- *   del juego según el número de cada posición del tilemap
+ *   Clase que contiene los tilemap y contiene el metodo que carga los tiles que se pintan 
+ *   del juego segun el numero de cada posicion del tilemap
  */
 public class Tile {
 	
@@ -41,7 +41,7 @@ public class Tile {
 	
 	/**
 	 * Recorremos el tilemap pasado y cargamos un tile según el número que detecta dentro del tilemap
-	 * @param Le pasamos por parámetro el tilemap y lo recorremos
+	 * @param Le pasamos por parametro el tilemap y lo recorremos
 	 * @return
 	 */
 	

@@ -4,8 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
- * Clase que genera cada ataque de un pokemon
- * @param pokemon
+ * Clase para el ataque de los Pokemon
  */
 public class Attack {
 
@@ -13,13 +12,15 @@ public class Attack {
 	private Double damage;
 	private Double accuracy;
 	private String attackType;
-	
-	/**
-	 * Constructor
-	 * @return ataque
-	 */
 
-	public Attack(String nameText, Double damage, Double accuracy, String attackType) {
+	/**
+	 * Constructor de ataque
+	 * @param nombre
+	 * @param damage
+	 * @param precision
+	 * @param tipo de ataque
+	 */
+	Attack(String nameText, Double damage, Double accuracy, String attackType) {
 		super();
 		name.set(nameText);
 		this.damage = damage;
@@ -53,12 +54,12 @@ public class Attack {
 
 	@Override
 	public String toString() {
-		return "Poder=" + damage + "\n" + accuracy+"%";
+		return "Poder=" + damage + "\n" + accuracy + "%";
 	}
 
 	public StringProperty nameProperty() {
 		return this.name;
-	}	
+	}
 
 	public String getName() {
 		return this.nameProperty().get();
@@ -67,6 +68,5 @@ public class Attack {
 	public void setName(final String name) {
 		this.nameProperty().set(name);
 	}
-	
 
 }

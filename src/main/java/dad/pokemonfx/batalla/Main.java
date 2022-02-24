@@ -1,7 +1,7 @@
 package dad.pokemonfx.batalla;
 
 /**
- * Método principal para iniciar el juego
+ * Metodo principal para iniciar el juego
  * @param args Argumentos
  */
 public class Main {

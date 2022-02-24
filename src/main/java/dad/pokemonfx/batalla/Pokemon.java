@@ -32,8 +32,11 @@ public class Pokemon {
 	private StringProperty rutapdf = new SimpleStringProperty();
 
 	/**
-	 * Constructor de la clase pokemon
-	 * @return pokemon
+	 * Constructor de la clase Pokemon
+	 * @param nombre
+	 * @param tipo
+	 * @param nivel
+	 * @param ataques
 	 */
 	public Pokemon(String name, PokemonType type, Integer level, List<Attack> attacks) {
 		super();

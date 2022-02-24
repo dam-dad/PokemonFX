@@ -6,7 +6,7 @@ import javafx.scene.shape.Shape;
 
 
 /**
- *   Genera un objeto de transición que visualmente es igual a un tile de suelo
+ *   Genera un objeto de transicion que visualmente es igual a un tile de suelo
  */
 public class Map1Transition extends StaticEntity{
 	
